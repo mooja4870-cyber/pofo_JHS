@@ -118,6 +118,85 @@
             padding: 0 2rem;
         }
 
+        /* AI Impact Banner */
+        .ai-impact-banner {
+            margin: 3rem 2rem 5rem;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(0, 136, 255, 0.15));
+            border: 1px solid var(--primary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .ai-impact-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+
+        .ai-impact-content {
+            flex: 1;
+            z-index: 1;
+        }
+
+        .ai-impact-content h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ai-impact-content h3 span {
+            font-size: 2.2rem;
+        }
+
+        .ai-impact-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .ai-impact-content .tag-list {
+            margin-top: 1.5rem;
+        }
+
+        .ai-impact-image {
+            width: 320px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .ai-impact-image:hover {
+            transform: scale(1.05) translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+        }
+        
+        @media (max-width: 900px) {
+            .ai-impact-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            .ai-impact-content h3 {
+                justify-content: center;
+            }
+        }
+
         /* Hero Section */
         .hero {
             padding: 4rem 2rem 3rem;
@@ -713,6 +792,27 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- AI Impact Section -->
+    <section class="container">
+        <div class="ai-impact-banner">
+            <div class="ai-impact-content">
+                <h3><span>🚀</span> AI 대변혁 시대를 선제적으로 주도하는 리더십</h3>
+                <p>
+                    최신 인공지능 기술의 흐름을 이해하고, 실무에 직접 적용할 수 있는 역량을 갖추었습니다.<br/>
+                    <strong>인텔 코리아 주관 '인공지능 앱크리에이터 양성과정 6기' (118일, 944시간)</strong>를 성공적으로 수료하며 
+                    AI 기반의 혁신적인 문제 해결 능력과 시스템 기획/개발 역량을 완비했습니다.
+                </p>
+                <p>30년 이상의 풍부한 실무 경영 노하우에 첨단 AI 테크놀로지를 결합하여 차원이 다른 비즈니스 혁신을 이끌어냅니다.</p>
+                <div class="tag-list" style="justify-content: flex-start; margin-top: 1.5rem;">
+                    <span class="tag primary">AI Architecture</span>
+                    <span class="tag secondary">Generative AI</span>
+                    <span class="tag success">Intel AI Creator (944H)</span>
+                </div>
+            </div>
+            <img src="intel_ai_cert.jpg" alt="인텔 인공지능 앱크리에이터 양성과정 수료증" class="ai-impact-image" />
         </div>
     </section>
 

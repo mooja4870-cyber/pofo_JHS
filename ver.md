@@ -1,5 +1,23 @@
 # Version History
 
+## v1.3.0
+
+Date: 2026-07-10
+
+### 변경 내용
+- '인텔 인공지능 앱크리에이터 양성과정 6기' 수료증 업로드 (`intel_ai_cert.jpg`)
+- Hero 섹션 하단에 AI 대변혁 시대를 주도하는 역량 부각을 위한 강력한 'AI Impact Banner' 섹션 신규 추가
+
+### 수정 파일
+- portfolio_2.html
+- intel_ai_cert.jpg
+- ver.md
+
+### 비고
+- AI 전문성을 부각시켜주는 신규 컨텐츠 및 CSS 애니메이션 배너 적용
+
+---
+
 ## v1.2.1
 
 Date: 2026-07-09
