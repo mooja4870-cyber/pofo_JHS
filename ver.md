@@ -1,5 +1,21 @@
 # Version History
 
+## v1.1.1
+
+Date: 2026-07-09
+
+### 변경 내용
+- 연락처 이메일 주소 변경 (`neojeong@naver.com` -> `mooja4870@gmail.com`)
+
+### 수정 파일
+- portfolio_2.html
+- ver.md
+
+### 비고
+- Contact 영역 및 Footer 영역 이메일 주소 변경 적용 완료
+
+---
+
 ## v1.1.0
 
 Date: 2026-07-09
