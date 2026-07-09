@@ -1,22 +1,17 @@
 # Version History
 
-## v1.0.0
+## v1.0.1
 
-Date: 2026-05-31
+Date: 2026-07-09
+
+### 앱 설명
+- 정호식(Jeong Ho-sik)님의 역량, 경력, 프로젝트 이력을 직관적이고 동적인 UI로 제공하는 웹 포트폴리오 애플리케이션(`portfolio_2.html`)
 
 ### 변경 내용
-
-* 프로젝트 초기 커밋 (analyze_pnl.py, compare_configs.py)
-* VS Code Python 인터프리터 경로 오류 근본 해결
-  * `.vscode/settings.json` 생성 — `python.defaultInterpreterPath`를 시스템 `python3`으로 설정
-  * Antigravity IDE 글로벌 User Settings에 `python.defaultInterpreterPath: python3` 추가
+- 프로젝트 초기 설정 및 ver.md 파일 생성
 
 ### 수정 파일
-
-* .vscode/settings.json (신규)
-* /Users/l/Library/Application Support/Antigravity IDE/User/settings.json (글로벌 설정)
+- ver.md
 
 ### 비고
-
-* `venv`가 없는 워크스페이스에서 `${workspaceFolder}/venv/bin/python` 경로 참조 시 반복 발생하던 경고 완전 차단
-* 2중 방어: 글로벌 fallback + 워크스페이스 로컬 설정
+- 로컬 웹 서버 포트 9876 실행 가능
