@@ -1,5 +1,22 @@
 # Version History
 
+## v1.4.0
+
+Date: 2026-07-10
+
+### 변경 내용
+- 사용자 요청에 따라 전체 UI 디자인을 시안 1번 스타일(Executive Tech: Deep Navy & Slate Gold)로 전면 교체
+- Electric Cyan 및 Slate Blue 계열 색상을 메탈릭 골드(`#d4af37`) 및 슬레이트 그레이(`#a0aec0`)로 일괄 변경하여 고급스럽고 중후한 테크 임원 감성 연출
+
+### 수정 파일
+- portfolio_2.html
+- ver.md
+
+### 비고
+- 네온 블루 스타일에서 럭셔리 골드 테마로 색상 팔레트 및 애니메이션 글로우 효과 일괄 전환 완료
+
+---
+
 ## v1.3.1
 
 Date: 2026-07-10
