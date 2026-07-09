@@ -1,5 +1,22 @@
 # Version History
 
+## v1.1.0
+
+Date: 2026-07-09
+
+### 변경 내용
+- 시안 2(Modern Professional) 기반 UI 테마 적용
+- 핑크빛 색상 완전 제거 및 Electric Cyan & Slate Cobalt Blue 고급 테마로 교체
+
+### 수정 파일
+- portfolio_2.html
+- ver.md
+
+### 비고
+- 로컬 포트 9876 웹 서버 상에서 즉시 확인 가능
+
+---
+
 ## v1.0.1
 
 Date: 2026-07-09
