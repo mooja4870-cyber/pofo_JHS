@@ -207,14 +207,13 @@
 
 <main class="relative pt-32 pb-32 px-margin-mobile md:px-12 max-w-container-max mx-auto">
 
+<!-- Author Profile (Hidden Initially) -->
+<div id="author-profile-container" class="hidden opacity-0 transition-opacity duration-1000 ease-in-out">
 <!-- Hero Section -->
 <section id="about" class="mb-24 mt-8 glass-card rounded-2xl p-8 md:p-12 relative">
 <div class="flex flex-col md:flex-row items-center gap-12 relative z-10">
     <div class="w-full md:w-2/3">
         <div class="flex items-center gap-4 mb-4 relative">
-            <!-- Daily App Popup Container -->
-            <div id="daily-app-popup" class="absolute -top-24 left-0 sm:left-4 popup-floating-3d p-5 flex items-center gap-4 transition-all w-[24rem] md:w-[32rem]" style="display: none;" onclick="document.querySelector('#projects').scrollIntoView({behavior: 'smooth'})"></div>
-            
             <span class="h-[1px] w-12 bg-primary-fixed-dim"></span>
             <span class="font-label-mono text-label-mono text-primary-fixed-dim uppercase tracking-[0.2em]">Procurement & Innovation</span>
         </div>
@@ -427,6 +426,24 @@
     </div>
 </div>
 </section>
+</div> <!-- End of author-profile-container -->
+
+<!-- Dynamic Top Area: Daily Popup + Curiosity Button -->
+<section id="top-dynamic-area" class="mb-20 mt-8">
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-6 bg-surface-container-highest/40 backdrop-blur-md p-6 rounded-3xl border border-white/5 shadow-2xl">
+        <!-- Daily App Popup Container (Moved here) -->
+        <div id="daily-app-popup" class="popup-floating-3d p-5 flex items-center gap-4 transition-all w-full max-w-[32rem]" style="display: none;"></div>
+        
+        <!-- Profile Reveal Button -->
+        <button id="reveal-profile-btn" class="group relative px-6 py-4 lg:py-5 w-full lg:w-auto rounded-2xl overflow-hidden bg-gradient-to-r from-primary-fixed-dim/20 to-secondary/20 hover:from-primary-fixed-dim/40 hover:to-secondary/40 border border-primary-fixed-dim/30 transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_20px_rgba(0,219,233,0.4)] cursor-pointer">
+            <div class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <span class="relative z-10 font-pretendard font-bold text-lg md:text-xl text-white flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-primary-fixed-dim animate-pulse text-2xl">help_center</span>
+                아니! 누가 이런 앱을 만들었지... 누구세요 ~ ?
+            </span>
+        </button>
+    </div>
+</section>
 
 <!-- Projects / Active Innovations Header -->
 <section id="projects" class="mb-12">
@@ -568,6 +585,32 @@
             const totalEl = document.getElementById('total-visitors-count');
             if(totalEl) totalEl.textContent = 'N/A';
         });
+
+    // Profile Reveal Logic
+    const revealBtn = document.getElementById('reveal-profile-btn');
+    const profileContainer = document.getElementById('author-profile-container');
+    
+    if (revealBtn && profileContainer) {
+        revealBtn.addEventListener('click', function() {
+            // Hide the button container gracefully
+            this.parentElement.style.opacity = '0';
+            this.parentElement.style.transition = 'opacity 0.3s ease';
+            
+            setTimeout(() => {
+                this.parentElement.style.display = 'none';
+                
+                // Show the profile container
+                profileContainer.classList.remove('hidden');
+                // Trigger reflow
+                void profileContainer.offsetWidth;
+                profileContainer.classList.remove('opacity-0');
+                profileContainer.classList.add('opacity-100');
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 300);
+        });
+    }
 
 </script>
 
