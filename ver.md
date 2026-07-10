@@ -1,5 +1,23 @@
 # Version History
 
+## v1.9.19
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오의 `프리즘 (Prism)` 카드 썸네일 이미지를 정치 성향 분석 및 AI 인지 편향 탐지 콘셉트에 어울리는 프리미엄 디자인(`prism_thumb.png`)으로 전면 교체.
+
+### 수정 파일
+- portfolio_2.html
+- index.html
+- ver.md
+- prism_thumb.png (신규 에셋)
+
+### 비고
+- 네온 프리즘 굴절 콘셉트의 AI 이미지 적용 및 Cloudflare 배포 파이프라인 재실행.
+
+---
+
 ## v1.9.18
 
 Date: 2026-07-10
