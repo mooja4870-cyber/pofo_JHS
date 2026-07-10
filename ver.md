@@ -1,5 +1,23 @@
 # Version History
 
+## v1.9.18
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오의 7번째 항목 `하버드 주식 투자 적합도 진단기 (StockFit)` 카드 상단에 AI로 생성한 프리미엄 디자인 썸네일 이미지(`stockfit_thumb.png`) 적용.
+
+### 수정 파일
+- portfolio_2.html
+- index.html
+- ver.md
+- stockfit_thumb.png (신규 에셋)
+
+### 비고
+- 행동재무학 콘셉트의 AI 뇌/차트 이미지 에셋 적용 및 Cloudflare 재배포 진행.
+
+---
+
 ## v1.9.17
 
 Date: 2026-07-10
