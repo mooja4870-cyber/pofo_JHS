@@ -1,5 +1,22 @@
 # Version History
 
+## v1.9.17
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오의 7번째 항목으로 `하버드 주식 투자 적합도 진단기 (StockFit)` 추가.
+
+### 수정 파일
+- portfolio_2.html
+- index.html
+- ver.md
+
+### 비고
+- `https://stockfit.pages.dev` 링크 연동 및 Cloudflare 배포 파이프라인 재실행.
+
+---
+
 ## v1.9.16
 
 Date: 2026-07-10
