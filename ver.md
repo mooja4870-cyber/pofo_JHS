@@ -1,5 +1,23 @@
 # Version History
 
+## v1.9.1
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오 앱 카탈로그 목록(`projects` 섹션)의 네 번째 위치에 `Yangdo Tax Calculator AI` (양도소득세 정밀 계산 모바일 앱) 프로젝트 추가.
+- 해당 프로젝트(`CGT`) 내부 스토어 배포용 에셋(`feature-1024x500.png`)을 직접 발굴하여 해당 앱의 썸네일 이미지(`cgt_thumb.png`)로 자동 추출 및 적용.
+
+### 수정 파일
+- portfolio_2.html
+- cgt_thumb.png (신규)
+- ver.md
+
+### 비고
+- `CGT` 프로젝트 디렉토리 자체 스토어 리소스를 활용한 썸네일 렌더링.
+
+---
+
 ## v1.9.0
 
 Date: 2026-07-10
