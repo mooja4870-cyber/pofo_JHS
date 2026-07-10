@@ -1,5 +1,29 @@
 # Version History
 
+## v1.9.39
+
+Date: 2026-07-10
+
+### 변경 내용
+- 정호식 프로필 사진(profile.jpg, profile2.jpg)을 신규 웹툰 일러스트 캐릭터 이미지로 전면 교체.
+  - 기존 실물 프로필 사진 리소스를 삭제.
+  - 전달받은 "회의를 시작하죠" (진지한 표정) 캐릭터 이미지를 `profile.png`로, "산책이 최고지. 반짝!" (윙크 표정) 캐릭터 이미지를 `profile2.png`로 저장.
+  - 마우스 호버 시 윙크 표정으로 자연스럽게 변환되는 모션 효과 유지.
+
+### 수정 파일
+- portfolio_2.html
+- index.html
+- ver.md
+- profile.png (추가)
+- profile2.png (추가)
+- profile.jpg (삭제)
+- profile2.jpg (삭제)
+
+### 비고
+- Cloudflare kdanawa 재배포 완료.
+
+---
+
 ## v1.9.38
 
 Date: 2026-07-10
