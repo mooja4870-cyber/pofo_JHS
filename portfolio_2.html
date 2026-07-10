@@ -113,6 +113,11 @@
             background: radial-gradient(at 0% 0%, rgba(0, 219, 233, 0.15) 0px, transparent 50%),
                         radial-gradient(at 100% 100%, rgba(236, 178, 255, 0.1) 0px, transparent 50%);
         }
+        /* 앱 카드 및 전체 텍스트 단어 잘림 방지 (keep-all) */
+        body, p, h1, h2, h3, h4, h5, h6, span, div, a {
+            word-break: keep-all;
+            overflow-wrap: break-word;
+        }
         @keyframes slowBlink {
             0%, 100% { opacity: 1; text-shadow: 0 0 15px rgba(255,255,255,0.6); }
             50% { opacity: 0.3; text-shadow: 0 0 0 transparent; }

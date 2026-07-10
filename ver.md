@@ -1,5 +1,23 @@
 # Version History
 
+## v1.9.30
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오 사이트 내의 모든 텍스트(앱 제목, 설명 등)에 단어 잘림 방지 속성 적용.
+- CSS `word-break: keep-all; overflow-wrap: break-word;` 규칙을 최상단 요소들에 추가하여, 한글 단어가 줄바꿈 시 중간에 끊어지지 않고 온전한 단어 단위로 내려가도록 가독성 대폭 개선.
+
+### 수정 파일
+- portfolio_2.html
+- index.html
+- ver.md
+
+### 비고
+- Cloudflare 재배포 파이프라인 수행 완료.
+
+---
+
 ## v1.9.29
 
 Date: 2026-07-10
