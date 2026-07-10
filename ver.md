@@ -1,5 +1,21 @@
 # Version History
 
+## v1.9.7
+
+Date: 2026-07-10
+
+### 변경 내용
+- `KOSPI FI Flow Analyzer` 앱의 외부 연결 주소(URL)를 정확한 배포 호스팅 주소(`https://riskkospifinfn.streamlit.app/`)로 수정.
+
+### 수정 파일
+- portfolio_2.html
+- ver.md
+
+### 비고
+- 사용자 지정 핫픽스.
+
+---
+
 ## v1.9.6
 
 Date: 2026-07-10
