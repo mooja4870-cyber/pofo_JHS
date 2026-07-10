@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jeong Ho-sik | Innovation Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#1c2b3c",
+                        "background": "#051424",
+                        "tertiary": "#f9f5f5",
+                        "error-container": "#93000a",
+                        "primary": "#dbfcff",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "surface-container-lowest": "#010f1f",
+                        "surface-container-highest": "#273647",
+                        "primary-fixed-dim": "#00dbe9",
+                        "on-primary-container": "#006970",
+                        "tertiary-container": "#dcd9d8",
+                        "on-primary-fixed-variant": "#004f54",
+                        "outline": "#849495",
+                        "on-background": "#d4e4fa",
+                        "outline-variant": "#3b494b",
+                        "on-secondary": "#520071",
+                        "on-primary": "#00363a",
+                        "surface-variant": "#273647",
+                        "on-error-container": "#ffdad6",
+                        "surface-bright": "#2c3a4c",
+                        "secondary-container": "#cf5cff",
+                        "primary-container": "#00f0ff",
+                        "secondary": "#ecb2ff",
+                        "surface-container": "#122131",
+                        "on-tertiary": "#313030",
+                        "on-tertiary-container": "#605f5e",
+                        "on-primary-fixed": "#002022",
+                        "primary-fixed": "#7df4ff",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "surface-tint": "#00dbe9",
+                        "inverse-primary": "#006970",
+                        "on-surface": "#d4e4fa",
+                        "on-surface-variant": "#b9cacb",
+                        "on-error": "#690005",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed": "#320047",
+                        "on-secondary-fixed-variant": "#74009f",
+                        "secondary-fixed-dim": "#ecb2ff",
+                        "surface-dim": "#051424",
+                        "surface": "#051424",
+                        "inverse-surface": "#d4e4fa",
+                        "on-tertiary-fixed-variant": "#474646",
+                        "on-secondary-container": "#480063",
+                        "secondary-fixed": "#f8d8ff",
+                        "tertiary-fixed": "#e5e2e1",
+                        "surface-container-low": "#0d1c2d",
+                        "inverse-on-surface": "#233143"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Sora"],
+                        "label-mono": ["JetBrains Mono"],
+                        "button": ["Sora"],
+                        "headline-md": ["Sora"],
+                        "display-lg-mobile": ["Sora"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Sora"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background: radial-gradient(circle at center, #0f2746 0%, #030b14 100%);
+            background-attachment: fixed;
+            color: #d4e4fa;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 219, 233, 0.4);
+            box-shadow: 0 0 30px rgba(0, 219, 233, 0.1);
+            transform: translateY(-4px);
+        }
+        .cyber-glow {
+            text-shadow: 0 0 10px rgba(0, 219, 233, 0.5);
+        }
+        .mesh-gradient {
+            background: radial-gradient(at 0% 0%, rgba(0, 219, 233, 0.15) 0px, transparent 50%),
+                        radial-gradient(at 100% 100%, rgba(236, 178, 255, 0.1) 0px, transparent 50%);
+        }
+        @keyframes slowBlink {
+            0%, 100% { opacity: 1; text-shadow: 0 0 15px rgba(255,255,255,0.6); }
+            50% { opacity: 0.3; text-shadow: 0 0 0 transparent; }
+        }
+        .animate-slow-blink {
+            animation: slowBlink 2s ease-in-out infinite;
+        }
+        .profile-img-container {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid rgba(0, 219, 233, 0.5);
+            box-shadow: 0 0 25px rgba(0, 219, 233, 0.3);
+            margin: 0 auto;
+        }
+        .profile-img-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: opacity 1s ease-in-out;
+        }
+        .profile-img-container img.img-top {
+            animation: fade 8s infinite;
+        }
+        @keyframes fade {
+            0%, 45% { opacity: 1; }
+            50%, 95% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased">
+<!-- Background Shader -->
+<div class="fixed inset-0 -z-10 overflow-hidden mesh-gradient pointer-events-none"></div>
+
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 bg-white/5 dark:bg-white/5 backdrop-blur-xl border-b border-white/10 shadow-[0_0_15px_rgba(0,219,233,0.1)] transition-all duration-500">
+<div class="flex items-center justify-between px-margin-mobile md:px-12 h-16 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span class="font-display-lg-mobile text-[24px] font-extrabold tracking-tighter text-primary-fixed-dim">JEONG HO-SIK</span>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary-fixed-dim transition-colors duration-300" href="#about">About</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary-fixed-dim transition-colors duration-300" href="#experience">Experience</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary-fixed-dim transition-colors duration-300" href="#skills">Skills</a>
+<a class="font-label-mono text-label-mono text-primary-fixed-dim font-bold transition-colors duration-300" href="#projects">AI Apps</a>
+</nav>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary-fixed-dim animate-pulse shadow-[0_0_8px_#00dbe9]"></div>
+<span class="font-label-mono text-[10px] uppercase tracking-widest text-primary-fixed-dim">Innovation Node</span>
+</div>
+</div>
+</header>
+
+<main class="relative pt-32 pb-32 px-margin-mobile md:px-12 max-w-container-max mx-auto">
+
+<!-- Hero Section -->
+<section id="about" class="mb-24 mt-8 glass-card rounded-2xl p-8 md:p-12 relative overflow-hidden">
+<div class="flex flex-col md:flex-row items-center gap-12 relative z-10">
+    <div class="w-full md:w-2/3">
+        <div class="flex items-center gap-4 mb-4">
+            <span class="h-[1px] w-12 bg-primary-fixed-dim"></span>
+            <span class="font-label-mono text-label-mono text-primary-fixed-dim uppercase tracking-[0.2em]">Procurement & Innovation</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-on-background mb-4">
+            정호식 <span class="text-primary-fixed-dim cyber-glow text-3xl align-middle">리더</span>
+        </h1>
+        <h2 class="text-2xl text-on-surface-variant mb-6 font-semibold">AI 기반의 구매전략•경영혁신 Pro.</h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+            30년 이상의 구매·경영 경험을 바탕으로 프로세스 혁신과 비용 최적화를 주도합니다.<br>
+            기획 기반의 혁신구매, 업무 전산화, AI 기반 분석 역량을 통해 회사 이익 극대화를 선도합니다.
+        </p>
+        <div class="flex flex-wrap gap-4 font-label-mono text-sm text-primary-fixed-dim mb-8">
+            <span class="bg-primary-fixed-dim/10 px-3 py-1 rounded border border-primary-fixed-dim/20">📞 010-2422-4511</span>
+            <span class="bg-primary-fixed-dim/10 px-3 py-1 rounded border border-primary-fixed-dim/20">✉️ mooja4870@gmail.com</span>
+            <span class="bg-primary-fixed-dim/10 px-3 py-1 rounded border border-primary-fixed-dim/20">📍 Seongnam, Gyeonggi</span>
+        </div>
+    </div>
+    <div class="w-full md:w-1/3 flex justify-center">
+        <div class="profile-img-container">
+            <img src="profile2.jpg" alt="정호식 프로필 2">
+            <img src="profile.jpg" alt="정호식 프로필 1" class="img-top">
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- AI Certification Banner -->
+<section class="mb-24">
+    <div class="glass-card rounded-xl p-8 border-l-4 border-l-primary-fixed-dim flex flex-col md:flex-row items-center gap-8">
+        <div class="w-full md:w-1/4">
+            <img src="intel_ai_cert.jpg" alt="인텔 AI 수료증" class="w-full rounded shadow-lg border border-white/10">
+        </div>
+        <div class="w-full md:w-3/4">
+            <div class="flex items-center gap-2 mb-2">
+                <span class="material-symbols-outlined text-secondary text-2xl">workspace_premium</span>
+                <h3 class="font-headline-sm text-on-background">인텔 인공지능 앱크리에이터 양성과정 6기 수료</h3>
+            </div>
+            <p class="text-on-surface-variant font-body-md mb-4">
+                AI 대변혁 시대를 선제적으로 주도하는 리더십을 증명합니다. 944시간의 고강도 AI/웹/모바일 풀스택 과정을 성공적으로 수료하며 디지털 트랜스포메이션(DX) 역량을 확보했습니다.
+            </p>
+            <div class="flex gap-2">
+                <span class="px-2 py-1 bg-surface-container-highest rounded text-xs font-label-mono text-primary-fixed-dim">#AI_Leadership</span>
+                <span class="px-2 py-1 bg-surface-container-highest rounded text-xs font-label-mono text-secondary">#Digital_Transformation</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="mb-24">
+<div class="flex items-center gap-4 mb-4">
+<span class="h-[1px] w-12 bg-primary-fixed-dim"></span>
+<span class="font-label-mono text-label-mono text-primary-fixed-dim uppercase tracking-[0.2em]">Career Track</span>
+</div>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-8">
+                Professional <span class="text-primary-fixed-dim cyber-glow">Experience</span>
+</h2>
+
+<div class="space-y-6">
+    <!-- Exp 1 -->
+    <div class="glass-card rounded-xl p-6 md:p-8 hover:border-primary-fixed-dim/50 transition-all">
+        <div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-4">
+            <div>
+                <h3 class="font-headline-sm text-2xl text-on-background animate-slow-blink">혁신담당</h3>
+                <div class="font-label-mono text-sm text-secondary-fixed-dim mt-1">(주)한솔서플라이</div>
+            </div>
+            <span class="px-3 py-1 bg-surface-container-highest rounded-full text-sm font-label-mono text-on-surface-variant whitespace-nowrap">2020.04 - 2022.07</span>
+        </div>
+        <p class="text-on-surface-variant font-body-lg mb-4">기업 비용절감 및 효율화 사업 추진, 업무전산화를 통한 프로세스 혁신</p>
+        <ul class="space-y-2">
+            <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-primary-fixed-dim text-sm mt-1">check_circle</span>
+                <span class="text-on-surface-variant font-body-md">정부지원 바우처사업으로 비용항목별 비용절감 분석 및 개선방안 보고서 작성</span>
+            </li>
+            <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-primary-fixed-dim text-sm mt-1">check_circle</span>
+                <span class="text-on-surface-variant font-body-md">업무전산화 실행으로 수일 소요 작업을 1시간으로 단축 (90% 이상 업무시간 단축)</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Exp 2 -->
+    <div class="glass-card rounded-xl p-6 md:p-8 hover:border-primary-fixed-dim/50 transition-all">
+        <div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-4">
+            <div>
+                <h3 class="font-headline-sm text-2xl text-on-background animate-slow-blink">기업혁신본부 본부장</h3>
+                <div class="font-label-mono text-sm text-secondary-fixed-dim mt-1">탭코리아㈜</div>
+            </div>
+            <span class="px-3 py-1 bg-surface-container-highest rounded-full text-sm font-label-mono text-on-surface-variant whitespace-nowrap">2016.06 - 2018.01</span>
+        </div>
+        <p class="text-on-surface-variant font-body-lg mb-4">경영혁신 추진 및 제반 업무개선 전담</p>
+        <ul class="space-y-2">
+            <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-primary-fixed-dim text-sm mt-1">check_circle</span>
+                <span class="text-on-surface-variant font-body-md">작은혁신 실천 10대과제 운영을 통한 혁신인프라 구축</span>
+            </li>
+            <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-primary-fixed-dim text-sm mt-1">check_circle</span>
+                <span class="text-on-surface-variant font-body-md">협력사 납입부품 품질향상으로 라인불량율 3.3% → 2.1% 개선</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Exp 3 -->
+    <div class="glass-card rounded-xl p-6 md:p-8 hover:border-primary-fixed-dim/50 transition-all">
+        <div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-4">
+            <div>
+                <h3 class="font-headline-sm text-2xl text-on-background animate-slow-blink">관세그룹 그룹장</h3>
+                <div class="font-label-mono text-sm text-secondary-fixed-dim mt-1">삼성SDI㈜</div>
+            </div>
+            <span class="px-3 py-1 bg-surface-container-highest rounded-full text-sm font-label-mono text-on-surface-variant whitespace-nowrap">2011.01 - 2016.05</span>
+        </div>
+        <p class="text-on-surface-variant font-body-lg mb-4">삼성SDI 전사 관세관리 선진화 추진, AEO 인증 및 보세공장 도입 운영</p>
+        <ul class="space-y-2">
+            <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-primary-fixed-dim text-sm mt-1">check_circle</span>
+                <span class="text-on-surface-variant font-body-md">보세공장 도입/운영으로 연 39억원 관세손실 방지</span>
+            </li>
+            <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-primary-fixed-dim text-sm mt-1">check_circle</span>
+                <span class="text-on-surface-variant font-body-md">AEO(수출입안전관리우수기업) AAA 등급 획득</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Exp 4 -->
+    <div class="glass-card rounded-xl p-6 md:p-8 hover:border-primary-fixed-dim/50 transition-all">
+        <div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-4">
+            <div>
+                <h3 class="font-headline-sm text-2xl text-on-background animate-slow-blink">말레이시아 법인 구매팀장</h3>
+                <div class="font-label-mono text-sm text-secondary-fixed-dim mt-1">삼성SDI㈜</div>
+            </div>
+            <span class="px-3 py-1 bg-surface-container-highest rounded-full text-sm font-label-mono text-on-surface-variant whitespace-nowrap">2003.10 - 2007.10</span>
+        </div>
+        <p class="text-on-surface-variant font-body-lg mb-4">법인 구매업무 총괄 수행, 구매가 인하 및 물량배분 관리</p>
+        <ul class="space-y-2">
+            <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-primary-fixed-dim text-sm mt-1">check_circle</span>
+                <span class="text-on-surface-variant font-body-md">매년 구매가 인하율 평균 13% 달성</span>
+            </li>
+            <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-primary-fixed-dim text-sm mt-1">check_circle</span>
+                <span class="text-on-surface-variant font-body-md">전사 브라운관 이익율 15% 창출 기여</span>
+            </li>
+        </ul>
+    </div>
+</div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="mb-24">
+<div class="flex items-center gap-4 mb-4">
+<span class="h-[1px] w-12 bg-primary-fixed-dim"></span>
+<span class="font-label-mono text-label-mono text-primary-fixed-dim uppercase tracking-[0.2em]">Core Competencies</span>
+</div>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-8">
+                Professional <span class="text-primary-fixed-dim cyber-glow">Skills</span>
+</h2>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="glass-card rounded-xl p-6 border-t-2 border-t-primary-fixed-dim">
+        <h3 class="font-headline-sm text-xl text-on-background mb-4">💼 Procurement</h3>
+        <ul class="space-y-2">
+            <li class="text-on-surface-variant font-label-mono text-sm"># 구매 전략 및 관리</li>
+            <li class="text-on-surface-variant font-label-mono text-sm"># 공급사 평가/관리</li>
+            <li class="text-on-surface-variant font-label-mono text-sm"># 원가절감 및 협상</li>
+            <li class="text-on-surface-variant font-label-mono text-sm"># Global 소싱</li>
+        </ul>
+    </div>
+
+    <div class="glass-card rounded-xl p-6 border-t-2 border-t-secondary-fixed-dim">
+        <h3 class="font-headline-sm text-xl text-on-background mb-4">📊 Planning</h3>
+        <ul class="space-y-2">
+            <li class="text-on-surface-variant font-label-mono text-sm"># 통관 및 환급 관리</li>
+            <li class="text-on-surface-variant font-label-mono text-sm"># Q-Cost 관리</li>
+            <li class="text-on-surface-variant font-label-mono text-sm"># 구매 KPI 수립</li>
+            <li class="text-on-surface-variant font-label-mono text-sm"># 데이터 분석</li>
+        </ul>
+    </div>
+
+    <div class="glass-card rounded-xl p-6 border-t-2 border-t-primary-fixed-dim">
+        <h3 class="font-headline-sm text-xl text-on-background mb-4">🚀 Innovation</h3>
+        <ul class="space-y-2">
+            <li class="text-on-surface-variant font-label-mono text-sm"># 프로세스 개선</li>
+            <li class="text-on-surface-variant font-label-mono text-sm"># 업무 전산화</li>
+            <li class="text-on-surface-variant font-label-mono text-sm"># 비용 최적화</li>
+            <li class="text-on-surface-variant font-label-mono text-sm"># 6 Sigma 적용</li>
+        </ul>
+    </div>
+
+    <div class="glass-card rounded-xl p-6 border-t-2 border-t-secondary-fixed-dim">
+        <h3 class="font-headline-sm text-xl text-on-background mb-4">👥 Leadership</h3>
+        <ul class="space-y-2">
+            <li class="text-on-surface-variant font-label-mono text-sm"># 팀 성과 창출</li>
+            <li class="text-on-surface-variant font-label-mono text-sm"># 조직원 코칭/개발</li>
+            <li class="text-on-surface-variant font-label-mono text-sm"># 윤리 구매 정착</li>
+            <li class="text-on-surface-variant font-label-mono text-sm"># 변혁적 리더십</li>
+        </ul>
+    </div>
+</div>
+</section>
+
+<!-- Projects / Active Innovations Header -->
+<section id="projects" class="mb-12">
+<div class="flex items-center gap-4 mb-4">
+<span class="h-[1px] w-12 bg-primary-fixed-dim"></span>
+<span class="font-label-mono text-label-mono text-primary-fixed-dim uppercase tracking-[0.2em]">Application Catalog</span>
+</div>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-6">
+                AI App <span class="text-primary-fixed-dim cyber-glow">Portfolio</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                인공지능 기반 분석 모델 및 실무 중심의 하이퍼포먼스 모바일/웹 디지털 솔루션 컬렉션입니다.
+</p>
+</section>
+
+<!-- Projects Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="portfolio-container">
+<!-- Projects will be injected here dynamically or statically -->
+</div>
+</main>
+
+<script>
+    // 기존 포트폴리오 10여개 데이터 리스트 (Javascript 기반 렌더링을 통해 이식)
+    const portfolioItems = [
+        { title: "BTCn Forecast Engine", type: "AI Models", desc: "거시경제 데이터를 수집하여 TimeSformer 딥러닝 기반으로 비트코인 다중기간 수익률을 예측하는 AI 트레이딩 모델 및 시스템", stack: ["Python", "PyTorch", "Streamlit"], icon: "currency_bitcoin", image: "btcn_thumb.jpg", link: "https://btcforecast.streamlit.app/", featured: true },
+        { title: "KOSPI FI Flow Analyzer", type: "Web Apps", desc: "KOSPI 금융투자 세력의 연속 순매도 패턴과 수급을 분석하여 시장 급락 리스크를 감지하는 모니터링 시스템", stack: ["React", "TypeScript", "Streamlit"], icon: "monitoring", image: "kospi_fi_thumb.jpg", link: "https://riskkospifinfn.streamlit.app/", featured: false },
+        { title: "VC Signal Brief", type: "Web Apps", desc: "바쁜 벤처캐피탈(VC) 및 투자자를 위해 매일 아침 주요 AI/딥테크 시장 뉴스와 시그널을 요약해주는 지능형 뉴스 브리핑 대시보드", stack: ["React", "Vite", "Streamlit"], icon: "newspaper", image: "vc_brief_thumb.jpg", link: "https://vcbrief-web.onrender.com", featured: false },
+        { title: "Yangdo Tax Calculator AI", type: "Mobile Apps", desc: "부동산 양도소득세(주택, 분양권 등)의 복잡한 정밀 계산 프로세스를 구현한 전문가용 하이브리드 앱", stack: ["HTML/CSS/JS", "Android", "Gradle"], icon: "calculate", image: "cgt_thumb.png", link: "https://cgt-56k.pages.dev/", notice: "구글플레이스토어 등록 진행 중! 7월16일 론칭 예정!", featured: false },
+        { title: "착한병원 찾기 (Good Hospital)", type: "Mobile Apps", desc: "심평원(HIRA) 빅데이터와 웹 리뷰를 분석하여 과잉진료 없는 양심 동네 병원을 찾아주는 PWA 모바일 앱", stack: ["HTML/JS", "Cloudflare", "TWA"], icon: "local_hospital", image: "kjeb_thumb.png", link: "https://kjeb.pages.dev/", notice: "구글플레이스토어 등록 진행 중! 7월16일 론칭 예정!", featured: false },
+        { title: "프리즘 (Prism)", type: "AI Models", desc: "사용자의 정치 성향을 다각도로 진단하고 인지 편향을 탐지하는 AI 기반 심층 분석 플랫폼", stack: ["Python", "Streamlit", "Gemini AI"], icon: "psychology", image: "tendency_thumb.png", link: "https://tendency.streamlit.app/", featured: false }
+    ];
+
+    const container = document.getElementById('portfolio-container');
+    
+    portfolioItems.forEach((item, index) => {
+        const isFeatured = item.featured ? "lg:col-span-2 group" : "group";
+        const contentClasses = item.featured ? "flex-col md:flex-row" : "flex-col";
+        const imgClasses = item.featured ? "w-full md:w-1/2 relative min-h-[250px]" : "h-48 relative overflow-hidden";
+        
+        let imageContent = item.image 
+            ? `<img src="${item.image}" alt="${item.title}" class="absolute inset-0 w-full h-full object-cover object-left-top transition-transform duration-500 group-hover:scale-105" />`
+            : `<span class="material-symbols-outlined text-[80px] text-primary-fixed-dim/30">${item.icon}</span>`;
+            
+        let cardContent = `
+            <div class="glass-card rounded-xl overflow-hidden h-full flex ${contentClasses} cursor-pointer hover:border-primary-fixed-dim/50 transition-all">
+                <div class="${imgClasses} bg-surface-container-highest flex items-center justify-center overflow-hidden">
+                    ${imageContent}
+                    <div class="absolute top-4 right-4 h-8 w-8 rounded-full bg-background/50 backdrop-blur-md flex items-center justify-center border border-white/10 text-primary-fixed-dim z-10">
+                        <span class="material-symbols-outlined text-base">${item.link ? 'open_in_new' : item.icon}</span>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8 flex flex-col justify-between flex-1">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex flex-wrap gap-2 items-center">
+                                <span class="px-3 py-1 bg-primary-container/10 border border-primary-container/20 rounded-full font-label-mono text-[10px] text-primary-fixed-dim uppercase tracking-wider">${item.type}</span>
+                                ${item.notice ? `<span class="px-3 py-1 bg-red-500/20 border border-red-500/50 rounded-full font-label-mono text-[11px] text-red-300 font-bold flex items-center gap-1 animate-pulse"><span class="material-symbols-outlined text-[12px]">storefront</span>${item.notice}</span>` : ''}
+                            </div>
+                        </div>
+                        <h3 class="font-headline-md text-xl md:text-2xl text-white mb-4 animate-slow-blink">${item.title}</h3>
+                        <p class="text-on-surface-variant font-body-md mb-6">${item.desc}</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        ${item.stack.map(tech => `<span class="font-label-mono text-[11px] text-on-surface-variant bg-surface-container-highest px-2 py-1 rounded">${tech.toUpperCase()}</span>`).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        let html = item.link 
+            ? `<a href="${item.link}" target="_blank" class="${isFeatured} block h-full">${cardContent}</a>`
+            : `<div class="${isFeatured} h-full">${cardContent}</div>`;
+        container.innerHTML += html;
+    });
+</script>
+
+<footer class="border-t border-white/5 bg-surface-container-lowest/30 py-12 px-margin-mobile md:px-12 mt-20">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+    <div class="font-label-mono text-[12px] text-on-surface-variant/40">
+        © 2026 JEONG HO-SIK — PORTFOLIO. ALL RIGHTS RESERVED.
+    </div>
+</div>
+</footer>
+</body></html>

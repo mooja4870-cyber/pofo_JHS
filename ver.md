@@ -1,5 +1,21 @@
 # Version History
 
+## v1.9.16
+
+Date: 2026-07-10
+
+### 변경 내용
+- Cloudflare Pages 접속 시 발생하는 HTTP 404 에러 수정을 위해 메인 파일(`portfolio_2.html`)을 `index.html`로 복사하여 기본 진입점(Entry point) 생성.
+
+### 수정 파일
+- index.html (신규)
+- ver.md
+
+### 비고
+- Cloudflare Pages 재배포 진행.
+
+---
+
 ## v1.9.15
 
 Date: 2026-07-10
