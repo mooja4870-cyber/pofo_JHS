@@ -1,5 +1,23 @@
 # Version History
 
+## v1.8.9
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오 앱 카탈로그 목록(`projects` 섹션)의 두 번째 위치에 `KOSPI FI Flow Analyzer` (KOSPI '금융투자' 수급 분석 시스템) 프로젝트 추가.
+- 바탕화면에서 KOSPI 대시보드의 최신 캡처 사진을 찾아 해당 앱의 썸네일 이미지(`kospi_fi_thumb.jpg`)로 적용 완료.
+
+### 수정 파일
+- portfolio_2.html
+- kospi_fi_thumb.jpg (신규)
+- ver.md
+
+### 비고
+- `d_kospi_FI` 프로젝트 분석을 통한 데이터 및 최신 스크린샷 썸네일 포트폴리오 렌더링.
+
+---
+
 ## v1.8.8
 
 Date: 2026-07-10
