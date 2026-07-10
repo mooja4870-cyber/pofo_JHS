@@ -1,5 +1,23 @@
 # Version History
 
+## v1.9.0
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오 앱 카탈로그 목록(`projects` 섹션)의 세 번째 위치에 `VC Signal Brief` (AI/딥테크 뉴스 브리핑 시스템) 프로젝트 추가.
+- 바탕화면에서 VC 대시보드의 최신 캡처 사진을 찾아 해당 앱의 썸네일 이미지(`vc_brief_thumb.jpg`)로 자동 적용 완료.
+
+### 수정 파일
+- portfolio_2.html
+- vc_brief_thumb.jpg (신규)
+- ver.md
+
+### 비고
+- `d_brief4vc` 프로젝트 분석을 통한 데이터 및 썸네일 렌더링.
+
+---
+
 ## v1.8.9
 
 Date: 2026-07-10
