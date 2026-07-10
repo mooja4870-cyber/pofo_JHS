@@ -1,5 +1,22 @@
 # Version History
 
+## v1.9.27
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오 메인 화면(Hero Section) 상단 프로필 타이틀 텍스트 변경: '정호식 리더' -> '정호식 프로'
+
+### 수정 파일
+- portfolio_2.html
+- index.html
+- ver.md
+
+### 비고
+- Cloudflare 배포 파이프라인 재실행 완료.
+
+---
+
 ## v1.9.26
 
 Date: 2026-07-10
