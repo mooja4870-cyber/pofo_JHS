@@ -1,5 +1,24 @@
 # Version History
 
+## v1.9.31
+
+Date: 2026-07-10
+
+### 변경 내용
+- 전체 방문자 수 뱃지 위치 이동 및 스타일 변경.
+  - 기존: 메인 프로필(Hero Section) 텍스트 하단 영역.
+  - 변경: 상단 내비게이션 바(Header) 우측 끝에 있던 'INNOVATION NODE' 텍스트 및 안테나 점을 제거하고, 그 자리에 배치되도록 레이아웃 변경.
+
+### 수정 파일
+- portfolio_2.html
+- index.html
+- ver.md
+
+### 비고
+- Cloudflare 재배포 파이프라인 수행 완료.
+
+---
+
 ## v1.9.30
 
 Date: 2026-07-10
