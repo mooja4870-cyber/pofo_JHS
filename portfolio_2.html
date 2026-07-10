@@ -402,16 +402,7 @@
         { title: "KOSPI FI Flow Analyzer", type: "Web Apps", desc: "KOSPI 금융투자 세력의 연속 순매도 패턴과 수급을 분석하여 시장 급락 리스크를 감지하는 모니터링 시스템", stack: ["React", "TypeScript", "Streamlit"], icon: "monitoring", image: "kospi_fi_thumb.jpg", link: "", featured: false },
         { title: "VC Signal Brief", type: "Web Apps", desc: "바쁜 벤처캐피탈(VC) 및 투자자를 위해 매일 아침 주요 AI/딥테크 시장 뉴스와 시그널을 요약해주는 지능형 뉴스 브리핑 대시보드", stack: ["React", "Vite", "Streamlit"], icon: "newspaper", image: "vc_brief_thumb.jpg", link: "", featured: false },
         { title: "Yangdo Tax Calculator AI", type: "Mobile Apps", desc: "부동산 양도소득세(주택, 분양권 등)의 복잡한 정밀 계산 프로세스를 구현한 전문가용 하이브리드 앱", stack: ["HTML/CSS/JS", "Android", "Gradle"], icon: "calculate", image: "cgt_thumb.png", link: "", featured: false },
-        { title: "Smart Inventory AI", type: "AI Models", desc: "머신러닝 기반 딥다이브 재고 수요 예측 최적화 모델", stack: ["Python", "TensorFlow"], icon: "inventory_2", featured: false },
-        { title: "Global Supply Dashboard", type: "Web Apps", desc: "글로벌 원자재 공급망 및 리스크 시각화 대시보드", stack: ["React", "D3.js"], icon: "public" },
-        { title: "Vendor Assessment Tool", type: "Mobile Apps", desc: "현장에서 즉시 협력사 평가 및 피드백이 가능한 모바일 앱", stack: ["React Native", "Firebase"], icon: "assignment" },
-        { title: "Cost Optimization Engine", type: "AI Models", desc: "과거 구매 데이터를 분석하여 원가 절감 포인트를 자동 도출하는 알고리즘", stack: ["Python", "Scikit-learn"], icon: "trending_down" },
-        { title: "Eco-Procurement Tracker", type: "Web Apps", desc: "ESG 경영을 위한 친환경 부품 구매 비율 추적 시스템", stack: ["Vue.js", "Node.js"], icon: "eco" },
-        { title: "Contract NLP Analyzer", type: "AI Models", desc: "자연어 처리를 활용한 계약서 내 위험 조항 자동 추출기", stack: ["Python", "HuggingFace"], icon: "history_edu" },
-        { title: "Procurement Approvals", type: "Mobile Apps", desc: "경영진을 위한 빠르고 간편한 원터치 모바일 결재 시스템", stack: ["Flutter", "AWS"], icon: "fact_check" },
-        { title: "Market Price Predictor", type: "AI Models", desc: "시계열 데이터를 분석한 주요 원자재 가격 변동 예측 모델", stack: ["Python", "Prophet"], icon: "show_chart" },
-        { title: "Supplier Hub Portal", type: "Web Apps", desc: "협력사와의 원활한 소통 및 단가 협상을 위한 B2B 포털 플랫폼", stack: ["Next.js", "PostgreSQL"], icon: "handshake" },
-        { title: "Logistics Router AI", type: "AI Models", desc: "글로벌 물류 배송 경로 및 리드타임 최적화 솔루션", stack: ["Python", "NetworkX"], icon: "route" }
+        { title: "착한병원 찾기 (Good Hospital)", type: "Mobile Apps", desc: "심평원(HIRA) 빅데이터와 웹 리뷰를 분석하여 과잉진료 없는 양심 동네 병원을 찾아주는 PWA 모바일 앱", stack: ["HTML/JS", "Cloudflare", "TWA"], icon: "local_hospital", image: "kjeb_thumb.png", link: "https://kjeb.pages.dev/", featured: false },
     ];
 
     const container = document.getElementById('portfolio-container');
@@ -438,7 +429,7 @@
                         <div class="flex items-center justify-between mb-4">
                             <span class="px-3 py-1 bg-primary-container/10 border border-primary-container/20 rounded-full font-label-mono text-[10px] text-primary-fixed-dim uppercase tracking-wider">${item.type}</span>
                         </div>
-                        <h3 class="font-headline-md text-xl md:text-2xl text-on-background mb-4">${item.title}</h3>
+                        <h3 class="font-headline-md text-xl md:text-2xl text-white mb-4">${item.title}</h3>
                         <p class="text-on-surface-variant font-body-md mb-6">${item.desc}</p>
                     </div>
                     <div class="flex flex-wrap gap-2">
