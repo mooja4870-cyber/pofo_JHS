@@ -498,7 +498,7 @@
                         <span class="material-symbols-outlined text-base">${item.link ? 'open_in_new' : item.icon}</span>
                     </div>
                 </div>
-                <div class="p-6 md:p-8 flex flex-col justify-between flex-1">
+                <div class="p-6 md:p-8 flex flex-col justify-between flex-1 min-w-0">
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex flex-wrap gap-2 items-center">
@@ -507,8 +507,7 @@
                             </div>
                         </div>
                         <h3 class="font-pretendard font-bold text-xl md:text-2xl text-white mb-4 animate-slow-blink">${item.title}</h3>
-                        <p class="text-on-surface-variant font-body-md mb-6">${item.desc}</p>
-                    </div>
+                        <p class="text-on-surface-variant font-body-md mb-6 break-keep">${item.desc}</p>
                     </div>
                     <div class="mt-4 flex items-center justify-between">
                         <div class="flex flex-wrap gap-2">
