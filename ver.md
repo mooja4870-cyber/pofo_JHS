@@ -1,5 +1,21 @@
 # Version History
 
+## v1.9.8
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오의 앱 카탈로그(`projects`) 영역에 있는 모든 프로젝트 제목(e.g., BTCn Forecast Engine 등) 텍스트에 2초 주기로 깜빡이는(Blinking) 커스텀 CSS 애니메이션(`animate-slow-blink`) 일괄 적용 완료.
+
+### 수정 파일
+- portfolio_2.html
+- ver.md
+
+### 비고
+- `opacity` 및 `text-shadow`를 활용한 서서히 깜빡이는 시각적 효과 구현.
+
+---
+
 ## v1.9.7
 
 Date: 2026-07-10
