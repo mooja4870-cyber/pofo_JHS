@@ -1,5 +1,23 @@
 # Version History
 
+## v1.9.40
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오 앱 카드의 상세 설명글(`item.desc`) 텍스트 색상을 주황색 계열(`text-orange-400`)로 수정.
+  - 가독성을 높이고 포인트를 주기 위해 기존 회색 톤(`text-on-surface-variant`)에서 선명하고 트렌디한 주황색 톤으로 일괄 변경.
+
+### 수정 파일
+- portfolio_2.html
+- index.html
+- ver.md
+
+### 비고
+- 디자인 수정 후 Cloudflare kdanawa 재배포.
+
+---
+
 ## v1.9.39
 
 Date: 2026-07-10
