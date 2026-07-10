@@ -485,8 +485,9 @@
         const contentClasses = item.featured ? "flex-col md:flex-row" : "flex-col";
         const imgClasses = item.featured ? "w-full md:w-1/2 relative min-h-[250px]" : "h-48 relative overflow-hidden";
         
+        const safeAlt = item.title.replace(/<[^>]*>?/gm, '').replace(/"/g, '&quot;');
         let imageContent = item.image 
-            ? `<img src="${item.image}" alt="${item.title}" class="absolute inset-0 w-full h-full object-cover object-left-top transition-transform duration-500 group-hover:scale-105" />`
+            ? `<img src="${item.image}" alt="${safeAlt}" class="absolute inset-0 w-full h-full object-cover object-left-top transition-transform duration-500 group-hover:scale-105" />`
             : `<span class="material-symbols-outlined text-[80px] text-primary-fixed-dim/30">${item.icon}</span>`;
             
         let cardContent = `
