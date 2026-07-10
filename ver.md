@@ -1,5 +1,24 @@
 # Version History
 
+## v1.8.7
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오 프로젝트 항목에 썸네일 이미지 및 외부 링크 기능(a 태그) 추가 구현.
+- `BTCn Forecast Engine` 항목 클릭 시 `https://btcforecast.streamlit.app/` 로 새 창에서 열리도록 연결 완료.
+- 해당 영역에 사용자가 첨부한 썸네일 이미지(`btcn_thumb.jpg`)가 표시되도록 설정.
+
+### 수정 파일
+- portfolio_2.html
+- ver.md
+- btcn_thumb.jpg (임시 생성)
+
+### 비고
+- `btcn_thumb.jpg` 는 임시 이미지로 채워져 있으므로, 원본 스크린샷 다운로드 후 덮어쓰기 필요.
+
+---
+
 ## v1.8.6
 
 Date: 2026-07-10

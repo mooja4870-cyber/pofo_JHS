@@ -398,7 +398,7 @@
 <script>
     // 기존 포트폴리오 10여개 데이터 리스트 (Javascript 기반 렌더링을 통해 이식)
     const portfolioItems = [
-        { title: "BTCn Forecast Engine", type: "AI Models", desc: "거시경제 데이터를 수집하여 TimeSformer 딥러닝 기반으로 비트코인 다중기간 수익률을 예측하는 AI 트레이딩 모델 및 시스템", stack: ["Python", "PyTorch", "Streamlit"], icon: "currency_bitcoin", featured: true },
+        { title: "BTCn Forecast Engine", type: "AI Models", desc: "거시경제 데이터를 수집하여 TimeSformer 딥러닝 기반으로 비트코인 다중기간 수익률을 예측하는 AI 트레이딩 모델 및 시스템", stack: ["Python", "PyTorch", "Streamlit"], icon: "currency_bitcoin", image: "btcn_thumb.jpg", link: "https://btcforecast.streamlit.app/", featured: true },
         { title: "Smart Inventory AI", type: "AI Models", desc: "머신러닝 기반 딥다이브 재고 수요 예측 최적화 모델", stack: ["Python", "TensorFlow"], icon: "inventory_2", featured: false },
         { title: "Global Supply Dashboard", type: "Web Apps", desc: "글로벌 원자재 공급망 및 리스크 시각화 대시보드", stack: ["React", "D3.js"], icon: "public" },
         { title: "Vendor Assessment Tool", type: "Mobile Apps", desc: "현장에서 즉시 협력사 평가 및 피드백이 가능한 모바일 앱", stack: ["React Native", "Firebase"], icon: "assignment" },
@@ -418,13 +418,16 @@
         const contentClasses = item.featured ? "flex-col md:flex-row" : "flex-col";
         const imgClasses = item.featured ? "w-full md:w-1/2 relative min-h-[250px]" : "h-48 relative overflow-hidden";
         
-        let html = `
-        <div class="${isFeatured}">
-            <div class="glass-card rounded-xl overflow-hidden h-full flex ${contentClasses}">
-                <div class="${imgClasses} bg-surface-container-highest flex items-center justify-center">
-                    <span class="material-symbols-outlined text-[80px] text-primary-fixed-dim/30">${item.icon}</span>
-                    <div class="absolute top-4 right-4 h-8 w-8 rounded-full bg-background/50 backdrop-blur-md flex items-center justify-center border border-white/10 text-primary-fixed-dim">
-                        <span class="material-symbols-outlined text-base">${item.icon}</span>
+        let imageContent = item.image 
+            ? `<img src="${item.image}" alt="${item.title}" class="absolute inset-0 w-full h-full object-cover object-left-top transition-transform duration-500 group-hover:scale-105" />`
+            : `<span class="material-symbols-outlined text-[80px] text-primary-fixed-dim/30">${item.icon}</span>`;
+            
+        let cardContent = `
+            <div class="glass-card rounded-xl overflow-hidden h-full flex ${contentClasses} cursor-pointer hover:border-primary-fixed-dim/50 transition-all">
+                <div class="${imgClasses} bg-surface-container-highest flex items-center justify-center overflow-hidden">
+                    ${imageContent}
+                    <div class="absolute top-4 right-4 h-8 w-8 rounded-full bg-background/50 backdrop-blur-md flex items-center justify-center border border-white/10 text-primary-fixed-dim z-10">
+                        <span class="material-symbols-outlined text-base">${item.link ? 'open_in_new' : item.icon}</span>
                     </div>
                 </div>
                 <div class="p-6 md:p-8 flex flex-col justify-between flex-1">
@@ -440,8 +443,11 @@
                     </div>
                 </div>
             </div>
-        </div>
         `;
+        
+        let html = item.link 
+            ? `<a href="${item.link}" target="_blank" class="${isFeatured} block h-full">${cardContent}</a>`
+            : `<div class="${isFeatured} h-full">${cardContent}</div>`;
         container.innerHTML += html;
     });
 </script>
