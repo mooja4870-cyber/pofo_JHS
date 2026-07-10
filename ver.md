@@ -1,5 +1,21 @@
 # Version History
 
+## v1.9.13
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오의 `프리즘 (Prism)` 프로젝트 외부 연결 주소를 깃허브 원본 주소에서 실제 정식 배포된 Streamlit 주소(`https://tendency.streamlit.app/`)로 업데이트.
+
+### 수정 파일
+- portfolio_2.html
+- ver.md
+
+### 비고
+- Streamlit Community Cloud 환경 자동 연동 주소 선적용.
+
+---
+
 ## v1.9.12
 
 Date: 2026-07-10
