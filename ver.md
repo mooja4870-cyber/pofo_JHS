@@ -1,5 +1,25 @@
 # Version History
 
+## v1.9.4
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오 앱 카탈로그(`projects`) 목록 중 클릭 시 외부 배포 페이지로 연결되지 않던 3건의 프로젝트 링크 복구.
+- 각 프로젝트 원본을 탐색하여 아래와 같이 배포처(URL)를 연동.
+  - KOSPI FI Flow Analyzer -> `https://risk-kospi-finfn.streamlit.app/`
+  - VC Signal Brief -> `https://vcbrief-web.onrender.com`
+  - Yangdo Tax Calculator AI -> `https://mooja4870-cyber.github.io/cgt/yangdo_tax_calculator.html`
+
+### 수정 파일
+- portfolio_2.html
+- ver.md
+
+### 비고
+- 포트폴리오의 모든(5개) 앱 항목들의 정상적인 외부 접속 보장.
+
+---
+
 ## v1.9.3
 
 Date: 2026-07-10
