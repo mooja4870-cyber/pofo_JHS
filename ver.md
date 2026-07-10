@@ -1,5 +1,21 @@
 # Version History
 
+## v1.9.9
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오의 'Professional Experience (경력)' 섹션에 명시된 4개 주요 직책명(혁신담당, 기업혁신본부 본부장, 관세그룹 그룹장, 말레이시아 법인 구매팀장) 텍스트에도 앱 제목과 동일한 2초 주기 깜빡임(`animate-slow-blink`) 애니메이션 추가 적용.
+
+### 수정 파일
+- portfolio_2.html
+- ver.md
+
+### 비고
+- 단순 클래스(`animate-slow-blink`) 추가를 통한 시각 효과 통일.
+
+---
+
 ## v1.9.8
 
 Date: 2026-07-10
