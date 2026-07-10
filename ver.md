@@ -1,5 +1,23 @@
 # Version History
 
+## v1.9.12
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오 앱 카탈로그(`projects`)의 6번째 항목으로 `프리즘 (Prism)` 프로젝트(Tendency) 신규 추가.
+- 사용자의 정치 성향을 AI 기반으로 다각도 진단하는 플랫폼임을 안내하며, 썸네일로 해당 앱의 아이콘 이미지를 발췌하여 등록함.
+
+### 수정 파일
+- portfolio_2.html
+- ver.md
+- tendency_thumb.png (아이콘 에셋 파일 추가)
+
+### 비고
+- `https://github.com/mooja4870-cyber/Tendency` 깃허브 원본 주소를 외부 링크로 연동 완료.
+
+---
+
 ## v1.9.11
 
 Date: 2026-07-10
