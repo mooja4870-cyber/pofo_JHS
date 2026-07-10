@@ -1,5 +1,21 @@
 # Version History
 
+## v1.7.1
+
+Date: 2026-07-10
+
+### 변경 내용
+- 상단 네비게이션 메뉴에 신규 추가된 갤러리 섹션 바로가기 링크('AI Apps') 추가
+
+### 수정 파일
+- portfolio_2.html
+- ver.md
+
+### 비고
+- 'AI Apps' 메뉴 클릭 시 '#projects' (AI Application Portfolio) 영역으로 스크롤 이동 연동 완료
+
+---
+
 ## v1.7.0
 
 Date: 2026-07-10
