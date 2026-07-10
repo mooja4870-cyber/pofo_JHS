@@ -1,5 +1,29 @@
 # Version History
 
+## v1.9.29
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오 메인 화면 내 **전체 누적 방문자 수** 및 **앱(웹/모바일)별 클릭 횟수** 실시간 표기 기능 구축.
+- **백엔드/DB 연동**: Cloudflare KV 저장소(`POFO_COUNTER`)와 Functions(`functions/api/counter.js`)를 연동하여 서버리스 API 환경 세팅 및 로직 구현.
+- **프론트엔드 UI**: 
+  - 메인 프로필 하단에 "Total Visitors" 뱃지 추가.
+  - 8종 앱 카드 하단에 아이콘(👁️)과 함께 앱별 조회수 표기 추가.
+  - 앱 썸네일/링크 클릭 시 백그라운드로 조회수 증가 API 비동기 호출 후 페이지 이동.
+
+### 수정 파일
+- wrangler.toml (신규)
+- functions/api/counter.js (신규)
+- portfolio_2.html
+- index.html
+- ver.md
+
+### 비고
+- Cloudflare Pages KV 바인딩 셋업 및 재배포 파이프라인 수행 완료.
+
+---
+
 ## v1.9.28
 
 Date: 2026-07-10
