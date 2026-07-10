@@ -1,5 +1,24 @@
 # Version History
 
+## v1.7.0
+
+Date: 2026-07-10
+
+### 변경 내용
+- 인텔 AI 교육 과정 산출물 10여 개를 전시할 수 있는 **'AI Application Portfolio'** 갤러리 섹션 신규 구현
+- 데스크탑(3열), 태블릿(2열), 모바일(1열) 자동 반응형 대응 CSS Grid 시스템 적용
+- [All] [Web Apps] [Mobile Apps] [AI Models] 카테고리별 동적 필터링 JavaScript 기능 탑재
+- 고급스러운 Glassmorphism 카드 UI 및 은은한 Hover 효과 디자인 적용
+
+### 수정 파일
+- portfolio_2.html
+- ver.md
+
+### 비고
+- 프로젝트 쇼케이스 구조가 완성되었으며, 실제 앱 스크린샷과 내용으로 추후 교체 가능
+
+---
+
 ## v1.6.0
 
 Date: 2026-07-10
