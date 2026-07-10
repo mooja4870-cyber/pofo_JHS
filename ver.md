@@ -1,5 +1,24 @@
 # Version History
 
+## v1.9.21
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오의 8번째 항목으로 `SOMEMORE - 노후 자산 시뮬레이터` 웹 앱 추가.
+- 프리미엄 2:1 와이드 비율의 AI 생성 썸네일 이미지(`somemore_thumb.png`) 적용.
+
+### 수정 파일
+- portfolio_2.html
+- index.html
+- ver.md
+- somemore_thumb.png (신규 에셋)
+
+### 비고
+- `https://somemore.pages.dev` 링크 연동 및 Cloudflare 배포 파이프라인 재실행.
+
+---
+
 ## v1.9.20
 
 Date: 2026-07-10
