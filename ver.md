@@ -1,5 +1,21 @@
 # Version History
 
+## v1.9.11
+
+Date: 2026-07-10
+
+### 변경 내용
+- `Yangdo Tax Calculator AI` 앱의 외부 연결 주소(URL)를 정식 배포된 Cloudflare Pages 주소(`https://cgt-56k.pages.dev/`)로 업데이트.
+
+### 수정 파일
+- portfolio_2.html
+- ver.md
+
+### 비고
+- 기존 임시 깃허브 페이지 주소에서 공식 호스팅 주소로 핫픽스 교체 완료.
+
+---
+
 ## v1.9.10
 
 Date: 2026-07-10
