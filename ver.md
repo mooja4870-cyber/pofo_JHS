@@ -1,5 +1,22 @@
 # Version History
 
+## v1.8.1
+
+Date: 2026-07-10
+
+### 변경 내용
+- 네비게이션 `Experience`, `Skills` 링크가 정상 작동하도록 기존 섹션 데이터 템플릿(NEURAL.CORE)에 이식 및 추가
+- 프로필 이미지 섹션에 2장의 사진이 CSS 크로스-페이드 애니메이션을 통해 번갈아가며 나타나도록 효과 적용
+
+### 수정 파일
+- portfolio_2.html
+- ver.md
+
+### 비고
+- 기존 `profile.jpg`와 새로운 `profile2.jpg`가 번갈아 출력되도록 설정됨. (새 사진은 `profile2.jpg` 이름으로 저장 필요)
+
+---
+
 ## v1.8.0
 
 Date: 2026-07-10
