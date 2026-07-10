@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeong Ho-sik - Professional Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --secondary: #6366f1;
+            --success: #10b981;
+            --warning: #ffb700;
+            --danger: #ff4444;
+            --bg-dark: #0a0e27;
+            --bg-card: rgba(20, 33, 61, 0.8);
+            --border: rgba(59, 130, 246, 0.1);
+            --text-primary: #ffffff;
+            --text-secondary: #a8b2d1;
+            --text-tertiary: #6b7280;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #0f1535 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Background Animation */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(10, 14, 39, 0.8);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* AI Impact Banner */
+        .ai-impact-banner {
+            margin: 3rem 2rem 5rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(99, 102, 241, 0.08));
+            border: 1px solid var(--primary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.08);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .ai-impact-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+
+        .ai-impact-content {
+            flex: 1;
+            z-index: 1;
+        }
+
+        .ai-impact-content h3 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ai-impact-content h3 span {
+            font-size: 2.2rem;
+        }
+
+        .ai-impact-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .ai-impact-content .tag-list {
+            margin-top: 1.5rem;
+        }
+
+        .ai-impact-image {
+            width: 320px;
+            border-radius: 8px;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .ai-impact-image:hover {
+            transform: scale(1.05) translateY(-5px);
+            border-color: #ffffff;
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.1);
+        }
+        
+        @media (max-width: 900px) {
+            .ai-impact-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            .ai-impact-content h3 {
+                justify-content: center;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 2rem 3rem;
+            background: linear-gradient(180deg, rgba(59, 130, 246, 0.05) 0%, transparent 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .hero-content .title {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .hero-content .tags {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            padding: 0.5rem 1.2rem;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #ffffff;
+            backdrop-filter: blur(10px);
+        }
+
+        .tag.secondary {
+            background: rgba(99, 102, 241, 0.08);
+            border-color: rgba(99, 102, 241, 0.1);
+            color: #ffffff;
+        }
+
+        .tag.success {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.1);
+            color: var(--success);
+        }
+
+        .hero-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .contact-item .label {
+            color: var(--text-tertiary);
+            min-width: 80px;
+        }
+
+        /* Profile Avatar */
+        .hero-avatar {
+            perspective: 1000px;
+        }
+
+        .avatar-card {
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            transform-style: preserve-3d;
+            transition: transform 0.6s ease;
+        }
+
+        .avatar-card:hover {
+            transform: translateZ(20px) rotateX(5deg) rotateY(-5deg);
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(99, 102, 241, 0.08));
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .avatar-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .avatar-card .position {
+            color: #ffffff;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .stats-mini {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .stat-mini {
+            padding: 1rem;
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .stat-mini .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        .stat-mini .label {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-
+            color: #ffffff;
+            
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding: 1rem 0 1rem 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary), transparent);
+        }
+
+        .experience-item {
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 2px;
+            width: 20px;
+            height: 20px;
+            background: var(--bg-dark);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.1);
+        }
+
+        .exp-card {
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .exp-card:hover {
+            border-color: #ffffff;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .exp-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .exp-company {
+            font-size: 0.95rem;
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-period {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+            background: rgba(59, 130, 246, 0.05);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            white-space: nowrap;
+        }
+
+        .exp-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .exp-achievements {
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+
+        .achievement-item {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            padding: 0.4rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .achievement-item::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: #ffffff;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            border-color: #ffffff;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
+        }
+
+        .skill-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-item {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            padding: 0.4rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .skill-item::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: #ffffff;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-
+            color: #ffffff;
+            
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Achievement Grid */
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .achievement-card {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(99, 102, 241, 0.08));
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .achievement-card:hover {
+            border-color: #ffffff;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.08);
+        }
+
+        .achievement-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: #ffffff;
+        }
+
+        .achievement-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Education */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .education-card {
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-left: 3px solid var(--primary);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .education-card:hover {
+            border-color: #ffffff;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+        }
+
+        .education-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .period {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .detail {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 14, 39, 0.5);
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        .footer-highlight {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-
+            color: #ffffff;
+            
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            .skills-grid,
+            .achievement-grid,
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        /* Project Gallery Styles */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            background: rgba(59, 130, 246, 0.05);
+            color: var(--text-secondary);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: rgba(59, 130, 246, 0.15);
+            color: #ffffff;
+            border-color: #ffffff;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(59, 130, 246, 0.08);
+        }
+
+        .project-img-placeholder {
+            height: 180px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content h3 {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tag {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            font-size: 0.9rem;
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        
+        .project-card.hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Jeong Ho-sik</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#projects">AI Apps</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>정호식</h1>
+                <div class="title">구매 전략 • 경영 혁신 리더</div>
+                
+                <div class="tags">
+                    <span class="tag">Procurement Strategy</span>
+                    <span class="tag secondary">Business Innovation</span>
+                    <span class="tag success">Cost Optimization</span>
+                </div>
+
+                <p>
+                    30년 이상의 구매·경영 경험을 바탕으로 프로세스 혁신과 비용 최적화를 주도하는 전문가.<br>
+                    기획 기반의 혁신구매, 업무 전산화, 조직 역량 강화를 통해 회사 이익 극대화를 선도합니다.
+                </p>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="label">📞 Phone</span>
+                        <span>010-2422-4511</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="label">✉️ Email</span>
+                        <span>mooja4870@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="label">📍 Location</span>
+                        <span>Seongnam, Gyeonggi Province</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="label">🎂 DOB</span>
+                        <span>May 23, 1963</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-avatar">
+                <div class="avatar-card">
+                    <div class="profile-image"><img src="profile.jpg" alt="정호식 프로필 사진"></div>
+                    <h2>정호식</h2>
+                    <div class="position">Procurement & Innovation Executive</div>
+                    <div class="stats-mini">
+                        <div class="stat-mini">
+                            <div class="number">30+</div>
+                            <div class="label">Years Exp</div>
+                        </div>
+                        <div class="stat-mini">
+                            <div class="number">90%</div>
+                            <div class="label">Efficiency↑</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Impact Section -->
+    <section class="container">
+        <div class="ai-impact-banner">
+            <div class="ai-impact-content">
+                <h3><span>🚀</span> AI 대변혁 시대를 선제적으로 주도하는 리더십</h3>
+                <p>
+                    최신 인공지능 기술의 흐름을 이해하고, 실무에 직접 적용할 수 있는 역량을 갖추었습니다.<br/>
+                    <strong>인텔 코리아 주관 '인공지능 앱크리에이터 양성과정 6기' (118일, 944시간)</strong>를 성공적으로 수료하며 
+                    AI 기반의 혁신적인 문제 해결 능력과 시스템 기획/개발 역량을 완비했습니다.
+                </p>
+                <p>30년 이상의 풍부한 실무 경영 노하우에 첨단 AI 테크놀로지를 결합하여 차원이 다른 비즈니스 혁신을 이끌어냅니다.</p>
+                <div class="tag-list" style="justify-content: flex-start; margin-top: 1.5rem;">
+                    <span class="tag primary">AI Architecture</span>
+                    <span class="tag secondary">Generative AI</span>
+                    <span class="tag success">Intel AI Creator (944H)</span>
+                </div>
+            </div>
+            <img src="intel_ai_cert.jpg" alt="인텔 인공지능 앱크리에이터 양성과정 수료증" class="ai-impact-image" />
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">📊 Career Highlights</h2>
+                <p class="section-subtitle">주요 성과 및 경력</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">39억</div>
+                    <div class="stat-label">Annual Tariff Loss Prevented</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">13%</div>
+                    <div class="stat-label">Average Cost Reduction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">90%</div>
+                    <div class="stat-label">Work Efficiency Improvement</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">AAA</div>
+                    <div class="stat-label">AEO Certification Grade</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">💼 Experience</h2>
+                <p class="section-subtitle">경력 및 주요 업적</p>
+            </div>
+
+            <div class="timeline">
+                <!-- Experience 1 -->
+                <div class="experience-item">
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-title">혁신담당</div>
+                                <div class="exp-company">(주)한솔서플라이</div>
+                            </div>
+                            <span class="exp-period">2020.04 ~ 2022.07</span>
+                        </div>
+                        <div class="exp-description">
+                            기업 비용절감 및 효율화 사업 추진, 업무전산화를 통한 프로세스 혁신
+                        </div>
+                        <div class="exp-achievements">
+                            <div class="achievement-item">정부지원 바우처사업으로 비용항목별 비용절감 분석 및 개선방안 보고서 작성</div>
+                            <div class="achievement-item">업무전산화 실행으로 수일 소요 작업을 1시간으로 단축 (90% 이상 업무시간 단축)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="experience-item">
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-title">기업혁신본부 본부장</div>
+                                <div class="exp-company">탭코리아㈜</div>
+                            </div>
+                            <span class="exp-period">2016.06 ~ 2018.01</span>
+                        </div>
+                        <div class="exp-description">
+                            경영혁신 추진 및 제반 업무개선 전담
+                        </div>
+                        <div class="exp-achievements">
+                            <div class="achievement-item">작은혁신 실천 10대과제 운영을 통한 혁신인프라 구축</div>
+                            <div class="achievement-item">협력사 납입부품 품질향상으로 라인불량율 3.3% → 2.1% 개선</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="experience-item">
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-title">관세그룹 그룹장</div>
+                                <div class="exp-company">삼성SDI㈜</div>
+                            </div>
+                            <span class="exp-period">2011.01 ~ 2016.05</span>
+                        </div>
+                        <div class="exp-description">
+                            삼성SDI 전사 관세관리 선진화 추진, AEO 인증 및 보세공장 도입 운영
+                        </div>
+                        <div class="exp-achievements">
+                            <div class="achievement-item">보세공장 도입/운영으로 년 39억원 관세손실 방지</div>
+                            <div class="achievement-item">AEO(수출입안전관리우수기업) AAA 등급 획득</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 4 -->
+                <div class="experience-item">
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <div>
+                                <div class="exp-title">말레이지아 법인 구매팀장</div>
+                                <div class="exp-company">삼성SDI㈜</div>
+                            </div>
+                            <span class="exp-period">2003.10 ~ 2007.10</span>
+                        </div>
+                        <div class="exp-description">
+                            법인 구매업무 총괄 수행, 구매가 인하 및 물량배분 관리
+                        </div>
+                        <div class="exp-achievements">
+                            <div class="achievement-item">매년 구매가 인하율 평균 13%</div>
+                            <div class="achievement-item">전사 브라운관 이익율 15% 창출 기여</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🎯 Core Competencies</h2>
+                <p class="section-subtitle">핵심 역량 및 전문분야</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>💼 Procurement Management</h3>
+                    <div class="skill-item">구매 전략 및 포트폴리오 관리</div>
+                    <div class="skill-item">공급사 평가 및 관리</div>
+                    <div class="skill-item">원가절감 및 협상전략</div>
+                    <div class="skill-item">Global 소싱</div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>📊 Planning & Analytics</h3>
+                    <div class="skill-item">통관 및 환급 관리</div>
+                    <div class="skill-item">Q-Cost 관리</div>
+                    <div class="skill-item">구매 KPI 수립</div>
+                    <div class="skill-item">데이터 분석</div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>🚀 Business Innovation</h3>
+                    <div class="skill-item">프로세스 개선</div>
+                    <div class="skill-item">업무 전산화</div>
+                    <div class="skill-item">비용 최적화</div>
+                    <div class="skill-item">6 Sigma 적용</div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>👥 Leadership</h3>
+                    <div class="skill-item">팀 운영 및 성과 창출</div>
+                    <div class="skill-item">조직원 코칭 및 개발</div>
+                    <div class="skill-item">윤리 구매 문화 정착</div>
+                    <div class="skill-item">변혁적 리더십</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Gallery Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🚀 AI Application Portfolio</h2>
+                <p class="section-subtitle">인텔 AI 앱크리에이터 양성과정 개발 산출물</p>
+            </div>
+
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web">Web Apps</button>
+                <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+                <button class="filter-btn" data-filter="ai">AI Models</button>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-category="web ai">
+                    <div class="project-img-placeholder">🤖</div>
+                    <div class="project-content">
+                        <h3>AI Resume Analyzer</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Flask</span>
+                            <span class="project-tag">OpenAI API</span>
+                        </div>
+                        <p>이력서 텍스트를 분석하고 개선점을 제안하는 AI 기반 웹 애플리케이션입니다.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">🔗 View Demo</a>
+                            <a href="#" class="project-link">💻 GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-category="mobile ai">
+                    <div class="project-img-placeholder">📱</div>
+                    <div class="project-content">
+                        <h3>Vision Health Checker</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">React Native</span>
+                            <span class="project-tag">TensorFlow Lite</span>
+                        </div>
+                        <p>스마트폰 카메라로 질병 초기 증상을 진단 보조하는 모바일 앱입니다.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">🔗 View Demo</a>
+                            <a href="#" class="project-link">💻 GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" data-category="web">
+                    <div class="project-img-placeholder">📊</div>
+                    <div class="project-content">
+                        <h3>Smart Dashboard</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">PostgreSQL</span>
+                        </div>
+                        <p>기업 데이터를 실시간으로 시각화하고 인사이트를 제공하는 대시보드 시스템.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">🔗 View Demo</a>
+                            <a href="#" class="project-link">💻 GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-img-placeholder">🧠</div>
+                    <div class="project-content">
+                        <h3>LLM Document Q&A</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">LangChain</span>
+                            <span class="project-tag">ChromaDB</span>
+                            <span class="project-tag">Streamlit</span>
+                        </div>
+                        <p>사내 문서를 업로드하면 LLM이 학습하여 질문에 답하는 RAG 시스템.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">🔗 View Demo</a>
+                            <a href="#" class="project-link">💻 GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card" data-category="mobile">
+                    <div class="project-img-placeholder">🛒</div>
+                    <div class="project-content">
+                        <h3>Quick Commerce App</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Flutter</span>
+                            <span class="project-tag">Firebase</span>
+                        </div>
+                        <p>지역 상권 기반 실시간 배달을 연결해주는 크로스플랫폼 모바일 앱.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">🔗 View Demo</a>
+                            <a href="#" class="project-link">💻 GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card" data-category="web ai">
+                    <div class="project-img-placeholder">🎨</div>
+                    <div class="project-content">
+                        <h3>AI Image Generator UI</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Vue.js</span>
+                            <span class="project-tag">Stable Diffusion</span>
+                        </div>
+                        <p>생성형 AI 모델을 간편하게 조작하고 파라미터를 조절할 수 있는 웹 프론트엔드.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">🔗 View Demo</a>
+                            <a href="#" class="project-link">💻 GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="project-card" data-category="web">
+                    <div class="project-img-placeholder">📝</div>
+                    <div class="project-content">
+                        <h3>Collaborative Editor</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">WebSockets</span>
+                            <span class="project-tag">Express</span>
+                        </div>
+                        <p>여러 사용자가 동시에 문서를 편집할 수 있는 실시간 에디터 웹 서비스.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">🔗 View Demo</a>
+                            <a href="#" class="project-link">💻 GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="project-card" data-category="mobile ai">
+                    <div class="project-img-placeholder">🏃</div>
+                    <div class="project-content">
+                        <h3>Motion Tracking Coach</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Swift</span>
+                            <span class="project-tag">CoreML</span>
+                        </div>
+                        <p>카메라로 운동 자세를 분석하고 실시간으로 교정해주는 iOS 전용 앱.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">🔗 View Demo</a>
+                            <a href="#" class="project-link">💻 GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9 -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-img-placeholder">📈</div>
+                    <div class="project-content">
+                        <h3>Stock Trend Predictor</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">PyTorch</span>
+                            <span class="project-tag">FastAPI</span>
+                        </div>
+                        <p>과거 금융 데이터를 바탕으로 시계열 예측 모델을 구축하여 트렌드를 분석.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">🔗 View Demo</a>
+                            <a href="#" class="project-link">💻 GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 10 -->
+                <div class="project-card" data-category="web ai">
+                    <div class="project-img-placeholder">🎧</div>
+                    <div class="project-content">
+                        <h3>Voice Meeting Summarizer</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Next.js</span>
+                            <span class="project-tag">Whisper AI</span>
+                        </div>
+                        <p>회의 녹음 파일을 업로드하면 스크립트를 추출하고 회의록을 요약 생성.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">🔗 View Demo</a>
+                            <a href="#" class="project-link">💻 GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🏆 Key Achievements</h2>
+                <p class="section-subtitle">주요 성과</p>
+            </div>
+
+            <div class="achievement-grid">
+                <div class="achievement-card">
+                    <h3>⚡ 업무 효율 90% 단축</h3>
+                    <p>
+                        한솔서플라이에서 정부지원 바우처사업 보고서 작성 업무를 업무전산화로 수일에서 1시간으로 단축
+                    </p>
+                </div>
+
+                <div class="achievement-card">
+                    <h3>💰 년 39억원 관세손실 방지</h3>
+                    <p>
+                        2013년 특허보세구역 보세공장제도 도입 운영으로 관세 손실 방지 성과 극대화
+                    </p>
+                </div>
+
+                <div class="achievement-card">
+                    <h3>🏅 AEO AAA 인증 획득</h3>
+                    <p>
+                        2012년 관세청 주관 AEO(수출입안전관리우수기업) AAA 등급 획득으로 신속통관 구현
+                    </p>
+                </div>
+
+                <div class="achievement-card">
+                    <h3>📈 구매가 평균 13% 인하</h3>
+                    <p>
+                        말레이지아 법인 주재원 근무 중 매년 구매가 인하 관리로 비용 최소화
+                    </p>
+                </div>
+
+                <div class="achievement-card">
+                    <h3>🔧 Q-Cost 관리 기반 구축</h3>
+                    <p>
+                        전사적 Q-Cost 관리로 매출액 비 원가 절감 : 2001년 11% → 2010년 3%
+                    </p>
+                </div>
+
+                <div class="achievement-card">
+                    <h3>✨ 라인불량율 3.3% → 2.1%</h3>
+                    <p>
+                        탭코리아에서 협력사 품질관리 개선을 통한 라인불량율 단계적 감소 달성
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🎓 Education & Certifications</h2>
+                <p class="section-subtitle">학력 및 자격증</p>
+            </div>
+
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3>Advanced Purchasing 과정</h3>
+                    <div class="period">미국 Bowling Green 주립대 | 1997.05 ~ 1997.08</div>
+                    <div class="detail">CPM(Certified Purchasing Manager) 자격 획득</div>
+                </div>
+
+                <div class="education-card">
+                    <h3>경영학과 졸업</h3>
+                    <div class="period">동아대학교 | 1982.03 ~ 1989.02</div>
+                </div>
+
+                <div class="education-card">
+                    <h3>주요 자격증</h3>
+                    <div class="period">국제 및 전문 자격</div>
+                    <div class="detail">
+                        • CPM(Certified Purchasing Manager)<br>
+                        • ISO 9001, 14001 심사원보<br>
+                        • FTA관리사, 수출전문가<br>
+                        • 6 Sigma Master Black-Belt
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 <span class="footer-highlight">Jeong Ho-sik Professional Portfolio</span></p>
+        <p>30+ Years of Procurement & Business Innovation Excellence</p>
+        <p>✉️ mooja4870@gmail.com | 📞 010-2422-4511</p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.exp-card, .achievement-card, .skill-card, .stat-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+    <script>
+        // Project Gallery Filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all') {
+                            card.classList.remove('hide');
+                        } else {
+                            if (card.getAttribute('data-category').includes(filterValue)) {
+                                card.classList.remove('hide');
+                            } else {
+                                card.classList.add('hide');
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
