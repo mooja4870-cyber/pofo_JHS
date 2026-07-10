@@ -1,5 +1,24 @@
 # Version History
 
+## v1.9.38
+
+Date: 2026-07-10
+
+### 변경 내용
+- 웹사이트 기본 제목(`<title>`) 및 링크 공유 제목(`og:title`) 수정.
+  - 기존: `Jeong Ho-sik | Innovation Portfolio` / `Jeong Ho-sik | AI & Web App Portfolio`
+  - 변경: `KDANAWA | Innovation Portfolio` / `KDANAWA | AI & Web App Portfolio`
+
+### 수정 파일
+- portfolio_2.html
+- index.html
+- ver.md
+
+### 비고
+- 제목 텍스트 수정 후 Cloudflare 재배포.
+
+---
+
 ## v1.9.37
 
 Date: 2026-07-10
