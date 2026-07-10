@@ -1,5 +1,24 @@
 # Version History
 
+## v1.9.34
+
+Date: 2026-07-10
+
+### 변경 내용
+- 프로필 열기 버튼("누구세요 ~ ?")의 시각적 인터랙션 강화.
+  - 마우스 클릭을 형상화하는 `ads_click` Material Icon으로 교체.
+  - 마우스 커서가 텍스트를 위아래로 콕콕 누르는 듯한 역동적인 모션을 주기 위해 `animate-bounce` CSS 애니메이션을 적용하여 클릭을 유도함.
+
+### 수정 파일
+- portfolio_2.html
+- index.html
+- ver.md
+
+### 비고
+- Cloudflare kdanawa 재배포.
+
+---
+
 ## v1.9.33
 
 Date: 2026-07-10
