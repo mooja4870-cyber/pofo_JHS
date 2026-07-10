@@ -1,5 +1,22 @@
 # Version History
 
+## v1.9.44
+
+Date: 2026-07-10
+
+### 변경 내용
+- 브랜드 로고('K-DANAWA')의 폰트 색상을 흰색(`text-white`)으로 수정하여 시각적 가독성 개선.
+
+### 수정 파일
+- index.html
+- portfolio_2.html
+- ver.md
+
+### 비고
+- 브랜드명 폰트 색상 수정 후 배포
+
+---
+
 ## v1.9.43
 
 Date: 2026-07-10
