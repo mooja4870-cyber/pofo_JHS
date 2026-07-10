@@ -1,5 +1,22 @@
 # Version History
 
+## v1.9.46
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오 내 모바일 앱 카드인 'Yangdo Tax Calculator AI'와 '착한병원 찾기 (Good Hospital)'를 프로젝트 목록 최상단(1번째, 2번째)으로 배치 순서 조정.
+
+### 수정 파일
+- index.html
+- portfolio_2.html
+- ver.md
+
+### 비고
+- 카드 순서 조정 후 배포
+
+---
+
 ## v1.9.45
 
 Date: 2026-07-10
