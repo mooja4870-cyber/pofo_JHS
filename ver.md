@@ -1,5 +1,23 @@
 # Version History
 
+## v1.7.2
+
+Date: 2026-07-10
+
+### 변경 내용
+- 프로필 사진 최신 이미지로 재교체 (`profile.jpg`)
+- 변경된 이미지 규격에 맞춰 얼굴이 정중앙에 위치하도록 CSS 레이아웃 속성(`object-position: center`) 수정
+
+### 수정 파일
+- portfolio_2.html
+- profile.jpg
+- ver.md
+
+### 비고
+- 기존에 임의로 조정했던 인위적인 오프셋과 줌인 효과 삭제
+
+---
+
 ## v1.7.1
 
 Date: 2026-07-10
