@@ -6,6 +6,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -118,6 +119,9 @@
         }
         .animate-slow-blink {
             animation: slowBlink 2s ease-in-out infinite;
+        }
+        .font-pretendard {
+            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif !important;
         }
         .profile-img-container {
             position: relative;
@@ -477,7 +481,7 @@
                                 ${item.notice ? `<span class="px-3 py-1 bg-red-500/20 border border-red-500/50 rounded-full font-label-mono text-[11px] text-red-300 font-bold flex items-center gap-1 animate-pulse"><span class="material-symbols-outlined text-[12px]">storefront</span>${item.notice}</span>` : ''}
                             </div>
                         </div>
-                        <h3 class="font-headline-md text-xl md:text-2xl text-white mb-4 animate-slow-blink">${item.title}</h3>
+                        <h3 class="font-pretendard font-bold text-xl md:text-2xl text-white mb-4 animate-slow-blink">${item.title}</h3>
                         <p class="text-on-surface-variant font-body-md mb-6">${item.desc}</p>
                     </div>
                     <div class="flex flex-wrap gap-2">

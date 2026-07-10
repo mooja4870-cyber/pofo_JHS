@@ -1,5 +1,23 @@
 # Version History
 
+## v1.9.28
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오 'AI Apps' 섹션 내 **모든 앱(웹/모바일 등 8종 전체)** 카드의 타이틀(제목) 폰트를 가독성이 뛰어난 **'Pretendard' 볼드체(Bold)** 로 일괄 적용.
+- 웹 폰트(Pretendard) CDN 로드 및 커스텀 유틸리티 클래스(`.font-pretendard`) 생성 및 템플릿 매핑 처리.
+
+### 수정 파일
+- portfolio_2.html
+- index.html
+- ver.md
+
+### 비고
+- Cloudflare 배포 파이프라인 재실행 완료.
+
+---
+
 ## v1.9.27
 
 Date: 2026-07-10
