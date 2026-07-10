@@ -1,5 +1,23 @@
 # Version History
 
+## v1.9.42
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오 앱 카드의 상세 설명글(`item.desc`) 텍스트 색상을 라이트그레이 계열(`text-zinc-300`)로 수정.
+  - 가독성을 극대화하기 위해 기존 노란색(`text-yellow-300`)에서 다크 모드에 잘 어울리는 은은하고 밝은 회색 톤으로 변경 적용.
+
+### 수정 파일
+- portfolio_2.html
+- index.html
+- ver.md
+
+### 비고
+- 디자인 수정 후 Cloudflare kdanawa 재배포.
+
+---
+
 ## v1.9.41
 
 Date: 2026-07-10
