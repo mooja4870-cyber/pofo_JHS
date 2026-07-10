@@ -1,5 +1,22 @@
 # Version History
 
+## v1.9.43
+
+Date: 2026-07-10
+
+### 변경 내용
+- 포트폴리오 사이트 상단 브랜드명 및 하단 카피라이트의 영문 표기를 기존 'JEONG HO-SIK'에서 'K-DANAWA'로 변경 적용.
+
+### 수정 파일
+- index.html
+- portfolio_2.html
+- ver.md
+
+### 비고
+- 브랜드명 변경 후 배포
+
+---
+
 ## v1.9.42
 
 Date: 2026-07-10
