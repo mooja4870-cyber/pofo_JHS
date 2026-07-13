@@ -1,5 +1,21 @@
 # Version History
 
+## v1.9.53
+
+Date: 2026-07-13
+
+### 변경 내용
+- 포트폴리오 섹션 헤더 우측 영역에 'All', 'Mobile App.', 'Web App.', 'AI Model' 필터링 버튼 추가.
+- 필터 선택 시 해당 카테고리의 포트폴리오만 동적으로 렌더링되도록 renderPortfolio 및 filterPortfolio 함수 구현.
+- 렌더링 갱신 시 각 앱의 실시간 조회 수(카운터) 데이터가 유실되지 않도록 자바스크립트 전역 캐싱(cachedClicks) 적용.
+
+### 수정 파일
+- index.html
+- ver.md
+
+### 비고
+- 동적 필터링 및 카운터 캐싱 최적화 완료 후 재배포
+
 ## v1.9.52
 
 Date: 2026-07-13
