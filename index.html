@@ -628,8 +628,10 @@
         popup.onclick = function() {
             const targetCard = document.getElementById(`app-card-${appIndex}`);
             if (targetCard) {
-                // 부드럽게 중앙으로 오도록 스크롤
-                targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // 절대 좌표 기반으로 스크롤 이동 (scrollIntoView 대신 호환성 높은 window.scrollTo 사용)
+                const yOffset = -80; // 상단 여백
+                const y = targetCard.getBoundingClientRect().top + window.scrollY + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
             }
         };
     }
