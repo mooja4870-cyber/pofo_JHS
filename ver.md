@@ -1,5 +1,20 @@
 # Version History
 
+## v1.9.47
+
+Date: 2026-07-13
+
+### 변경 내용
+- 포트폴리오 메인 화면(index.html)에 강사 경력 5건(비용절감, 경영혁신, 구매윤리, 엑셀활용, DBase+++ 사내/전문강사) 추가.
+- 'Teaching Track' 이라는 신규 섹션(Instructor Experience)을 Professional Experience 하단에 배치.
+
+### 수정 파일
+- index.html
+- ver.md
+
+### 비고
+- 강사 경력 UI 업데이트
+
 ## v1.9.46
 
 Date: 2026-07-10
