@@ -1,5 +1,20 @@
 # Version History
 
+## v1.9.55
+
+Date: 2026-07-13
+
+### 변경 내용
+- DownTube 프로젝트 카드 클릭 시 GitHub 레포지토리 대신 APK 파일이 직접 다운로드되도록 링크 주소 수정(`https://github.com/mooja4870-cyber/DownTube/raw/master/DownTube.apk`).
+- 안내 메시지를 'APK 파일 직접 다운로드 (로컬 서버 필요)'로 보완하여 사용자 직관성 개선.
+
+### 수정 파일
+- index.html
+- ver.md
+
+### 비고
+- 다운로드 링크 수정 완료 후 배포
+
 ## v1.9.54
 
 Date: 2026-07-13
