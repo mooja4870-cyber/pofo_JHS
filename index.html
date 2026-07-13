@@ -643,22 +643,22 @@
                     let existingPointer = document.getElementById('highlight-pointer');
                     if (existingPointer) existingPointer.remove();
 
-                    // 3. 새로운 손가락 마커(👇) 생성 및 추가
+                    // 3. 새로운 손가락 마커(👇) 생성 및 추가 (크기 200% 상향)
                     const pointer = document.createElement('div');
                     pointer.id = 'highlight-pointer';
-                    // 통통 튀는 애니메이션(animate-bounce)과 함께 손가락 이모지 삽입
-                    pointer.innerHTML = '<div class="text-6xl animate-bounce" style="text-shadow: 0 0 20px rgba(0,219,233,0.8);">👇</div>';
-                    // 절대 위치로 카드 상단 중앙에 배치
-                    pointer.className = 'absolute -top-16 left-1/2 -translate-x-1/2 z-50';
+                    // 통통 튀는 애니메이션(animate-bounce)과 함께 대형 손가락 이모지 삽입
+                    pointer.innerHTML = '<div class="text-[120px] animate-bounce" style="text-shadow: 0 0 20px rgba(0,219,233,0.8);">👇</div>';
+                    // 절대 위치로 카드 상단 중앙에 배치 (크기가 커졌으므로 위로 더 띄움)
+                    pointer.className = 'absolute -top-[130px] left-1/2 -translate-x-1/2 z-50 pointer-events-none';
                     
                     // targetCard 기준 상대 위치 지정을 위해 position 추가
                     targetCard.style.position = 'relative';
                     targetCard.appendChild(pointer);
 
-                    // 4. 3초 뒤 손가락 마커 자동 제거
+                    // 4. 6초 뒤 손가락 마커 자동 제거 (바운스 최소 5~6회 보장)
                     setTimeout(() => {
                         if (pointer.parentNode) pointer.remove();
-                    }, 3000);
+                    }, 6000);
                 }
             });
         }
