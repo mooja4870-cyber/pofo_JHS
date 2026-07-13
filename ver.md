@@ -1,5 +1,22 @@
 # Version History
 
+## v1.9.54
+
+Date: 2026-07-13
+
+### 변경 내용
+- DownTube 프로젝트(FastAPI 백엔드 기반 유튜브 다운로더 및 안드로이드 APK 솔루션)를 포트폴리오에 추가.
+- 카테고리를 Mobile Apps로 지정하고 관련 상세 정보(스택, 깃허브 링크, 로컬 서버 실행 필요 안내) 기재.
+- DownTube 전용 네온 사이버 펑크 스타일 썸네일 이미지(downtube_thumb.png) 생성 및 배치.
+
+### 수정 파일
+- index.html
+- ver.md
+- downtube_thumb.png [NEW]
+
+### 비고
+- 신규 프로젝트 추가 완료 후 kdanawa.pages.dev로 배포
+
 ## v1.9.53
 
 Date: 2026-07-13
