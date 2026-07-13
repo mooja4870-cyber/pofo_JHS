@@ -614,26 +614,54 @@
         const dailyApp = portfolioItems[appIndex];
 
         popup.innerHTML = `
-            <div class="shrink-0 w-20 h-20 flex items-center justify-center rounded-2xl bg-gradient-to-br from-primary-fixed-dim/40 to-secondary/40 border border-primary-fixed-dim/50 shadow-[0_0_15px_rgba(0,219,233,0.5)]">
-                <span class="material-symbols-outlined text-white text-5xl" style="text-shadow: 0 0 8px #fff;">${dailyApp.icon || 'star'}</span>
-            </div>
-            <div class="flex-1 overflow-hidden">
-                <div class="text-sm text-secondary font-bold tracking-widest mb-1.5 uppercase cyber-glow">App of the Day</div>
-                <div class="text-xl md:text-2xl font-extrabold text-white truncate" style="text-shadow: 0 0 8px rgba(255,255,255,0.4);">${dailyApp.title}</div>
-            </div>
-            <span class="material-symbols-outlined text-primary-fixed-dim text-3xl animate-pulse">arrow_forward</span>
+            <a href="javascript:void(0)" id="daily-popup-link" class="flex items-center gap-4 w-full h-full text-left">
+                <div class="shrink-0 w-20 h-20 flex items-center justify-center rounded-2xl bg-gradient-to-br from-primary-fixed-dim/40 to-secondary/40 border border-primary-fixed-dim/50 shadow-[0_0_15px_rgba(0,219,233,0.5)]">
+                    <span class="material-symbols-outlined text-white text-5xl" style="text-shadow: 0 0 8px #fff;">${dailyApp.icon || 'star'}</span>
+                </div>
+                <div class="flex-1 overflow-hidden">
+                    <div class="text-sm text-secondary font-bold tracking-widest mb-1.5 uppercase cyber-glow">App of the Day</div>
+                    <div class="text-xl md:text-2xl font-extrabold text-white truncate" style="text-shadow: 0 0 8px rgba(255,255,255,0.4);">${dailyApp.title}</div>
+                </div>
+                <span class="material-symbols-outlined text-primary-fixed-dim text-3xl animate-pulse">arrow_forward</span>
+            </a>
         `;
         popup.style.display = 'flex';
-        popup.style.cursor = 'pointer';
-        popup.onclick = function() {
-            const targetCard = document.getElementById(`app-card-${appIndex}`);
-            if (targetCard) {
-                // 절대 좌표 기반으로 스크롤 이동 (scrollIntoView 대신 호환성 높은 window.scrollTo 사용)
-                const yOffset = -80; // 상단 여백
-                const y = targetCard.getBoundingClientRect().top + window.scrollY + yOffset;
-                window.scrollTo({ top: y, behavior: 'smooth' });
-            }
-        };
+        
+        // <a> 태그에 클릭 이벤트 부여 (가장 확실한 클릭 호환성)
+        const popupLink = document.getElementById('daily-popup-link');
+        if (popupLink) {
+            popupLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetCard = document.getElementById(`app-card-${appIndex}`);
+                if (targetCard) {
+                    // 1. 스크롤 이동
+                    const yOffset = -80; // 상단 여백
+                    const y = targetCard.getBoundingClientRect().top + window.scrollY + yOffset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+
+                    // 2. 기존 손가락 마커 제거
+                    let existingPointer = document.getElementById('highlight-pointer');
+                    if (existingPointer) existingPointer.remove();
+
+                    // 3. 새로운 손가락 마커(👇) 생성 및 추가
+                    const pointer = document.createElement('div');
+                    pointer.id = 'highlight-pointer';
+                    // 통통 튀는 애니메이션(animate-bounce)과 함께 손가락 이모지 삽입
+                    pointer.innerHTML = '<div class="text-6xl animate-bounce" style="text-shadow: 0 0 20px rgba(0,219,233,0.8);">👇</div>';
+                    // 절대 위치로 카드 상단 중앙에 배치
+                    pointer.className = 'absolute -top-16 left-1/2 -translate-x-1/2 z-50';
+                    
+                    // targetCard 기준 상대 위치 지정을 위해 position 추가
+                    targetCard.style.position = 'relative';
+                    targetCard.appendChild(pointer);
+
+                    // 4. 3초 뒤 손가락 마커 자동 제거
+                    setTimeout(() => {
+                        if (pointer.parentNode) pointer.remove();
+                    }, 3000);
+                }
+            });
+        }
     }
 
     function recordAppClick(idx) {
