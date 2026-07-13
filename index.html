@@ -596,8 +596,8 @@
         `;
         
         let html = item.link 
-            ? `<a href="${item.link}" target="_blank" onclick="recordAppClick(${index})" class="${isFeatured} block h-full">${cardContent}</a>`
-            : `<div class="${isFeatured} h-full">${cardContent}</div>`;
+            ? `<a id="app-card-${index}" href="${item.link}" target="_blank" onclick="recordAppClick(${index})" class="${isFeatured} block h-full">${cardContent}</a>`
+            : `<div id="app-card-${index}" class="${isFeatured} h-full">${cardContent}</div>`;
         container.innerHTML += html;
     });
 
@@ -624,6 +624,14 @@
             <span class="material-symbols-outlined text-primary-fixed-dim text-3xl animate-pulse">arrow_forward</span>
         `;
         popup.style.display = 'flex';
+        popup.style.cursor = 'pointer';
+        popup.onclick = function() {
+            const targetCard = document.getElementById(`app-card-${appIndex}`);
+            if (targetCard) {
+                // 부드럽게 중앙으로 오도록 스크롤
+                targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        };
     }
 
     function recordAppClick(idx) {
