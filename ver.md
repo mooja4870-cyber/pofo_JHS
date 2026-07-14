@@ -1,5 +1,22 @@
 # Version History
 
+## v1.9.58
+
+Date: 2026-07-15
+
+### 변경 내용
+- '한국 주식시장 과열 판별기' 앱 카드에 썸네일 이미지(`overheat_thumb.png`) 추가.
+- index.html, portfolio_2.html 양쪽 동기화.
+
+### 수정 파일
+- index.html
+- portfolio_2.html
+- overheat_thumb.png [NEW]
+- ver.md
+
+### 비고
+- 썸네일 추가 후 재배포
+
 ## v1.9.57
 
 Date: 2026-07-14
