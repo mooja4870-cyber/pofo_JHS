@@ -1,5 +1,20 @@
 # Version History
 
+## v1.9.57
+
+Date: 2026-07-14
+
+### 변경 내용
+- '한국 주식시장 과열 판별기' 앱 카드의 링크를 GitHub 저장소에서 실 배포 Streamlit 주소(`https://toohigh.streamlit.app/`)로 수정.
+
+### 수정 파일
+- index.html
+- portfolio_2.html
+- ver.md
+
+### 비고
+- 링크 핫픽스 후 재배포
+
 ## v1.9.56
 
 Date: 2026-07-14
