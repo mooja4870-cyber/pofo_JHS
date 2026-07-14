@@ -1,5 +1,39 @@
 # Version History
 
+## v1.9.60
+
+Date: 2026-07-15
+
+### 변경 내용
+- 웹 페이지 전체 배경에 1.5cm 간격의 가로/세로 격자 무늬(옅은 회색 라인) 추가
+
+### 수정 파일
+- index.html
+- portfolio_2.html
+- ver.md
+
+### 비고
+- CSS `background-image`의 `linear-gradient`를 활용하여 격자 구현
+- 전문가적 디자인 느낌 강화
+
+## v1.9.59
+
+Date: 2026-07-15
+
+### 변경 내용
+- 'App of the Day' 팝업 로직 개선: 최근 2일 이내 등록된 신규 앱이 있으면 해당 앱을 우선 표시, 없으면 기존 일자 기반 순환 로테이션으로 동작.
+- 모든 portfolioItems에 `date` 필드 추가.
+- '한국 주식시장 과열 판별기' → date: "2026-07-15" (신규)
+
+### 수정 파일
+- index.html
+- portfolio_2.html
+- ver.md
+
+### 비고
+- index.html: 팝업 로직 + date 필드 추가 완료
+- portfolio_2.html: 팝업 로직 + date 필드 추가 완료
+
 ## v1.9.58
 
 Date: 2026-07-15
