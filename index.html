@@ -710,7 +710,9 @@
             title: "정책의견서 (비아파트 임대인 차별 시정)", 
             desc: "성실 임대의무를 완수한 비아파트 임대인에 대한 거주주택 양도세 비과세 차별의 부당함을 지적하고 시정을 호소하는 정책의견서 초안 작성.", 
             tags: ["Policy", "Document", "Real Estate"], 
-            icon: "description"
+            icon: "description",
+            image: "policy_thumbnail.png",
+            pdf: "policy_document.pdf"
         }
     ];
 
@@ -756,12 +758,18 @@
         const content = document.getElementById('daily-ai-modal-content');
         
         let fallbackIcon = `<span class="material-symbols-outlined text-[100px] text-secondary-fixed-dim/30">${item.icon || 'smart_toy'}</span>`;
-        let imageContent = item.image 
-            ? `
+        let imageContent;
+        
+        if (item.pdf) {
+            imageContent = `<iframe src="${item.pdf}" class="w-full h-[60vh] md:h-[80vh] border-0 rounded bg-white"></iframe>`;
+        } else if (item.image) {
+            imageContent = `
                 <img src="${item.image}" alt="${item.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="w-full max-h-[60vh] md:max-h-[80vh] object-contain" />
                 <div style="display: none;" class="w-full h-full min-h-[300px] items-center justify-center">${fallbackIcon}</div>
-              `
-            : `<div class="w-full h-full flex items-center justify-center min-h-[300px]">${fallbackIcon}</div>`;
+              `;
+        } else {
+            imageContent = `<div class="w-full h-full flex items-center justify-center min-h-[300px]">${fallbackIcon}</div>`;
+        }
             
         content.innerHTML = `
             <div class="w-full md:w-3/5 bg-black/60 flex items-center justify-center p-4">

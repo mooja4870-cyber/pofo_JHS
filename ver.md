@@ -1,5 +1,23 @@
 # Version History
 
+## v1.9.70
+
+Date: 2026-07-17
+
+### 변경 내용
+- 1일 1AI 정책의견서 항목에 AI 생성 썸네일(policy_thumbnail.png) 적용
+- 모달 창에서 원본 PDF 문서(policy_document.pdf)를 즉시 조회할 수 있는 iframe 뷰어 기능 추가
+
+### 수정 파일
+- index.html
+- policy_thumbnail.png (신규 생성)
+- policy_document.pdf (신규 연동)
+- ver.md
+
+### 비고
+- 문서 가독성을 위해 PDF 뷰어 백그라운드를 흰색으로 설정
+
+
 ## v1.9.69
 
 Date: 2026-07-17
