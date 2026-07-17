@@ -708,7 +708,10 @@
         dailyAiItems.forEach((item, index) => {
             let fallbackIcon = `<span class="material-symbols-outlined text-[60px] text-secondary-fixed-dim/30">${item.icon || 'smart_toy'}</span>`;
             let imageContent = item.image 
-                ? `<img src="${item.image}" alt="${item.title}" onerror="this.onerror=null; this.parentElement.innerHTML='${fallbackIcon.replace(/'/g, "\\'")}'" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />`
+                ? `
+                    <img src="${item.image}" alt="${item.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    <div style="display: none;" class="absolute inset-0 w-full h-full items-center justify-center bg-surface-container-highest">${fallbackIcon}</div>
+                  `
                 : fallbackIcon;
 
             let cardContent = `
@@ -739,7 +742,10 @@
         
         let fallbackIcon = `<span class="material-symbols-outlined text-[100px] text-secondary-fixed-dim/30">${item.icon || 'smart_toy'}</span>`;
         let imageContent = item.image 
-            ? `<img src="${item.image}" alt="${item.title}" onerror="this.onerror=null; this.parentElement.innerHTML='${fallbackIcon.replace(/'/g, "\\'")}'" class="w-full max-h-[60vh] md:max-h-[80vh] object-contain" />`
+            ? `
+                <img src="${item.image}" alt="${item.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="w-full max-h-[60vh] md:max-h-[80vh] object-contain" />
+                <div style="display: none;" class="w-full h-full min-h-[300px] items-center justify-center">${fallbackIcon}</div>
+              `
             : `<div class="w-full h-full flex items-center justify-center min-h-[300px]">${fallbackIcon}</div>`;
             
         content.innerHTML = `
