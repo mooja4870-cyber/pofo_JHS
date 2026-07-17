@@ -1,5 +1,20 @@
 # Version History
 
+## v1.9.61
+
+Date: 2026-07-17
+
+### 변경 내용
+- 메인 페이지(index.html)에 '1일 1AI' 섹션 및 네비게이션 탭 추가
+- 매일 생성한 AI 결과물 기록을 위한 Javascript 데이터 구조 및 렌더링 로직 추가
+
+### 수정 파일
+- index.html
+- ver.md
+
+### 비고
+- 'Projects' 하단에 Grid 레이아웃으로 동적 생성되도록 구성
+
 ## v1.9.60
 
 Date: 2026-07-15

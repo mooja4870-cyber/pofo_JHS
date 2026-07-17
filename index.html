@@ -202,7 +202,8 @@
 <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary-fixed-dim transition-colors duration-300" href="#about">About</a>
 <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary-fixed-dim transition-colors duration-300" href="#experience">Experience</a>
 <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary-fixed-dim transition-colors duration-300" href="#skills">Skills</a>
-<a class="font-label-mono text-label-mono text-primary-fixed-dim font-bold transition-colors duration-300" href="#projects">AI Apps</a>
+<a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary-fixed-dim transition-colors duration-300" href="#projects">AI Apps</a>
+<a class="font-label-mono text-label-mono text-secondary-fixed-dim hover:text-secondary-fixed transition-colors duration-300" href="#daily-ai">1일 1AI</a>
 </nav>
 <div class="flex items-center gap-2">
 <div id="visitor-counter" class="inline-flex items-center gap-1.5 text-[10px] font-label-mono text-primary-fixed-dim uppercase tracking-widest">
@@ -549,6 +550,27 @@
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="portfolio-container">
 <!-- Projects will be injected here dynamically or statically -->
 </div>
+
+<!-- 1일 1AI Section -->
+<section id="daily-ai" class="mt-32 mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+<div>
+<div class="flex items-center gap-4 mb-4">
+<span class="h-[1px] w-12 bg-secondary-fixed-dim"></span>
+<span class="font-label-mono text-label-mono text-secondary-fixed-dim uppercase tracking-[0.2em]">Daily Creation</span>
+</div>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-6">
+                1일 <span class="text-secondary-fixed-dim cyber-glow">1AI</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                매일 꾸준히 AI를 활용하여 실험하고 창조한 결과물(이미지, 코드, 기획 등)을 기록하는 공간입니다.
+</p>
+</div>
+</section>
+
+<!-- 1일 1AI Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-20" id="daily-ai-container">
+<!-- Daily AI items will be injected here -->
+</div>
 </main>
 
 <script>
@@ -645,6 +667,51 @@
 
     // 초기 화면 구성
     renderPortfolio('All');
+
+    // 1일 1AI 데이터 리스트 및 렌더링 로직
+    const dailyAiItems = [
+        { 
+            date: "2026-07-17", 
+            title: "첫 1일 1AI 시작", 
+            desc: "매일 AI를 활용해 창조물을 기록하기 위한 '1일 1AI' 섹션을 포트폴리오 메인 페이지에 신규 구축.", 
+            tags: ["Web", "AI Agent", "HTML"], 
+            icon: "rocket_launch"
+        }
+    ];
+
+    const dailyAiContainer = document.getElementById('daily-ai-container');
+    
+    function renderDailyAi() {
+        if (!dailyAiContainer) return;
+        dailyAiContainer.innerHTML = '';
+        
+        dailyAiItems.forEach((item) => {
+            let imageContent = item.image 
+                ? `<img src="${item.image}" alt="${item.title}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />`
+                : `<span class="material-symbols-outlined text-[60px] text-secondary-fixed-dim/30">${item.icon || 'smart_toy'}</span>`;
+
+            let cardContent = `
+                <div class="glass-card rounded-xl overflow-hidden h-full flex flex-col group hover:border-secondary-fixed-dim/50 transition-all cursor-pointer">
+                    <div class="h-40 relative overflow-hidden bg-surface-container-highest flex items-center justify-center">
+                        ${imageContent}
+                        <div class="absolute top-3 left-3 px-2 py-1 bg-background/60 backdrop-blur-md rounded border border-white/10 font-label-mono text-[10px] text-secondary-fixed-dim z-10">
+                            ${item.date}
+                        </div>
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                        <h3 class="font-pretendard font-bold text-lg text-white mb-2 group-hover:text-secondary-fixed transition-colors">${item.title}</h3>
+                        <p class="text-zinc-400 font-body-md text-sm mb-4 flex-1 break-keep">${item.desc}</p>
+                        <div class="flex flex-wrap gap-1.5 mt-auto">
+                            ${item.tags.map(tag => \`<span class="font-label-mono text-[9px] text-on-surface-variant bg-surface-container border border-white/5 px-1.5 py-0.5 rounded">\${tag.toUpperCase()}</span>\`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+            dailyAiContainer.innerHTML += cardContent;
+        });
+    }
+    
+    renderDailyAi();
 
     // 데일리 앱 팝업 렌더링 로직 (Floating 3D 스타일)
     const popup = document.getElementById('daily-app-popup');
