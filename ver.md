@@ -1,5 +1,20 @@
 # Version History
 
+## v1.9.62
+
+Date: 2026-07-17
+
+### 변경 내용
+- 1일 1AI 섹션 Javascript 파싱 오류(SyntaxError) 수정
+
+### 수정 파일
+- index.html
+- ver.md
+
+### 비고
+- 백틱 이스케이프 문자 제거
+
+
 ## v1.9.61
 
 Date: 2026-07-17
