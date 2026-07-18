@@ -1,5 +1,26 @@
 # Version History
 
+## v1.9.77
+
+Date: 2026-07-18
+
+### 변경 내용
+- 자격 및 수료 (Credentials) 섹션에 신규 자격증 2종 추가 연동 (총 8종 구성)
+- 반영 자격증:
+  - **5R 코칭리더십 수료증** (발행: Asia Coach Center, 수료일: 2019.02.13)
+  - **대학 산학협력교수 양성 사관학교 수료증** (발행: 아주대학교, 수료일: 2019.02.14)
+- 각 자격증의 고화질 팝업(Lightbox) 뷰어 연동 완료
+- 자격증 이미지 리소스 2종 추가
+
+### 수정 파일
+- index.html
+- ver.md
+- coaching_leader_cert.jpg [NEW]
+- univ_coop_prof_cert.jpg [NEW]
+
+### 비고
+- 로컬 검증 완료
+
 ## v1.9.76
 
 Date: 2026-07-18
