@@ -1,5 +1,21 @@
 # Version History
 
+## v1.9.82
+
+Date: 2026-07-18
+
+### 변경 내용
+- **1일 1AI** 피드에 "자격 및 수료증(Credentials) 통합 연동" 신규 카드 항목 등록
+- 자격증 대시보드 그래픽 썸네일 이미지 `cert_grid_preview.png` 리소스 연동
+
+### 수정 파일
+- index.html
+- ver.md
+- cert_grid_preview.png [NEW]
+
+### 비고
+- 로컬 검증 완료
+
 ## v1.9.81
 
 Date: 2026-07-18
