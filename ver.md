@@ -1,6 +1,18 @@
 # Version History
 
-## v1.9.2
+## v1.9.84
+
+Date: 2026-07-18
+
+### 변경 내용
+- 보은 살아보기 이미지 브라우저 캐시 무효화 (Cache Busting)
+  - `index.html`에서 이미지 경로에 `?v=2` 파라미터 추가 (`boeun_apply_01.jpg?v=2` 등)
+
+### 수정 파일
+- index.html
+- ver.md
+
+---## v1.9.2
 
 Date: 2026-07-18
 
