@@ -1,5 +1,20 @@
 # Version History
 
+## v1.9.74
+
+Date: 2026-07-18
+
+### 변경 내용
+- `portfolio_2.html`의 상단 로고(KDANAWA) 영역을 클릭 시 `https://kdanawa.kr/`로 이동하도록 `a` 태그 링크 처리 및 호버 효과 적용
+- `portfolio_2.html`의 `og:image`, `og:url` 메타태그 주소를 새로운 커스텀 도메인(`kdanawa.kr`)으로 변경
+
+### 수정 파일
+- portfolio_2.html
+- ver.md
+
+### 비고
+- 로컬 검증 완료
+
 ## v1.9.73
 
 Date: 2026-07-18
