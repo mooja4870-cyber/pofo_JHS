@@ -1,5 +1,21 @@
 # Version History
 
+## v1.9.72
+
+Date: 2026-07-18
+
+### 변경 내용
+- 배포처 도메인을 기본 `kdanawa.pages.dev`에서 커스텀 도메인 `kdanawa.kr`로 수정 및 연동
+- 메타태그(`og:url`, `og:image`) 및 헤더 로고 링크 주소를 새로운 도메인으로 일괄 갱신
+
+### 수정 파일
+- index.html
+- ver.md
+
+### 비고
+- Cloudflare Pages 대시보드에서 커스텀 도메인(kdanawa.kr) 수동 연동 필요 안내
+- 네임서버(YesNIC) 설정 변경 안내
+
 ## v1.9.71
 
 Date: 2026-07-17
