@@ -924,6 +924,48 @@
     const revealBtn = document.getElementById('reveal-profile-btn');
     const profileContainer = document.getElementById('author-profile-container');
     
+    function revealProfileAndScrollTo(targetId) {
+        if (!profileContainer) return;
+        
+        if (profileContainer.classList.contains('hidden')) {
+            // Hide the button container gracefully
+            if (revealBtn && revealBtn.parentElement) {
+                revealBtn.parentElement.style.opacity = '0';
+                revealBtn.parentElement.style.transition = 'opacity 0.3s ease';
+                setTimeout(() => {
+                    revealBtn.parentElement.style.display = 'none';
+                    
+                    // Show the profile container
+                    profileContainer.classList.remove('hidden');
+                    void profileContainer.offsetWidth; // Trigger reflow
+                    profileContainer.classList.remove('opacity-0');
+                    profileContainer.classList.add('opacity-100');
+                    
+                    // Scroll to target section
+                    scrollToSection(targetId);
+                }, 300);
+            } else {
+                // Fallback
+                profileContainer.classList.remove('hidden');
+                void profileContainer.offsetWidth;
+                profileContainer.classList.remove('opacity-0');
+                profileContainer.classList.add('opacity-100');
+                scrollToSection(targetId);
+            }
+        } else {
+            scrollToSection(targetId);
+        }
+    }
+
+    function scrollToSection(targetId) {
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+            const yOffset = -80; // 상단 헤더 높이 반영 여백
+            const y = targetEl.getBoundingClientRect().top + window.scrollY + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+    }
+
     if (revealBtn && profileContainer) {
         revealBtn.addEventListener('click', function() {
             // Hide the button container gracefully
@@ -945,6 +987,17 @@
             }, 300);
         });
     }
+
+    // Bind event listeners to About, Experience, Skills links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        const href = anchor.getAttribute('href');
+        if (['#about', '#experience', '#skills'].includes(href)) {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                revealProfileAndScrollTo(href.substring(1));
+            });
+        }
+    });
 
 </script>
 
