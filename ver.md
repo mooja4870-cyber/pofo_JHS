@@ -1,5 +1,25 @@
 # Version History
 
+## v1.9.1
+
+Date: 2026-07-18
+
+### 변경 내용
+- 보은 살아보기 신청서 첫 번째 이미지 교체
+  - `KakaoTalk_Photo_2026-07-13-18-19-22 001.jpeg` → `001-02.jpeg` (부분 모자이크 처리본)
+  - 기존 모자이크 자동화 처리(`mosaic_apply.py`) 작업 취소, 수동 처리된 이미지로 대체
+- `boeun_apply_01.jpg` 및 `boeun_apply_01_orig.jpg` 갱신
+
+### 수정 파일
+- boeun_apply_01.jpg [UPDATED]
+- boeun_apply_01_orig.jpg [UPDATED]
+- ver.md
+
+### 비고
+- 모자이크 처리: 연락처, 생년월일, 주소 등 개인정보 부분 수동 처리
+
+---
+
 ## v1.9.83
 
 Date: 2026-07-18
