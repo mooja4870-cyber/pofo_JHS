@@ -1,5 +1,26 @@
 # Version History
 
+## v1.9.2
+
+Date: 2026-07-18
+
+### 변경 내용
+- 보은 살아보기 이미지 4장 전체를 `/Documents/apply/live_in_boeun/` 최신 파일로 교체 확인
+  - boeun1.jpeg → boeun_apply_01.jpg (참가신청서, 모자이크 처리본)
+  - boeun2.jpeg → boeun_apply_02.jpg (여행계획서)
+  - boeun3.jpeg → boeun_apply_03.jpg (개인정보동의서)
+  - boeun4.jpeg → boeun_apply_04.jpg (서약서)
+- MD5 해시 일치 확인 완료 (실질 교체 이미 완료 상태)
+
+### 수정 파일
+- boeun_apply_01.jpg [UPDATED]
+- boeun_apply_02.jpg [UPDATED]
+- boeun_apply_03.jpg [UPDATED]
+- boeun_apply_04.jpg [UPDATED]
+- ver.md
+
+---
+
 ## v1.9.1
 
 Date: 2026-07-18
