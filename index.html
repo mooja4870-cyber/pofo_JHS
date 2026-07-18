@@ -683,6 +683,15 @@
     // 1일 1AI 데이터 리스트 및 렌더링 로직
     const dailyAiItems = [
         { 
+            date: "2026-07-18", 
+            title: "포트폴리오 커스텀 도메인 배포 (kdanawa.kr)", 
+            desc: "kdanawa.kr 도메인 구매부터 클라우드플레어 네임서버 연동, Pages 배포 자동화까지 완료한 과정을 숏폼 영상으로 제작 및 기록.", 
+            tags: ["Video", "Domain", "Deployment"], 
+            icon: "videocam",
+            video: "🎬_버전_핵심_요약형_추천___초_화면.mp4",
+            image: "shorts_background.png"
+        },
+        { 
             date: "2026-07-17", 
             title: "우주 테니스공 아트웍 창작", 
             desc: "오전에 맥도널드에서 본 타인의 옷에 새겨진 YONEX 아트웍(유령과 마시멜로)에서 영감을 얻어, AI를 활용해 WILSON 우주 테니스공 컨셉의 고퀄리티 포스터 아트로 응용 및 창작.", 
@@ -755,6 +764,8 @@
         
         if (item.pdf) {
             imageContent = `<iframe src="${item.pdf}" class="w-full h-[60vh] md:h-[80vh] border-0 rounded bg-white"></iframe>`;
+        } else if (item.video) {
+            imageContent = `<video src="${item.video}" poster="${item.image || ''}" controls autoplay class="w-full max-h-[60vh] md:max-h-[80vh] object-contain rounded"></video>`;
         } else if (item.image) {
             imageContent = `
                 <img src="${item.image}" alt="${item.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="w-full max-h-[60vh] md:max-h-[80vh] object-contain" />
