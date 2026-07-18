@@ -845,6 +845,16 @@
 
     // 1일 1AI 데이터 리스트 및 렌더링 로직
     const dailyAiItems = [
+        {
+            date: "2026-07-16",
+            title: "충북 보은 '살아보기' 행사 지원 (AI 활용)",
+            desc: "충청북도 보은군의 '충북 일단 살아보기' 프로그램(6박 7일, 2026년 8월~9월 중)에 AI의 도움으로 참가신청서·여행계획서·개인정보동의서·서약서 4종을 작성해 7월 16일 신청 완료. 유튜브 '시니어본색' 채널(구독자 17,620명)을 통한 법주사, 속리산, 정이품송 공원 등 보은 명소 콘텐츠 제작 및 시니어 세대 홍보를 약속한 기획안 포함.",
+            tags: ["AI Writing", "Application", "Content"],
+            icon: "travel_explore",
+            image: "boeun_apply_01.jpg",
+            images: ["boeun_apply_01.jpg", "boeun_apply_02.jpg", "boeun_apply_03.jpg", "boeun_apply_04.jpg"],
+            imageLabels: ["참가신청서", "여행계획서", "개인정보동의서", "서약서"]
+        },
         { 
             date: "2026-07-18", 
             title: "자격 및 수료증(Credentials) 통합 연동", 
@@ -937,6 +947,27 @@
             imageContent = `<iframe src="${item.pdf}" class="w-full h-[60vh] md:h-[80vh] border-0 rounded bg-white"></iframe>`;
         } else if (item.video) {
             imageContent = `<video src="${item.video}" poster="${item.image || ''}" controls autoplay class="w-full max-h-[60vh] md:max-h-[80vh] object-contain rounded"></video>`;
+        } else if (item.images && item.images.length > 1) {
+            // 다중 이미지 슬라이드 갤러리
+            const labels = item.imageLabels || item.images.map((_, i) => `이미지 ${i+1}`);
+            const slides = item.images.map((src, i) => `
+                <div class="boeun-slide" style="display:${i===0?'flex':'none'}; flex-direction:column; align-items:center; width:100%;">
+                    <img src="${src}" alt="${labels[i]}" class="w-full max-h-[55vh] object-contain rounded" />
+                    <span class="mt-2 text-xs text-secondary-fixed-dim font-label-mono">${labels[i]}</span>
+                </div>
+            `).join('');
+            imageContent = `
+                <div id="boeun-gallery" style="position:relative; width:100%;">
+                    ${slides}
+                    <div style="display:flex; justify-content:center; gap:8px; margin-top:12px;">
+                        ${item.images.map((_, i) => `<button onclick="boeunSlide(${i})" id="boeun-dot-${i}" style="width:10px;height:10px;border-radius:50%;border:none;cursor:pointer;background:${i===0?'#a5f3fc':'rgba(255,255,255,0.25)'}" title="${(item.imageLabels||[])[i]||i+1}"></button>`).join('')}
+                    </div>
+                    <div style="display:flex; justify-content:space-between; position:absolute; top:45%; width:100%; padding:0 4px; box-sizing:border-box;">
+                        <button onclick="boeunSlide(-1, true)" style="background:rgba(0,0,0,0.5);border:none;color:#fff;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:18px;">&#8249;</button>
+                        <button onclick="boeunSlide(1, true)" style="background:rgba(0,0,0,0.5);border:none;color:#fff;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:18px;">&#8250;</button>
+                    </div>
+                </div>
+            `;
         } else if (item.image) {
             imageContent = `
                 <img src="${item.image}" alt="${item.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="w-full max-h-[60vh] md:max-h-[80vh] object-contain" />
@@ -971,6 +1002,26 @@
         modal.classList.add('hidden');
         modal.classList.remove('flex');
         document.body.style.overflow = 'auto';
+    }
+
+    // 보은 살아보기 이미지 슬라이드 제어
+    let boeunCurrentSlide = 0;
+    function boeunSlide(indexOrDelta, isDelta = false) {
+        const slides = document.querySelectorAll('.boeun-slide');
+        if (!slides.length) return;
+        if (isDelta) {
+            boeunCurrentSlide = (boeunCurrentSlide + indexOrDelta + slides.length) % slides.length;
+        } else {
+            boeunCurrentSlide = indexOrDelta;
+        }
+        slides.forEach((s, i) => {
+            s.style.display = i === boeunCurrentSlide ? 'flex' : 'none';
+        });
+        // dot 업데이트
+        slides.forEach((_, i) => {
+            const dot = document.getElementById(`boeun-dot-${i}`);
+            if (dot) dot.style.background = i === boeunCurrentSlide ? '#a5f3fc' : 'rgba(255,255,255,0.25)';
+        });
     }
 
     renderDailyAi();
