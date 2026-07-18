@@ -1,5 +1,28 @@
 # Version History
 
+## v1.9.76
+
+Date: 2026-07-18
+
+### 변경 내용
+- 기존 인텔 AI 수료 단일 배너를 확장하여 6종의 자격/수료증을 통합해서 보여주는 **자격 및 수료 (Credentials) 섹션** 신설
+- 반영 자격증: 인텔 AI 앱크리에이터, C.P.M., FTA관리사 2급, 법정관리인/감사 양성 수료, 전산회계 1급, 컴퓨터활용능력 2급
+- 헤더 네비게이션 바에 **Credentials** 메뉴 탭을 추가하고, 스크롤 연동 및 클릭 시 프로필 강제 노출 기능 연결
+- 각 자격증을 확대해서 볼 수 있는 **라이트박스 팝업 모달(Lightbox Modal)** 레이아웃 및 스크립트 추가
+- 자격증 이미지 5종 리소스 추가
+
+### 수정 파일
+- index.html
+- ver.md
+- com_level2_cert.jpg [NEW]
+- tax_accountant_cert.jpg [NEW]
+- cpm_cert.jpg [NEW]
+- fta_manager_cert.jpg [NEW]
+- legal_manager_cert.jpg [NEW]
+
+### 비고
+- 로컬 검증 완료
+
 ## v1.9.75
 
 Date: 2026-07-18
