@@ -1,5 +1,19 @@
 # Version History
 
+## v1.9.93
+
+Date: 2026-07-19
+
+### 변경 내용
+- 햄스터 비디오 항목의 썸네일 이미지(`hamster_thumbnail.png`) 생성 및 추가
+
+### 수정 파일
+- index.html
+- hamster_thumbnail.png (추가됨)
+
+### 비고
+- Wrangler를 통해 강제 배포 완료
+
 ## v1.9.92
 
 Date: 2026-07-19
