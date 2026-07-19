@@ -1,5 +1,19 @@
 # Version History
 
+## v1.12.0
+
+Date: 2026-07-19
+
+### 변경 내용
+- 1Day 1AI 카드 썸네일(이미지1) 우측 하단에 클릭을 유도하는 깜빡이는 뱃지(`👆 클릭하여 크게 보기`) 및 `animate-pulse` 효과 적용
+- 1Day 1AI 모달 상세 팝업(이미지2) 내 원본 이미지 및 하단 버튼 클릭 시 하이퍼링크(`https://dlocal.streamlit.app/`)로 즉시 이동하는 인터랙션 연결
+
+### 수정 파일
+- index.html
+
+### 비고
+- Wrangler(Cloudflare Pages)를 통해 kdanawa.kr 실시간 프로덕션 강제 배포 완료
+
 ## v1.11.0
 
 Date: 2026-07-19

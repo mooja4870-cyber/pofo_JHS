@@ -852,7 +852,8 @@
             desc: "AI 및 숏폼 공모전·지원사업 브리핑 웹앱(d_LOCAL)의 이중 자동 업데이트 메커니즘 구축. 백엔드(서버)는 매 5분마다 13개 공모전/RSS 소스를 스크래핑 및 정제하여 DB를 갱신하고, 프론트엔드(클라이언트)는 30분 주기 백그라운드 갱신 및 화면 복귀(Page Visibility Check) 시 0초 대기로 최신 데이터를 동기화하는 아키텍처 및 시스템 인젝션 로직을 설계 및 완성.", 
             tags: ["Architecture", "Real-Time Sync", "Full-Stack"], 
             icon: "sync",
-            image: "dlocal_sync_arch.png"
+            image: "dlocal_sync_arch.png",
+            link: "https://dlocal.streamlit.app/"
         },
         { 
             date: "2026-07-19", 
@@ -939,6 +940,9 @@
                         <div class="absolute top-3 left-3 px-2 py-1 bg-background/60 backdrop-blur-md rounded border border-white/10 font-label-mono text-[10px] text-secondary-fixed-dim z-10">
                             ${item.date}
                         </div>
+                        <div class="absolute bottom-3 right-3 px-3 py-1 bg-black/80 backdrop-blur-md rounded-full border border-secondary-fixed-dim/50 font-label-mono text-[11px] text-white flex items-center gap-1.5 animate-pulse z-10 shadow-lg">
+                            <span class="text-sm">👆</span><span>클릭하여 크게 보기</span>
+                        </div>
                     </div>
                     <div class="p-5 flex flex-col flex-1">
                         <h3 class="font-pretendard font-bold text-lg text-white mb-2 group-hover:text-secondary-fixed transition-colors">${item.title}</h3>
@@ -987,10 +991,19 @@
                 </div>
             `;
         } else if (item.image) {
-            imageContent = `
-                <img src="${item.image}" alt="${item.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="w-full max-h-[60vh] md:max-h-[80vh] object-contain" />
-                <div style="display: none;" class="w-full h-full min-h-[300px] items-center justify-center">${fallbackIcon}</div>
-              `;
+            const imgTag = `<img src="${item.image}" alt="${item.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="w-full max-h-[60vh] md:max-h-[80vh] object-contain transition-transform duration-300 hover:scale-[1.02]" />`;
+            imageContent = item.link 
+                ? `<a href="${item.link}" target="_blank" title="클릭하여 웹앱(${item.link}) 바로가기" class="w-full flex items-center justify-center relative group cursor-pointer">
+                     ${imgTag}
+                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+                         <span class="px-6 py-3 bg-secondary-fixed-dim text-black font-pretendard font-bold rounded-full flex items-center gap-2 shadow-2xl transform scale-95 group-hover:scale-100 transition-all text-sm">
+                             <span class="material-symbols-outlined text-lg">open_in_new</span>웹앱 실시간 바로 접속하기
+                         </span>
+                     </div>
+                   </a>
+                   <div style="display: none;" class="w-full h-full min-h-[300px] items-center justify-center">${fallbackIcon}</div>`
+                : `${imgTag}
+                   <div style="display: none;" class="w-full h-full min-h-[300px] items-center justify-center">${fallbackIcon}</div>`;
         } else {
             imageContent = `<div class="w-full h-full flex items-center justify-center min-h-[300px]">${fallbackIcon}</div>`;
         }
@@ -1008,6 +1021,7 @@
                 <div class="flex flex-wrap gap-2 mt-auto">
                     ${item.tags.map(tag => `<span class="font-label-mono text-xs text-on-surface-variant bg-surface-container border border-white/5 px-3 py-1.5 rounded">${tag.toUpperCase()}</span>`).join('')}
                 </div>
+                ${item.link ? `<a href="${item.link}" target="_blank" class="mt-6 w-full py-3.5 bg-secondary-fixed-dim hover:bg-secondary-fixed text-black font-pretendard font-bold rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg cyber-glow"><span class="material-symbols-outlined">rocket_launch</span>웹서비스 실시간 바로가기</a>` : ''}
             </div>
         `;
         modal.classList.remove('hidden');
