@@ -1,5 +1,21 @@
 # Version History
 
+## v1.11.0
+
+Date: 2026-07-19
+
+### 변경 내용
+- AI App Portfolio 섹션(`portfolioItems`) 최상단에 'AI & 숏폼 공모전 브리핑(https://dlocal.streamlit.app/)' 웹앱 프로젝트 카드 추가
+- 신규 프로젝트 전용 대시보드 테마의 프리미엄 UI 썸네일 이미지(`dlocal_app_thumb.png`) 생성 및 적용
+
+### 수정 파일
+- index.html
+- dlocal_app_thumb.png
+
+### 비고
+- 포트폴리오 메인 화면 featured(2칸 확장) 카드로 최우선 배치
+- Wrangler(Cloudflare Pages)를 통해 kdanawa.kr 실시간 프로덕션 강제 배포 완료
+
 ## v1.10.0
 
 Date: 2026-07-19
