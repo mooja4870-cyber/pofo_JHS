@@ -1,5 +1,19 @@
 # Version History
 
+## v1.9.92
+
+Date: 2026-07-19
+
+### 변경 내용
+- 1일 1AI 섹션에 '생후 48시간 햄찌의 먹이 사수' 동영상(`age_48hrs_hamzzi.mp4`) 추가
+
+### 수정 파일
+- index.html
+- age_48hrs_hamzzi.mp4 (추가됨)
+
+### 비고
+- Wrangler를 통해 강제 배포 완료
+
 ## v1.9.91
 
 Date: 2026-07-19
