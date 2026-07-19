@@ -14,6 +14,7 @@ Date: 2026-07-19
 
 ### 비고
 - '1Day 1AI' 최상단 아이템으로 등록 완료
+- Wrangler(Cloudflare Pages)를 통해 kdanawa.kr 실시간 강제 배포 완료
 
 ## v1.9.98
 
