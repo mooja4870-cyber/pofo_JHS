@@ -14,6 +14,7 @@ Date: 2026-07-24
 
 ### 비고
 - 모바일 앱 카드 notice 뱃지 디자인 및 텍스트 반영 완료
+- Wrangler(Cloudflare Pages)를 통해 kdanawa.kr 실시간 프로덕션 강제 배포 완료
 
 ## v1.12.0
 
