@@ -1,5 +1,19 @@
 # Version History
 
+## v1.12.2
+
+Date: 2026-07-24
+
+### 변경 내용
+- 스토어 론칭 라운드박스 뱃지 및 내부 문구 155% 확대/축소 및 투명도 깜빡임 줌 애니메이션(`animate-pulse-scale`, `@keyframes pulseScale`) 추가 적용
+
+### 수정 파일
+- index.html
+- portfolio_2.html
+
+### 비고
+- Wrangler(Cloudflare Pages)를 통해 kdanawa.kr 실시간 프로덕션 강제 배포 진행
+
 ## v1.12.1
 
 Date: 2026-07-24

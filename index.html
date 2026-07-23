@@ -133,6 +133,15 @@
         .animate-slow-blink {
             animation: slowBlink 2s ease-in-out infinite;
         }
+        @keyframes pulseScale {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.55); opacity: 0.55; }
+        }
+        .animate-pulse-scale {
+            animation: pulseScale 1.6s ease-in-out infinite;
+            display: inline-flex;
+            transform-origin: center;
+        }
         .font-pretendard {
             font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif !important;
         }
@@ -801,7 +810,7 @@
                             <div class="flex items-center justify-between mb-4">
                                 <div class="flex flex-wrap gap-2 items-center">
                                     <span class="px-3 py-1 bg-primary-container/10 border border-primary-container/20 rounded-full font-label-mono text-[10px] text-primary-fixed-dim uppercase tracking-wider">${item.type}</span>
-                                    ${item.notice ? `<span class="px-3 py-1 bg-amber-500/20 border border-amber-400/60 rounded-full font-label-mono text-[11px] text-amber-300 font-bold flex items-center gap-1 animate-pulse"><span class="material-symbols-outlined text-[12px]">storefront</span>${item.notice}</span>` : ''}
+                                    ${item.notice ? `<span class="px-3 py-1 bg-amber-500/20 border border-amber-400/60 rounded-full font-label-mono text-[11px] text-amber-300 font-bold items-center gap-1 animate-pulse-scale"><span class="material-symbols-outlined text-[12px]">storefront</span>${item.notice}</span>` : ''}
                                 </div>
                             </div>
                             <h3 class="font-pretendard font-bold text-xl md:text-2xl text-white mb-4 animate-slow-blink">${item.title}</h3>
