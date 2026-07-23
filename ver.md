@@ -1,5 +1,20 @@
 # Version History
 
+## v1.12.1
+
+Date: 2026-07-24
+
+### 변경 내용
+- AI App Portfolio 스토어 론칭 관련 안내 문구 업데이트 (`2026년 7월 22일 구글플레이스토어 론칭 !`)
+- notice 라운드박스 뱃지의 배경 및 테두리 스타일을 황금색 톤(`bg-amber-500/20`, `border-amber-400/60`, `text-amber-300`)으로 변경 및 깜빡임(`animate-pulse`) 효과 유지/적용
+
+### 수정 파일
+- index.html
+- portfolio_2.html
+
+### 비고
+- 모바일 앱 카드 notice 뱃지 디자인 및 텍스트 반영 완료
+
 ## v1.12.0
 
 Date: 2026-07-19
