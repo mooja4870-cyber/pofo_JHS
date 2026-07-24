@@ -214,6 +214,7 @@
 <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary-fixed-dim transition-colors duration-300" href="#credentials">Credentials</a>
 <a class="font-label-mono text-label-mono text-on-surface-variant hover:text-primary-fixed-dim transition-colors duration-300" href="#projects">AI Apps</a>
 <a class="font-label-mono text-label-mono text-secondary-fixed-dim hover:text-secondary-fixed transition-colors duration-300" href="#daily-ai">1Day 1AI</a>
+<a class="font-label-mono text-label-mono text-emerald-400 hover:text-emerald-300 transition-colors duration-300" href="#activity-calendar">Calendar</a>
 </nav>
 <div class="flex items-center gap-2">
 <div id="visitor-counter" class="inline-flex items-center gap-1.5 text-[10px] font-label-mono text-primary-fixed-dim uppercase tracking-widest">
@@ -744,6 +745,79 @@
 <!-- Daily AI items will be injected here -->
 </div>
 
+<!-- Activity Calendar Section -->
+<section id="activity-calendar" class="mb-24 scroll-mt-24">
+    <div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+            <div class="flex items-center gap-3 mb-2">
+                <span class="h-[1px] w-12 bg-emerald-400"></span>
+                <span class="font-label-mono text-label-mono text-emerald-400 uppercase tracking-[0.2em]">Activity Calendar</span>
+            </div>
+            <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-3">
+                활동 <span class="text-emerald-400 cyber-glow">달력</span>
+            </h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                일자별로 개발 및 출시된 앱과 1Day 1AI 창작 기록을 한눈에 확인할 수 있는 월별 활동 대시보드입니다.
+            </p>
+        </div>
+
+        <!-- Legend (범례) -->
+        <div class="flex flex-wrap items-center gap-4 bg-surface-container-high/60 backdrop-blur-md px-5 py-3 rounded-xl border border-white/10 self-start md:self-auto">
+            <div class="flex items-center gap-2">
+                <span class="w-5 h-5 rounded-full bg-pink-500 text-black font-bold font-mono text-xs flex items-center justify-center shadow-lg shadow-pink-500/30">N</span>
+                <span class="text-xs text-zinc-300 font-pretendard">AI Apps 등록 수</span>
+            </div>
+            <div class="w-[1px] h-4 bg-white/10"></div>
+            <div class="flex items-center gap-2">
+                <span class="w-5 h-5 rounded-full bg-lime-400 text-black font-bold font-mono text-xs flex items-center justify-center shadow-lg shadow-lime-400/30">N</span>
+                <span class="text-xs text-zinc-300 font-pretendard">1Day 1AI 등록 수</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calendar Container -->
+    <div class="glass-card rounded-2xl p-6 md:p-8 border border-white/10 shadow-2xl">
+        <!-- Calendar Header Navigation -->
+        <div class="flex items-center justify-between mb-8 border-b border-white/10 pb-6">
+            <div class="flex items-center gap-3">
+                <button onclick="changeCalendarMonth(-1)" class="w-10 h-10 rounded-xl bg-surface-container-highest hover:bg-white/10 border border-white/10 text-white flex items-center justify-center transition-colors cursor-pointer" title="이전 달">
+                    <span class="material-symbols-outlined text-lg">chevron_left</span>
+                </button>
+                <h3 id="calendar-month-year-title" class="font-display font-bold text-2xl md:text-3xl text-white tracking-wide font-mono px-2">
+                    2026년 7월
+                </h3>
+                <button onclick="changeCalendarMonth(1)" class="w-10 h-10 rounded-xl bg-surface-container-highest hover:bg-white/10 border border-white/10 text-white flex items-center justify-center transition-colors cursor-pointer" title="다음 달">
+                    <span class="material-symbols-outlined text-lg">chevron_right</span>
+                </button>
+            </div>
+            <button onclick="resetCalendarToToday()" class="px-4 py-2 bg-surface-container-highest hover:bg-white/10 border border-white/10 rounded-lg text-xs font-label-mono text-zinc-300 hover:text-white transition-colors cursor-pointer">
+                Today
+            </button>
+        </div>
+
+        <!-- Days of Week Header -->
+        <div class="grid grid-cols-7 gap-2 mb-3 text-center">
+            <div class="font-label-mono text-xs text-rose-400 py-2 font-bold uppercase">Sun</div>
+            <div class="font-label-mono text-xs text-zinc-400 py-2 font-bold uppercase">Mon</div>
+            <div class="font-label-mono text-xs text-zinc-400 py-2 font-bold uppercase">Tue</div>
+            <div class="font-label-mono text-xs text-zinc-400 py-2 font-bold uppercase">Wed</div>
+            <div class="font-label-mono text-xs text-zinc-400 py-2 font-bold uppercase">Thu</div>
+            <div class="font-label-mono text-xs text-zinc-400 py-2 font-bold uppercase">Fri</div>
+            <div class="font-label-mono text-xs text-sky-400 py-2 font-bold uppercase">Sat</div>
+        </div>
+
+        <!-- Days Grid -->
+        <div id="calendar-days-grid" class="grid grid-cols-7 gap-2">
+            <!-- Rendered dynamically via JavaScript -->
+        </div>
+
+        <!-- Selected Date Details Container -->
+        <div id="calendar-day-details" class="hidden mt-6 p-5 bg-surface-container-highest/80 rounded-xl border border-emerald-500/30">
+            <!-- Content injected on date click -->
+        </div>
+    </div>
+</section>
+
 <!-- Daily AI Modal -->
 <div id="daily-ai-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4" onclick="closeDailyAiModal()">
     <div class="relative max-w-5xl w-full max-h-[90vh] bg-surface-container-high rounded-2xl overflow-hidden border border-white/10 shadow-2xl flex flex-col" onclick="event.stopPropagation()">
@@ -1193,6 +1267,211 @@
     }
 
     renderDailyAi();
+
+    // Activity Calendar Logic
+    let currentCalYear = 2026;
+    let currentCalMonth = 6; // 0-indexed: 6 = July 2026
+
+    function initCalendar() {
+        renderCalendar(currentCalYear, currentCalMonth);
+    }
+
+    function changeCalendarMonth(delta) {
+        currentCalMonth += delta;
+        if (currentCalMonth > 11) {
+            currentCalMonth = 0;
+            currentCalYear++;
+        } else if (currentCalMonth < 0) {
+            currentCalMonth = 11;
+            currentCalYear--;
+        }
+        renderCalendar(currentCalYear, currentCalMonth);
+    }
+
+    function resetCalendarToToday() {
+        const today = new Date();
+        currentCalYear = today.getFullYear();
+        currentCalMonth = today.getMonth();
+        renderCalendar(currentCalYear, currentCalMonth);
+    }
+
+    function renderCalendar(year, month) {
+        const titleEl = document.getElementById('calendar-month-year-title');
+        const gridEl = document.getElementById('calendar-days-grid');
+        if (!titleEl || !gridEl) return;
+
+        titleEl.textContent = `${year}년 ${month + 1}월`;
+
+        const dateMap = {};
+
+        portfolioItems.forEach((item, idx) => {
+            if (item.date) {
+                if (!dateMap[item.date]) dateMap[item.date] = { appsCount: 0, dailyAiCount: 0, apps: [], dailyAi: [] };
+                dateMap[item.date].appsCount++;
+                dateMap[item.date].apps.push({ ...item, origIndex: idx });
+            }
+        });
+
+        dailyAiItems.forEach((item, idx) => {
+            if (item.date) {
+                if (!dateMap[item.date]) dateMap[item.date] = { appsCount: 0, dailyAiCount: 0, apps: [], dailyAi: [] };
+                dateMap[item.date].dailyAiCount++;
+                dateMap[item.date].dailyAi.push({ ...item, origIndex: idx });
+            }
+        });
+
+        const firstDayIndex = new Date(year, month, 1).getDay();
+        const totalDays = new Date(year, month + 1, 0).getDate();
+        const prevMonthTotalDays = new Date(year, month, 0).getDate();
+
+        let html = '';
+
+        for (let i = firstDayIndex - 1; i >= 0; i--) {
+            const dayNum = prevMonthTotalDays - i;
+            html += `
+                <div class="min-h-[85px] p-2 bg-surface-container-lowest/20 rounded-xl border border-white/5 opacity-30 select-none">
+                    <span class="font-mono text-xs text-zinc-500">${dayNum}</span>
+                </div>
+            `;
+        }
+
+        const now = new Date();
+        const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+
+        for (let day = 1; day <= totalDays; day++) {
+            const monthStr = String(month + 1).padStart(2, '0');
+            const dayStr = String(day).padStart(2, '0');
+            const dateKey = `${year}-${monthStr}-${dayStr}`;
+
+            const data = dateMap[dateKey];
+            const hasApps = data && data.appsCount > 0;
+            const hasDailyAi = data && data.dailyAiCount > 0;
+            const isToday = dateKey === todayStr;
+
+            const borderClass = isToday 
+                ? 'border-emerald-400 bg-emerald-500/10 shadow-[0_0_15px_rgba(52,211,153,0.2)]' 
+                : (hasApps || hasDailyAi ? 'border-white/20 bg-surface-container-high/90 hover:border-emerald-400/60' : 'border-white/5 bg-surface-container-lowest/40');
+
+            const cursorClass = (hasApps || hasDailyAi) ? 'cursor-pointer transition-all hover:scale-[1.03] shadow-lg' : '';
+
+            let badgesHtml = '<div class="flex items-center gap-1.5 mt-2 flex-wrap justify-end">';
+            if (hasApps) {
+                badgesHtml += `
+                    <span class="w-6 h-6 rounded-full bg-pink-500 text-black font-bold font-mono text-xs flex items-center justify-center shadow-md shadow-pink-500/40" title="AI Apps ${data.appsCount}개">
+                        ${data.appsCount}
+                    </span>
+                `;
+            }
+            if (hasDailyAi) {
+                badgesHtml += `
+                    <span class="w-6 h-6 rounded-full bg-lime-400 text-black font-bold font-mono text-xs flex items-center justify-center shadow-md shadow-lime-400/40" title="1Day 1AI ${data.dailyAiCount}개">
+                        ${data.dailyAiCount}
+                    </span>
+                `;
+            }
+            badgesHtml += '</div>';
+
+            const dayOfWeek = new Date(year, month, day).getDay();
+            let dayColorClass = 'text-zinc-300';
+            if (dayOfWeek === 0) dayColorClass = 'text-rose-400';
+            else if (dayOfWeek === 6) dayColorClass = 'text-sky-400';
+
+            const clickAttr = (hasApps || hasDailyAi) ? `onclick="showCalendarDayDetails('${dateKey}')"` : '';
+
+            html += `
+                <div ${clickAttr} class="min-h-[85px] p-2.5 rounded-xl border flex flex-col justify-between ${borderClass} ${cursorClass}">
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono text-xs font-bold ${dayColorClass}">${day}</span>
+                        ${isToday ? '<span class="text-[9px] font-label-mono bg-emerald-400 text-black px-1.5 py-0.5 rounded font-bold">TODAY</span>' : ''}
+                    </div>
+                    ${badgesHtml}
+                </div>
+            `;
+        }
+
+        const totalCellsSoFar = firstDayIndex + totalDays;
+        const nextMonthCells = (totalCellsSoFar % 7 === 0) ? 0 : 7 - (totalCellsSoFar % 7);
+
+        for (let i = 1; i <= nextMonthCells; i++) {
+            html += `
+                <div class="min-h-[85px] p-2 bg-surface-container-lowest/20 rounded-xl border border-white/5 opacity-30 select-none">
+                    <span class="font-mono text-xs text-zinc-500">${i}</span>
+                </div>
+            `;
+        }
+
+        gridEl.innerHTML = html;
+    }
+
+    function showCalendarDayDetails(dateKey) {
+        const detailsEl = document.getElementById('calendar-day-details');
+        if (!detailsEl) return;
+
+        const apps = portfolioItems.filter(item => item.date === dateKey);
+        const dailyAi = dailyAiItems.filter(item => item.date === dateKey);
+
+        let content = `
+            <div class="flex items-center justify-between mb-4 border-b border-white/10 pb-3">
+                <h4 class="font-pretendard font-bold text-lg text-white flex items-center gap-2">
+                    <span class="material-symbols-outlined text-emerald-400">event_available</span>
+                    ${dateKey} 등록 내역
+                </h4>
+                <button onclick="document.getElementById('calendar-day-details').classList.add('hidden')" class="text-zinc-400 hover:text-white transition-colors cursor-pointer">
+                    <span class="material-symbols-outlined text-sm">close</span>
+                </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        `;
+
+        if (apps.length > 0) {
+            content += `
+                <div>
+                    <h5 class="text-xs font-label-mono text-pink-400 uppercase tracking-wider mb-2.5 flex items-center gap-1.5 font-bold">
+                        <span class="w-3 h-3 rounded-full bg-pink-500 inline-block shadow-sm shadow-pink-500/50"></span> AI Apps (${apps.length})
+                    </h5>
+                    <div class="space-y-2">
+                        ${apps.map(a => `
+                            <a href="${a.link || '#projects'}" ${a.link ? 'target="_blank"' : ''} class="block p-3 bg-black/40 rounded-xl border border-white/5 hover:border-pink-500/50 transition-all group">
+                                <div class="font-pretendard font-bold text-sm text-white group-hover:text-pink-300 transition-colors flex items-center justify-between">
+                                    <span>${a.title}</span>
+                                    <span class="material-symbols-outlined text-xs text-zinc-400">${a.link ? 'open_in_new' : 'arrow_forward'}</span>
+                                </div>
+                                <div class="text-xs text-zinc-400 mt-1 line-clamp-2">${a.desc}</div>
+                            </a>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        if (dailyAi.length > 0) {
+            content += `
+                <div>
+                    <h5 class="text-xs font-label-mono text-lime-400 uppercase tracking-wider mb-2.5 flex items-center gap-1.5 font-bold">
+                        <span class="w-3 h-3 rounded-full bg-lime-400 inline-block shadow-sm shadow-lime-400/50"></span> 1Day 1AI (${dailyAi.length})
+                    </h5>
+                    <div class="space-y-2">
+                        ${dailyAi.map(d => `
+                            <div onclick="openDailyAiModal(${dailyAiItems.indexOf(d)})" class="p-3 bg-black/40 rounded-xl border border-white/5 hover:border-lime-400/50 transition-all cursor-pointer group">
+                                <div class="font-pretendard font-bold text-sm text-white group-hover:text-lime-300 transition-colors flex items-center justify-between">
+                                    <span>${d.title}</span>
+                                    <span class="material-symbols-outlined text-xs text-zinc-400">visibility</span>
+                                </div>
+                                <div class="text-xs text-zinc-400 mt-1 line-clamp-2">${d.desc}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        content += '</div>';
+        detailsEl.innerHTML = content;
+        detailsEl.classList.remove('hidden');
+        detailsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    initCalendar();
 
     // 데일리 앱 팝업 렌더링 로직 (Floating 3D 스타일)
     const popup = document.getElementById('daily-app-popup');
