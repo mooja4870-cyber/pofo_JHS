@@ -1018,6 +1018,10 @@
                     구분 시스템 도입 이전에 누적된 전체 방문수 중 본인의 개발/테스트 새로고침 수치 비율을 객관적으로 정밀 보정합니다.
                 </p>
                 <div class="flex flex-wrap gap-2 pt-1">
+                    <button onclick="promptResetSplit()" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-rose-500/20 hover:bg-rose-500/40 text-rose-300 border border-rose-400/30 transition-all flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">restart_alt</span>
+                        <span>🔄 세부 수치 0부터 초기화</span>
+                    </button>
                     <button onclick="promptCalibrationPreset(0.85)" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-cyan-500/20 hover:bg-cyan-500/40 text-cyan-300 border border-cyan-400/30 transition-all flex items-center gap-1">
                         <span class="material-symbols-outlined text-sm">analytics</span>
                         <span>본인 리프레시 85% / 외부 15% 보정</span>
@@ -1891,6 +1895,23 @@
         }
     }
 
+    function promptResetSplit() {
+        if (confirm('🔄 방문자 세부 분동 수치를 지금 시점부터 0건으로 새로 시작하시겠습니까?\n\n- 메인 누적 방문수(956+)는 그대로 보존 유지됩니다.\n- 순수 외부인 및 관리자 테스트 수치는 지금부터 0부터 100% 정밀 집계됩니다.')) {
+            fetch('/api/counter?action=reset_split')
+                .then(res => res.json())
+                .then(data => {
+                    counterStatsData = data;
+                    updateCounterUI(data);
+                    renderStatsModalData();
+                    alert('✅ 세부 분동 수치가 0건부터 실시간 새출발로 초기화되었습니다!');
+                })
+                .catch(err => {
+                    console.error('Reset split error:', err);
+                    alert('수치 초기화 중 오류가 발생했습니다.');
+                });
+        }
+    }
+
     function calibrateCounterStats(extCount, adminCount) {
         fetch(`/api/counter?action=calibrate&extCount=${extCount}&adminCount=${adminCount}`)
             .then(res => res.json())
@@ -2226,6 +2247,19 @@
 const historyLogs = [
   {
     no: "01",
+    date: "2026-07-24 14:05",
+    category: "기능 개편",
+    badgeColor: "bg-cyan-500/20 text-cyan-300 border-cyan-400/40",
+    targetId: "visitor-counter",
+    desc: "메인 누적 수치(956+) 보존 유지 및 모달 세부 이원화 분석 수치 지금 시점부터 0건 신규 초기화 집계 적용",
+    bullets: [
+      "메인 사이드바 표출 전체 방문수(VISITORS: 956+)는 보존 유지하면서 세부 이원화 수치는 0건부터 실시간 새출발(reset_split)",
+      "작성자 본인 테스트 새로고침(F5)과 순수 외부 방문자 조회를 지금부터 100% 오차 없이 정확히 분리 집계",
+      "세부 분석 모달 내 원터치 0건 초기화(reset_split) 컨트롤 버튼 이식 완료"
+    ]
+  },
+  {
+    no: "02",
     date: "2026-07-24 14:01",
     category: "보안 기능",
     badgeColor: "bg-rose-500/20 text-rose-300 border-rose-400/40",
@@ -2238,7 +2272,7 @@ const historyLogs = [
     ]
   },
   {
-    no: "02",
+    no: "03",
     date: "2026-07-24 13:26",
     category: "기능 개편",
     badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-400/40",

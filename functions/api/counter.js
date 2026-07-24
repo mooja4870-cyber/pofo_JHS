@@ -26,7 +26,17 @@ export async function onRequest(context) {
         let appClicksAdminData = await env.POFO_COUNTER.get('app_clicks_admin');
         let appClicksAdmin = appClicksAdminData ? JSON.parse(appClicksAdminData) : {};
 
-        if (action === 'calibrate') {
+        if (action === 'reset_split') {
+            totalVisitorsExternal = 0;
+            totalVisitorsAdmin = 0;
+            appClicksExternal = {};
+            appClicksAdmin = {};
+
+            await env.POFO_COUNTER.put('total_visitors_external', '0');
+            await env.POFO_COUNTER.put('total_visitors_admin', '0');
+            await env.POFO_COUNTER.put('app_clicks_external', JSON.stringify({}));
+            await env.POFO_COUNTER.put('app_clicks_admin', JSON.stringify({}));
+        } else if (action === 'calibrate') {
             const extParam = url.searchParams.get('extCount');
             const adminParam = url.searchParams.get('adminCount');
             if (extParam !== null) totalVisitorsExternal = Math.max(0, parseInt(extParam) || 0);
