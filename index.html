@@ -1985,6 +1985,19 @@
         const modal = document.getElementById('visitor-stats-modal');
         if (!modal) return;
 
+        if (sessionStorage.getItem('visitor_stats_auth') !== 'true') {
+            const inputPass = prompt('🔒 방문자 세부 분석 대시보드는 보안 영역입니다.\n비밀번호를 입력하세요:');
+            if (inputPass === 'COco@@5454') {
+                sessionStorage.setItem('visitor_stats_auth', 'true');
+                alert('🔓 인증되었습니다.');
+            } else if (inputPass !== null) {
+                alert('❌ 비밀번호가 올바르지 않습니다. 접근이 거부되었습니다.');
+                return;
+            } else {
+                return;
+            }
+        }
+
         renderStatsModalData();
 
         fetchCounterStats('get').then(() => {
@@ -2213,6 +2226,19 @@
 const historyLogs = [
   {
     no: "01",
+    date: "2026-07-24 14:01",
+    category: "보안 기능",
+    badgeColor: "bg-rose-500/20 text-rose-300 border-rose-400/40",
+    targetId: "visitor-counter",
+    desc: "VISITORS [분석 📊] 방문자 분석 대시보드 비밀번호(COco@@5454) 보안 인증 적용",
+    bullets: [
+      "세부 방문자/클릭수 분석 데이터 및 수치 보정 패널의 외부인 무단 열람을 막기 위한 보안 가드 구축",
+      "버튼 클릭 시 비밀번호(COco@@5454) 인증 절차 이식 및 세션(sessionStorage) 상태 동기화",
+      "인증 실패 시 접근 차단 처리 완료"
+    ]
+  },
+  {
+    no: "02",
     date: "2026-07-24 13:26",
     category: "기능 개편",
     badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-400/40",
@@ -2225,7 +2251,7 @@ const historyLogs = [
     ]
   },
   {
-    no: "02",
+    no: "03",
     date: "2026-07-24 13:22",
     category: "버그 수정",
     badgeColor: "bg-amber-500/20 text-amber-300 border-amber-400/40",
