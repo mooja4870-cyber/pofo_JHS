@@ -1,5 +1,22 @@
 # Version History
 
+## v1.35.0
+
+Date: 2026-07-24
+
+### 변경 내용
+- 1Day 1AI 신규 카드 등록 및 Activity Calendar / History 장부 연동 최신화:
+  - 2026-07-24 일자로 '포트폴리오 보안 암호화·이원화 방문자 분석 및 사이드바 체계 개편' 1Day 1AI 새 카드 추가
+  - Activity Calendar 2026년 7월 24일 일자 배지(1Day 1AI 2개) 및 양방향 스마트 스크롤 연동 완계
+  - History 이력 장부 일련번호 및 7월 24일 전수 작업 이력(No. 01~15) 100% 완전 동기화 검증 완료
+
+### 수정 파일
+- index.html
+- ver.md
+
+### 비고
+- 1Day 1AI, Activity Calendar 및 History 이력 장부 최신화 완결
+
 ## v1.34.0
 
 Date: 2026-07-24
