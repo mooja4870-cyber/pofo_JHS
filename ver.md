@@ -1,5 +1,23 @@
 # Version History
 
+## v1.36.0
+
+Date: 2026-07-24
+
+### 변경 내용
+- 정부 부동산 정책 건의 및 제언 (I & II) 인포그래픽 1Day 1AI 컨텐츠 추가 및 연동:
+  - 2026-07-24 일자로 '정부 부동산 정책 핵심 프레임워크 및 구체적 이행 방안 건의·제언 (I & II)' 1Day 1AI 신규 카드 등록
+  - 2장 통합 인포그래픽 이미지 자산(`realestate_policy_recommendation_thumb.png`) 복사 및 원본 고해상도 확대 팝업 라이트박스 연결
+  - Activity Calendar 2026-07-24 배지(1Day 1AI 3개) 동기화 및 History 이력 장부 최신화
+
+### 수정 파일
+- realestate_policy_recommendation_thumb.png
+- index.html
+- ver.md
+
+### 비고
+- 정부 부동산 정책 건의 인포그래픽 1Day 1AI 컨텐츠 등록 및 라이브 배포 완료
+
 ## v1.35.0
 
 Date: 2026-07-24
