@@ -1,5 +1,25 @@
 # Version History
 
+## v1.24.0
+
+Date: 2026-07-24
+
+### 변경 내용
+- TOTAL VISITORS 및 개별 앱 클릭수 외부 방문자 vs 관리자(작성자 본인) 구분 및 분석 대시보드 모달 구축:
+  - Cloudflare KV 백엔드(`functions/api/counter.js`)를 `total_visitors_external`, `total_visitors_admin`, `app_clicks_external`, `app_clicks_admin` 데이터 구조로 분리 및 확장
+  - 상단 `TOTAL VISITORS` 영역 클릭 시 **방문자 & 클릭수 세부 분석 리포트 모달(`openVisitorStatsModal`)** 오픈 인터랙션 연동
+  - 순수 외부 방문자 수(비율 %) vs 관리자 테스트/수정 조회수(비율 %) 시각화 카드 표출
+  - 관리자 기기 자동 감지 및 원터치 모드 전환(ON/OFF) 기능 이식
+  - 앱별 외부인 vs 관리자 세부 클릭수 실시간 분석 테이블 이식
+
+### 수정 파일
+- functions/api/counter.js
+- index.html
+- ver.md
+
+### 비고
+- 순수 외부 방문자 vs 본인 카운트 100% 구분 및 세부 분석 시스템 탑재 완결
+
 ## v1.23.0
 
 Date: 2026-07-24
