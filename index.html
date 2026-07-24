@@ -950,6 +950,16 @@
     </div>
 </div>
 
+<!-- Certificate Image Lightbox Modal -->
+<div id="cert-modal" class="fixed inset-0 z-[140] hidden items-center justify-center bg-black/90 backdrop-blur-md p-4 transition-all" onclick="closeCertModal()">
+    <div class="relative max-w-5xl w-full max-h-[95vh] flex flex-col items-center justify-center" onclick="event.stopPropagation()">
+        <button onclick="closeCertModal()" class="absolute -top-12 right-0 md:top-2 md:-right-12 w-10 h-10 bg-white/20 hover:bg-white/40 text-white rounded-full flex items-center justify-center z-20 transition-all shadow-xl border border-white/30 cursor-pointer" title="모달 닫기">
+            <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+        <img id="cert-modal-img" src="" alt="수료증/자격증 원본 고해상도 크게보기" class="max-w-full max-h-[85vh] object-contain rounded-xl border border-white/20 shadow-2xl" />
+    </div>
+</div>
+
 <!-- Visitor Stats Analysis Modal (Center Popup) -->
 <div id="visitor-stats-modal" class="fixed inset-0 z-[120] hidden items-center justify-center bg-black/80 backdrop-blur-md p-4" onclick="closeVisitorStatsModal()">
     <div class="relative max-w-3xl w-full max-h-[90vh] bg-surface-container-high rounded-2xl overflow-hidden border border-cyan-500/40 shadow-2xl flex flex-col p-6 font-pretendard text-on-surface" onclick="event.stopPropagation()">
@@ -2242,6 +2252,18 @@
 const historyLogs = [
   {
     no: "01",
+    date: "2026-07-24 14:14",
+    category: "버그 수정",
+    badgeColor: "bg-amber-500/20 text-amber-300 border-amber-400/40",
+    targetId: "credentials",
+    desc: "Credentials 수료증 고해상도 크게보기 라이트박스 모달(#cert-modal) HTML 구조 복원 신설",
+    bullets: [
+      "누락되어 있던 수료증/자격증 전용 라이트박스 팝업 태그(#cert-modal, #cert-modal-img)를 HTML 문서에 복원 신설",
+      "9종 자격 및 수료증 카드 클릭 시 원본 고해상도 확대 이미지 팝업 모달이 100% 실시간 정상 작동하도록 완계"
+    ]
+  },
+  {
+    no: "02",
     date: "2026-07-24 14:12",
     category: "UI/UX",
     badgeColor: "bg-indigo-500/20 text-indigo-300 border-indigo-400/40",
@@ -2253,7 +2275,7 @@ const historyLogs = [
     ]
   },
   {
-    no: "02",
+    no: "03",
     date: "2026-07-24 14:08",
     category: "보안 기능",
     badgeColor: "bg-rose-500/20 text-rose-300 border-rose-400/40",
