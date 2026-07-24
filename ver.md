@@ -1,5 +1,21 @@
 # Version History
 
+## v1.28.1
+
+Date: 2026-07-24
+
+### 변경 내용
+- 사이드바 방문자 분석 뱃지(`Visitors [분석 📊]`) 클릭 시 모달 무반응 버그 수정:
+  - 상위 모달 태그(`#daily-ai-modal`)의 누락되었던 closing `</div>` 태그를 추가하여 HTML DOM 노드 트리 격리 교정
+  - `openVisitorStatsModal()` 호출 시 데이터 바인딩 및 모달 표출(`display flex`) 정상 구동 100% 확증
+
+### 수정 파일
+- index.html
+- ver.md
+
+### 비고
+- 방문자 세부 분석 모달 팝업 클릭 무반응 버그 조치 완료
+
 ## v1.28.0
 
 Date: 2026-07-24
