@@ -1,5 +1,23 @@
 # Version History
 
+## v1.14.0
+
+Date: 2026-07-24
+
+### 변경 내용
+- 8888 봇 카드 클릭 시 2가지 옵션 모달(실시간 웹앱 바로가기 / 전략 발전 역사 인포그래픽 원본 보기) 팝업 구현
+- 전략 발전 역사 인포그래픽 미리보기 글자 블러(Blur) 가공 (`bot8888_history_blurred.jpg`) 및 보안 모달 연동
+- 비밀번호 인증 시스템 추가 (비밀번호: `COco@@5454` 입력 성공 시에만 웹앱 접속 및 선명한 원본 인포그래픽 `bot8888_history_clear.jpg` 팝업 허용)
+
+### 수정 파일
+- index.html
+- bot8888_history_blurred.jpg
+- bot8888_history_clear.jpg
+- ver.md
+
+### 비고
+- Wrangler(Cloudflare Pages)를 통해 kdanawa.kr 실시간 프로덕션 강제 배포 완료
+
 ## v1.13.1
 
 Date: 2026-07-24
