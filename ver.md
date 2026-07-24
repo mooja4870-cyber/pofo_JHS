@@ -1,5 +1,19 @@
 # Version History
 
+## v1.16.1
+
+Date: 2026-07-24
+
+### 변경 내용
+- 8888 봇 카드 제목 문구(`'8888 봇 통합 관제 시스템'`)에도 `filter: blur(6px)` 필터 및 선택 방지 옵션을 적용하여 완전히 흐릿하게 블러 가림 처리
+
+### 수정 파일
+- index.html
+- ver.md
+
+### 비고
+- Wrangler(Cloudflare Pages)를 통해 kdanawa.kr 실시간 프로덕션 강제 배포 완료
+
 ## v1.16.0
 
 Date: 2026-07-24
