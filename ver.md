@@ -1,5 +1,19 @@
 # Version History
 
+## v1.16.3
+
+Date: 2026-07-24
+
+### 변경 내용
+- 8888 봇 카드 제목 및 설명 문구의 블러(Blur) 강도를 10% 수준(`blur-[1px]`)으로 아주 미세하게 적용하여 거의 읽을 수 있으나 소프트한 블러 느낌만 유지하도록 조정
+
+### 수정 파일
+- index.html
+- ver.md
+
+### 비고
+- Wrangler(Cloudflare Pages)를 통해 kdanawa.kr 실시간 프로덕션 강제 배포 완료
+
 ## v1.16.2
 
 Date: 2026-07-24
