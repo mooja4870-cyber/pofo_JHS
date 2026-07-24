@@ -218,7 +218,7 @@
 <div id="sidebar-backdrop" onclick="closeLeftSidebar()" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm hidden md:hidden transition-opacity duration-300"></div>
 
 <!-- Vertical Left Sidebar Navigation Panel -->
-<aside id="left-sidebar-nav" class="fixed top-0 left-0 bottom-0 z-50 w-64 md:w-72 bg-surface-container-high/95 backdrop-blur-2xl border-r border-white/10 p-5 md:p-6 flex flex-col justify-between overflow-y-auto shadow-2xl transition-transform duration-300 transform -translate-x-full md:translate-x-0 font-pretendard">
+<aside id="left-sidebar-nav" style="font-size: 122% !important;" class="fixed top-0 left-0 bottom-0 z-50 w-72 md:w-80 bg-surface-container-high/95 backdrop-blur-2xl border-r border-white/10 p-5 md:p-6 flex flex-col justify-between overflow-y-auto shadow-2xl transition-transform duration-300 transform -translate-x-full md:translate-x-0 font-pretendard">
     <div class="space-y-6">
         <!-- Logo & Header -->
         <div class="flex items-center justify-between border-b border-white/10 pb-5">
@@ -238,7 +238,6 @@
 
         <!-- Vertical Menu Nav Links -->
         <nav class="space-y-1.5 font-label-mono">
-            <div class="px-3 text-[10px] text-on-surface-variant uppercase tracking-widest font-mono font-bold mb-2">Navigation Menu</div>
 
             <a onclick="closeLeftSidebar()" href="#about" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-on-surface-variant hover:text-white hover:bg-white/10 border border-transparent hover:border-cyan-500/30 transition-all group">
                 <span class="material-symbols-outlined text-lg text-cyan-400 group-hover:scale-110 transition-transform">account_circle</span>
@@ -300,7 +299,7 @@
     </div>
 </aside>
 
-<main class="relative pt-20 md:pt-10 pb-32 px-margin-mobile md:px-12 md:ml-64 lg:ml-72 max-w-[1350px] mx-auto">
+<main class="relative pt-20 md:pt-10 pb-32 px-margin-mobile md:px-12 md:ml-72 lg:ml-80 max-w-[1350px] mx-auto">
 
 <!-- Author Profile (Hidden Initially) -->
 <div id="author-profile-container" class="hidden opacity-0 transition-opacity duration-1000 ease-in-out">
@@ -2134,6 +2133,19 @@
 const historyLogs = [
   {
     no: "01",
+    date: "2026-07-24 13:20",
+    category: "UI/UX",
+    badgeColor: "bg-teal-500/20 text-teal-300 border-teal-400/40",
+    targetId: "left-sidebar-nav",
+    desc: "좌측 사이드바 NAVIGATION MENU 라벨 삭제 및 전체 문구 폰트 크기 122% 확대",
+    bullets: [
+      "사이드바 메뉴 상단 소제목 라벨인 'NAVIGATION MENU' 불필요 문구 제거",
+      "사이드바 패널 내 모든 텍스트, 탭 메뉴, 아이콘 및 하단 카운트 문구 폰트 크기 122% 전역 스케일링 적용",
+      "시각적 선명도 및 수직 내비게이션 메뉴 가독성 극대화 최적화"
+    ]
+  },
+  {
+    no: "02",
     date: "2026-07-24 13:10",
     category: "UI/UX",
     badgeColor: "bg-indigo-500/20 text-indigo-300 border-indigo-400/40",
@@ -2146,7 +2158,7 @@ const historyLogs = [
     ]
   },
   {
-    no: "02",
+    no: "03",
     date: "2026-07-24 13:05",
     category: "UI/UX",
     badgeColor: "bg-purple-500/20 text-purple-300 border-purple-400/40",
