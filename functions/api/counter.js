@@ -16,11 +16,6 @@ export async function onRequest(context) {
         let totalVisitorsExternal = parseInt(await env.POFO_COUNTER.get('total_visitors_external')) || 0;
         let totalVisitorsAdmin = parseInt(await env.POFO_COUNTER.get('total_visitors_admin')) || 0;
 
-        // 기존 단일 수치가 존재하고 분동 수치가 없을 때 동기화 초기화
-        if (totalVisitors > 0 && totalVisitorsExternal === 0 && totalVisitorsAdmin === 0) {
-            totalVisitorsExternal = totalVisitors;
-        }
-
         // KV에서 앱 클릭수 가져오기
         let appClicksData = await env.POFO_COUNTER.get('app_clicks');
         let appClicks = appClicksData ? JSON.parse(appClicksData) : {};
@@ -31,7 +26,17 @@ export async function onRequest(context) {
         let appClicksAdminData = await env.POFO_COUNTER.get('app_clicks_admin');
         let appClicksAdmin = appClicksAdminData ? JSON.parse(appClicksAdminData) : {};
 
-        if (action === 'view') {
+        if (action === 'calibrate') {
+            const extParam = url.searchParams.get('extCount');
+            const adminParam = url.searchParams.get('adminCount');
+            if (extParam !== null) totalVisitorsExternal = Math.max(0, parseInt(extParam) || 0);
+            if (adminParam !== null) totalVisitorsAdmin = Math.max(0, parseInt(adminParam) || 0);
+            totalVisitors = totalVisitorsExternal + totalVisitorsAdmin;
+
+            await env.POFO_COUNTER.put('total_visitors', totalVisitors.toString());
+            await env.POFO_COUNTER.put('total_visitors_external', totalVisitorsExternal.toString());
+            await env.POFO_COUNTER.put('total_visitors_admin', totalVisitorsAdmin.toString());
+        } else if (action === 'view') {
             totalVisitors += 1;
             if (isAdmin) {
                 totalVisitorsAdmin += 1;
@@ -52,7 +57,7 @@ export async function onRequest(context) {
             await env.POFO_COUNTER.put('app_clicks_external', JSON.stringify(appClicksExternal));
             await env.POFO_COUNTER.put('app_clicks_admin', JSON.stringify(appClicksAdmin));
         } else if (action === 'get') {
-            // 조회만 수행 (증가 안 함)
+            // 조회만 수행
         } else {
             return new Response(JSON.stringify({ error: 'Invalid action' }), { status: 400, headers });
         }

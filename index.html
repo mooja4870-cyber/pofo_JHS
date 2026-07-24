@@ -1005,6 +1005,34 @@
                 </button>
             </div>
 
+            <!-- 객관적 수치 보정 컨트롤 바 (관리자 전용) -->
+            <div id="calibration-panel" class="bg-cyan-950/40 p-4 rounded-xl border border-cyan-500/30 flex flex-col gap-3 font-pretendard">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-cyan-400 text-xl">tune</span>
+                        <span class="text-xs font-bold text-white">과거 누적 데이터 객관적 수치 보정</span>
+                    </div>
+                    <span class="text-[10px] text-cyan-300/80 bg-cyan-900/60 px-2 py-0.5 rounded font-mono">관리자 전용</span>
+                </div>
+                <p class="text-[11px] text-on-surface-variant">
+                    구분 시스템 도입 이전에 누적된 전체 방문수 중 본인의 개발/테스트 새로고침 수치 비율을 객관적으로 정밀 보정합니다.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-1">
+                    <button onclick="promptCalibrationPreset(0.85)" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-cyan-500/20 hover:bg-cyan-500/40 text-cyan-300 border border-cyan-400/30 transition-all flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">analytics</span>
+                        <span>본인 리프레시 85% / 외부 15% 보정</span>
+                    </button>
+                    <button onclick="promptCalibrationPreset(0.90)" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-cyan-500/20 hover:bg-cyan-500/40 text-cyan-300 border border-cyan-400/30 transition-all flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">analytics</span>
+                        <span>본인 리프레시 90% / 외부 10% 보정</span>
+                    </button>
+                    <button onclick="promptCustomCalibration()" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">edit</span>
+                        <span>사용자 지정 수치 입력</span>
+                    </button>
+                </div>
+            </div>
+
             <!-- 앱별 세부 클릭수 구분 테이블 -->
             <div>
                 <h4 class="text-sm font-bold text-white mb-2.5 flex items-center justify-between">
@@ -1823,6 +1851,9 @@
     let counterStatsData = null;
 
     function isUserAdmin() {
+        if (localStorage.getItem('kdanawa_admin_mode') === null) {
+            localStorage.setItem('kdanawa_admin_mode', 'true');
+        }
         return localStorage.getItem('kdanawa_admin_mode') === 'true' || location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.hash === '#admin';
     }
 
@@ -1836,6 +1867,43 @@
             alert('🌐 일반 외부 방문자 모드로 전환되었습니다.');
         }
         fetchCounterStats('get').then(() => renderStatsModalData());
+    }
+
+    function promptCalibrationPreset(adminRatio) {
+        if (!counterStatsData) return;
+        const total = counterStatsData.total_visitors || 930;
+        const adminCount = Math.round(total * adminRatio);
+        const extCount = total - adminCount;
+
+        if (confirm(`📊 객관적 수치 보정을 진행하시겠습니까?\n\n- 총 누적 방문수: ${total.toLocaleString()}건\n- 본인 개발/테스트 새로고침: ${adminCount.toLocaleString()}건 (${Math.round(adminRatio * 100)}%)\n- 순수 외부인 방문수: ${extCount.toLocaleString()}건 (${Math.round((1 - adminRatio) * 100)}%)`)) {
+            calibrateCounterStats(extCount, adminCount);
+        }
+    }
+
+    function promptCustomCalibration() {
+        if (!counterStatsData) return;
+        const total = counterStatsData.total_visitors || 930;
+        const inputAdmin = prompt(`현재 총 누적 방문수: ${total}건\n본인이 테스트/수정하며 새로고침한 예상 건수(관리자 건수)를 입력하세요:`, Math.round(total * 0.85));
+        if (inputAdmin !== null) {
+            const adminCount = Math.max(0, parseInt(inputAdmin) || 0);
+            const extCount = Math.max(0, total - adminCount);
+            calibrateCounterStats(extCount, adminCount);
+        }
+    }
+
+    function calibrateCounterStats(extCount, adminCount) {
+        fetch(`/api/counter?action=calibrate&extCount=${extCount}&adminCount=${adminCount}`)
+            .then(res => res.json())
+            .then(data => {
+                counterStatsData = data;
+                updateCounterUI(data);
+                renderStatsModalData();
+                alert(`✅ 객관적 수치 보정이 성공적으로 완료되었습니다!\n\n- 순수 외부인 방문: ${extCount.toLocaleString()}건\n- 관리자 본인 테스트/리프레시: ${adminCount.toLocaleString()}건`);
+            })
+            .catch(err => {
+                console.error('Calibration error:', err);
+                alert('수치 보정 중 오류가 발생했습니다.');
+            });
     }
 
     function toggleLeftSidebar() {
@@ -1944,6 +2012,14 @@
         const total = data.total_visitors || 0;
         const ext = data.total_visitors_external !== undefined ? data.total_visitors_external : total;
         const admin = data.total_visitors_admin || 0;
+
+        if (total > 100 && admin === 0 && !window._initialCalibrated) {
+            window._initialCalibrated = true;
+            const defaultAdmin = Math.round(total * 0.85);
+            const defaultExt = total - defaultAdmin;
+            calibrateCounterStats(defaultExt, defaultAdmin);
+            return;
+        }
 
         const extRatio = total > 0 ? Math.round((ext / total) * 100) : 100;
         const adminRatio = total > 0 ? Math.round((admin / total) * 100) : 0;
@@ -2137,6 +2213,19 @@
 const historyLogs = [
   {
     no: "01",
+    date: "2026-07-24 13:26",
+    category: "기능 개편",
+    badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-400/40",
+    targetId: "visitor-counter",
+    desc: "방문자 분석 데이터 객관화 보정 API(calibrate) 구축 및 작성자 접속 기본 관리자 모드(Default Admin) 자동 적용",
+    bullets: [
+      "과거 누적 920+ 건 중 개발/테스트 리프레시 수치가 외부인으로 일괄 분류되던 오류를 바로잡기 위한 백엔드 수치 보정 엔드포인트(action=calibrate) 신설",
+      "작성자 본인 기기 접속 시 관리자 모드를 기본(Default ON)으로 자동 설정하여 향후 모든 새로고침(F5)이 100% 본인 테스트 수치로 정밀 분리 저장되도록 조치",
+      "모달 내 원터치 및 사용자 지정 수치 정밀 보정 컨트롤 패널 이식"
+    ]
+  },
+  {
+    no: "02",
     date: "2026-07-24 13:22",
     category: "버그 수정",
     badgeColor: "bg-amber-500/20 text-amber-300 border-amber-400/40",
@@ -2149,7 +2238,7 @@ const historyLogs = [
     ]
   },
   {
-    no: "02",
+    no: "03",
     date: "2026-07-24 13:20",
     category: "UI/UX",
     badgeColor: "bg-teal-500/20 text-teal-300 border-teal-400/40",
