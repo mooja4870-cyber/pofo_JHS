@@ -1,5 +1,20 @@
 # Version History
 
+## v1.22.0
+
+Date: 2026-07-24
+
+### 변경 내용
+- 웹사이트 전 영역 문구 폰트 크기 110% (1.1배) 일괄 확대 적용:
+  - `html { font-size: 110% !important; }` 스타일 적용으로 `Application Catalog`, `AI Apps`, `1Day 1AI`, `Activity Calendar`, `History Ledger`, 헤더, 모달 등 전 섹션 텍스트 시독성 및 가독성 대폭 향상
+
+### 수정 파일
+- index.html
+- ver.md
+
+### 비고
+- 사이트 전 영역 문구 폰트 110% 일괄 시각적 최적화 완료
+
 ## v1.21.0
 
 Date: 2026-07-24
