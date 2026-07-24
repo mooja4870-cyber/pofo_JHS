@@ -1,5 +1,21 @@
 # Version History
 
+## v1.37.0
+
+Date: 2026-07-24
+
+### 변경 내용
+- 1Day 1AI '포트폴리오 보안 암호화·이원화 방문자 분석 및 사이드바 체계 개편' 컨텐츠 카드 삭제:
+  - 사용자 지정 요청에 따라 1Day 1AI 목록에서 해당 포트폴리오 개편 컨텐츠 카드 제거
+  - Activity Calendar 2026-07-24 배지(1Day 1AI 2개) 및 History 이력 장부 자동 동기화
+
+### 수정 파일
+- index.html
+- ver.md
+
+### 비고
+- 지정 컨텐츠 삭제 정리 및 Activity Calendar / History 동기화 완료
+
 ## v1.36.0
 
 Date: 2026-07-24
