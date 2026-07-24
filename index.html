@@ -790,21 +790,16 @@
             const imgClasses = item.featured ? "w-full md:w-1/2 relative min-h-[250px]" : "h-48 relative overflow-hidden";
             
             const safeAlt = item.title.replace(/<[^>]*>?/gm, '').replace(/"/g, '&quot;');
-            const blurClass = item.protected ? "filter blur-[8px] scale-105" : "";
             let imageContent = item.image 
-                ? `<img src="${item.image}" alt="${safeAlt}" class="absolute inset-0 w-full h-full object-cover object-left-top transition-transform duration-500 group-hover:scale-105 ${blurClass}" />`
+                ? `<img src="${item.image}" alt="${safeAlt}" class="absolute inset-0 w-full h-full object-cover object-left-top transition-transform duration-500 group-hover:scale-105" />`
                 : `<span class="material-symbols-outlined text-[80px] text-primary-fixed-dim/30">${item.icon}</span>`;
                 
             const clickCount = (cachedClicks[`app_${index}`] !== undefined) 
                 ? cachedClicks[`app_${index}`].toLocaleString() 
                 : '...';
 
-            let imageOverlay = item.protected ? `
-                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 px-3.5 py-1.5 bg-zinc-900/85 backdrop-blur-md border border-zinc-400/70 rounded-full font-label-mono text-[11px] text-zinc-200 font-bold flex items-center gap-1.5 shadow-2xl animate-pulse-scale z-10 whitespace-nowrap">
-                    <span class="material-symbols-outlined text-xs text-zinc-400">engineering</span>
-                    On Development !
-                </div>
-            ` : '';
+            const descBlur = item.protected ? "filter blur-[6px] select-none pointer-events-none" : "";
+            const onDevBadge = item.notice ? `<div class="mt-3 mb-2"><span class="px-3 py-1 ${item.noticeStyle === 'gray' ? 'bg-zinc-500/20 border border-zinc-400/60 text-zinc-300' : 'bg-amber-500/20 border border-amber-400/60 text-amber-300'} rounded-full font-label-mono text-[11px] font-bold inline-flex items-center gap-1 animate-pulse-scale"><span class="material-symbols-outlined text-[12px]">${item.noticeStyle === 'gray' ? 'engineering' : 'storefront'}</span>${item.notice}</span></div>` : '';
 
             let cardContent = `
                 <div class="glass-card rounded-xl overflow-hidden h-full flex ${contentClasses} cursor-pointer hover:border-primary-fixed-dim/50 transition-all">
@@ -813,18 +808,17 @@
                         <div class="absolute top-4 right-4 h-8 w-8 rounded-full bg-background/50 backdrop-blur-md flex items-center justify-center border border-white/10 text-primary-fixed-dim z-10">
                             <span class="material-symbols-outlined text-base">${item.link ? 'open_in_new' : item.icon}</span>
                         </div>
-                        ${imageOverlay}
                     </div>
                     <div class="p-6 md:p-8 flex flex-col justify-between flex-1 min-w-0">
                         <div>
                             <div class="flex items-center justify-between mb-4">
                                 <div class="flex flex-wrap gap-2 items-center">
                                     <span class="px-3 py-1 bg-primary-container/10 border border-primary-container/20 rounded-full font-label-mono text-[10px] text-primary-fixed-dim uppercase tracking-wider">${item.type}</span>
-                                    ${item.notice ? `<span class="px-3 py-1 ${item.noticeStyle === 'gray' ? 'bg-zinc-500/20 border border-zinc-400/60 text-zinc-300' : 'bg-amber-500/20 border border-amber-400/60 text-amber-300'} rounded-full font-label-mono text-[11px] font-bold inline-flex items-center gap-1 animate-pulse-scale"><span class="material-symbols-outlined text-[12px]">${item.noticeStyle === 'gray' ? 'engineering' : 'storefront'}</span>${item.notice}</span>` : ''}
                                 </div>
                             </div>
                             <h3 class="font-pretendard font-bold text-xl md:text-2xl text-white mb-4 animate-slow-blink">${item.title}</h3>
-                            <p class="text-zinc-300 font-body-md mb-6 break-keep">${item.desc}</p>
+                            <p class="text-zinc-300 font-body-md mb-2 break-keep ${descBlur}">${item.desc}</p>
+                            ${onDevBadge}
                         </div>
                         <div class="mt-4 flex items-center justify-between">
                             <div class="flex flex-wrap gap-2">
@@ -957,24 +951,21 @@
         
         dailyAiItems.forEach((item, index) => {
             let fallbackIcon = `<span class="material-symbols-outlined text-[60px] text-secondary-fixed-dim/30">${item.icon || 'smart_toy'}</span>`;
-            let blurClass = item.protected ? "filter blur-[8px] scale-105" : "";
             let imageContent = item.image 
                 ? `
-                    <img src="${item.image}" alt="${item.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 ${blurClass}" />
+                    <img src="${item.image}" alt="${item.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                     <div style="display: none;" class="absolute inset-0 w-full h-full items-center justify-center bg-surface-container-highest">${fallbackIcon}</div>
                   `
                 : fallbackIcon;
 
-            let bottomBadge = item.protected ? `
-                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 px-3.5 py-1 bg-zinc-900/85 backdrop-blur-md rounded-full border border-zinc-400/70 font-label-mono text-[11px] text-zinc-200 font-bold flex items-center gap-1.5 animate-pulse-scale z-10 shadow-xl whitespace-nowrap">
-                    <span class="material-symbols-outlined text-xs text-zinc-400">engineering</span>
-                    On Development !
-                </div>
-            ` : `
+            let bottomBadge = `
                 <div class="absolute bottom-3 right-3 px-3 py-1 bg-black/80 backdrop-blur-md rounded-full border border-secondary-fixed-dim/50 font-label-mono text-[11px] text-white flex items-center gap-1.5 animate-pulse z-10 shadow-lg">
                     <span class="text-sm">👆</span><span>클릭하여 크게 보기</span>
                 </div>
             `;
+
+            let descBlur = item.protected ? "filter blur-[6px] select-none pointer-events-none" : "";
+            let onDevBadge = item.protected ? `<div class="mb-3 mt-1"><span class="px-3 py-1 bg-zinc-500/20 border border-zinc-400/60 text-zinc-300 rounded-full font-label-mono text-[11px] font-bold inline-flex items-center gap-1 animate-pulse-scale"><span class="material-symbols-outlined text-[12px]">engineering</span>On Development !</span></div>` : '';
 
             let cardContent = `
                 <div onclick="openDailyAiModal(${index})" class="glass-card rounded-xl overflow-hidden h-full flex flex-col group hover:border-secondary-fixed-dim/50 transition-all cursor-pointer">
@@ -987,7 +978,8 @@
                     </div>
                     <div class="p-5 flex flex-col flex-1">
                         <h3 class="font-pretendard font-bold text-lg text-white mb-2 group-hover:text-secondary-fixed transition-colors">${item.title}</h3>
-                        <p class="text-zinc-400 font-body-md text-sm mb-4 flex-1 break-keep">${item.desc}</p>
+                        <p class="text-zinc-400 font-body-md text-sm mb-2 flex-1 break-keep ${descBlur}">${item.desc}</p>
+                        ${onDevBadge}
                         <div class="flex flex-wrap gap-1.5 mt-auto">
                             ${item.tags.map(tag => `<span class="font-label-mono text-[9px] text-on-surface-variant bg-surface-container border border-white/5 px-1.5 py-0.5 rounded">${tag.toUpperCase()}</span>`).join('')}
                         </div>
