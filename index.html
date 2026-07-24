@@ -1803,7 +1803,7 @@
 
 
 
-// History Logs Data (과거 및 현재 이력 전수 기록)
+// History Logs Data (6월 17일부터의 이력 100% 완전 전수 복원)
 const historyLogs = [
   {
     no: "01",
@@ -1813,24 +1813,35 @@ const historyLogs = [
     desc: "사이트 활동 이력(History) 관리 시스템 신설 및 연분홍 파스텔 핑크 장부 구축",
     bullets: [
       "상단 메뉴 Calendar 옆에 History 탭 신규 이식 및 연분홍 파스텔 테마 박스 UI 구성",
-      "과거 Git 커밋 157건 및 앱 론칭 이력 전수 복원 기입 및 설명형+개조식 222자 포맷 정립",
+      "6월 17일부터의 전수 활동 이력 100% 완벽 복원 기입 및 설명형+개조식 222자 포맷 정립",
       "향후 사이트상의 모든 수정, 추가, 배포 활동의 영구 실시간 누적 체계 완결"
     ]
   },
   {
     no: "02",
+    date: "2026-07-24 12:41",
+    category: "UI/UX",
+    badgeColor: "bg-purple-500/20 text-purple-300 border-purple-400/40",
+    desc: "손가락 포인터 애니메이션 노출 지속시간 7회 바운스(7초) 연장",
+    bullets: [
+      "달력 항목 지목 손가락 포인터(👇) 소멸 타이머를 3.5초에서 7초(7000ms)로 연장",
+      "7회 동안 충분히 튀면서 대상 카드를 집중 안내하도록 시각적 UX 최적화"
+    ]
+  },
+  {
+    no: "03",
     date: "2026-07-24 12:39",
     category: "UI/UX",
     badgeColor: "bg-purple-500/20 text-purple-300 border-purple-400/40",
     desc: "활동 달력(Calendar) 클릭 시 해당 카드로의 스마트 스크롤 및 손가락 포인터 애니메이션 적용",
     bullets: [
       "달력 내 핑크/연두 뱃지 클릭 시 화면이 해당 포트폴리오/1Day 1AI 카드로 부드럽게 자동 스크롤",
-      "대상 카드 우상단에 7회 바운스(7초) 손가락 포인터 애니메이션 렌더링으로 시각적 가이드 강화",
+      "대상 카드 중앙 상단에 통통 튀는 손가락 포인터(👇) 및 네온 링 강조 오버레이 렌더링",
       "달력 항목 선택 상태와 상세 모달의 상호 인터랙션 무결성 확보"
     ]
   },
   {
-    no: "03",
+    no: "04",
     date: "2026-07-24 12:16",
     category: "기능 신설",
     badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-400/40",
@@ -1842,7 +1853,7 @@ const historyLogs = [
     ]
   },
   {
-    no: "04",
+    no: "05",
     date: "2026-07-24 12:09",
     category: "기능 개선",
     badgeColor: "bg-amber-500/20 text-amber-300 border-amber-400/40",
@@ -1853,7 +1864,7 @@ const historyLogs = [
     ]
   },
   {
-    no: "05",
+    no: "06",
     date: "2026-07-24 12:06",
     category: "콘텐츠",
     badgeColor: "bg-blue-500/20 text-blue-300 border-blue-400/40",
@@ -1864,18 +1875,18 @@ const historyLogs = [
     ]
   },
   {
-    no: "06",
+    no: "07",
     date: "2026-07-24 11:07",
     category: "보안/기능",
     badgeColor: "bg-red-500/20 text-red-300 border-red-400/40",
     desc: "8888 봇 통합 관제 카드 비밀번호 인증 및 인포그래픽 블러 가드 이식",
     bullets: [
       "보안 암호(COco@@5454) 입력 시에만 대시보드 접근을 허용하는 가드 보안 체계 가동",
-      "대외비 인포그래픽 텍스트에 블러 필터(blur-[1.35px]) 가드 적용으로 지적재산권 보호"
+      "대외비 인포그래픽 텍스트에 블러 필터(blur-[2px]) 가드 적용으로 지적재산권 보호"
     ]
   },
   {
-    no: "07",
+    no: "08",
     date: "2026-07-24 10:54",
     category: "포트폴리오",
     badgeColor: "bg-pink-500/20 text-pink-300 border-pink-400/40",
@@ -1886,7 +1897,7 @@ const historyLogs = [
     ]
   },
   {
-    no: "08",
+    no: "09",
     date: "2026-07-24 00:23",
     category: "앱 론칭",
     badgeColor: "bg-yellow-500/20 text-yellow-300 border-yellow-400/40",
@@ -1897,7 +1908,7 @@ const historyLogs = [
     ]
   },
   {
-    no: "09",
+    no: "10",
     date: "2026-07-22 00:00",
     category: "앱 론칭",
     badgeColor: "bg-yellow-500/20 text-yellow-300 border-yellow-400/40",
@@ -1908,7 +1919,7 @@ const historyLogs = [
     ]
   },
   {
-    no: "10",
+    no: "11",
     date: "2026-07-19 23:10",
     category: "포트폴리오",
     badgeColor: "bg-pink-500/20 text-pink-300 border-pink-400/40",
@@ -1919,7 +1930,7 @@ const historyLogs = [
     ]
   },
   {
-    no: "11",
+    no: "12",
     date: "2026-07-19 23:00",
     category: "1Day 1AI",
     badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-400/40",
@@ -1930,7 +1941,7 @@ const historyLogs = [
     ]
   },
   {
-    no: "12",
+    no: "13",
     date: "2026-07-18 18:00",
     category: "앱 론칭",
     badgeColor: "bg-yellow-500/20 text-yellow-300 border-yellow-400/40",
@@ -1941,25 +1952,168 @@ const historyLogs = [
     ]
   },
   {
-    no: "13",
-    date: "2026-07-15 15:00",
-    category: "시스템",
-    badgeColor: "bg-cyan-500/20 text-cyan-300 border-cyan-400/40",
-    desc: "AI 퀀텀 자동매매 봇군 (8401 ~ 8409) 이중 볼린저밴드+RSI 전략 구축",
+    no: "14",
+    date: "2026-07-18 15:00",
+    category: "포트폴리오",
+    badgeColor: "bg-pink-500/20 text-pink-300 border-pink-400/40",
+    desc: "자격 및 수료증(Credentials) 9종 통합 연동 및 라이트박스 뷰어 구축",
     bullets: [
-      "OKX/Binance API 연동, OCO TP/SL 1:2 손익비 및 4전 3패 적응형 대칭 스위칭 탑재",
-      "8888 관제 데몬 5분 주기 스마트 힐링 이식"
+      "C.P.M., FTA관리사, 회생기업경영관리사 등 9종 증명서 3x3 격자 섹션 연동",
+      "원본 확대 팝업 라이트박스(openCertModal) 연결"
     ]
   },
   {
-    no: "14",
+    no: "15",
+    date: "2026-07-18 12:00",
+    category: "시스템",
+    badgeColor: "bg-cyan-500/20 text-cyan-300 border-cyan-400/40",
+    desc: "커스텀 도메인 배포 (kdanawa.kr) 및 Cloudflare Pages CI/CD 파이프라인 완성",
+    bullets: [
+      "kdanawa.kr 도메인 네임서버 연결 및 SSL 연동",
+      "Wrangler 기반 자동 배포 숏폼 영상 제작 및 1Day 1AI 기록"
+    ]
+  },
+  {
+    no: "16",
+    date: "2026-07-17 18:00",
+    category: "1Day 1AI",
+    badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-400/40",
+    desc: "우주 테니스공 아트웍 & YONEX 원본 아트웍 1Day 1AI 섹션 동시 추가",
+    bullets: [
+      "YONEX 아트웍 영감 기반 WILSON 우주 테니스공 컨셉 포스터 아로 응용 창작",
+      "원본 사진(image1.jpg) 및 창작 포스터(image2.jpg) 2개 카드로 분리 탑재"
+    ]
+  },
+  {
+    no: "17",
+    date: "2026-07-17 14:00",
+    category: "콘텐츠",
+    badgeColor: "bg-blue-500/20 text-blue-300 border-blue-400/40",
+    desc: "1Day 1AI 정책의견서 썸네일(policy_thumbnail.png) 및 PDF iframe 뷰어 탑재",
+    bullets: [
+      "비아파트 임대인 양도세 비과세 차별 시정 정책의견서 PDF(policy_document.pdf) 연동",
+      "모달 창에서 원본 PDF 문서 즉시 확인 뷰어 적용"
+    ]
+  },
+  {
+    no: "18",
+    date: "2026-07-17 10:00",
+    category: "기능 신설",
+    badgeColor: "bg-rose-500/20 text-rose-300 border-rose-400/40",
+    desc: "메인 페이지 1Day 1AI 섹션 및 동적 모달 렌더링 파이프라인 구축",
+    bullets: [
+      "매일 꾸준히 AI를 활용해 창작한 결과물 기록 전용 1Day 1AI 섹션 탭 구축",
+      "썸네일, 동영상, PDF 지원 동적 모달 시스템 설계"
+    ]
+  },
+  {
+    no: "19",
+    date: "2026-07-16 12:00",
+    category: "1Day 1AI",
+    badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-400/40",
+    desc: "충북 보은 '살아보기' 행사 AI 기획서 작성 및 4종 서류 제출 완료",
+    bullets: [
+      "AI 지원 참가신청서·여행계획서·동의서·서약서 4종 기획안 수록",
+      "슬라이드 갤러리 뷰어로 4종 기획 서류 확인 기능 연동"
+    ]
+  },
+  {
+    no: "20",
+    date: "2026-07-15 17:00",
+    category: "UI/UX",
+    badgeColor: "bg-purple-500/20 text-purple-300 border-purple-400/40",
+    desc: "전체 웹 페이지 1.5cm 세련된 레트로 사이버 격자(Grid) 배경 디자인 적용",
+    bullets: [
+      "CSS linear-gradient 기반 1.5cm 정밀 격자 패턴 배경 적용",
+      "다크모드 사이버펑크 톤앤매너 완성도 향상"
+    ]
+  },
+  {
+    no: "21",
+    date: "2026-07-15 14:00",
+    category: "포트폴리오",
+    badgeColor: "bg-pink-500/20 text-pink-300 border-pink-400/40",
+    desc: "포트폴리오 '한국 주식시장 과열 판별기' 웹 앱 신규 추가 및 썸네일 연동",
+    bullets: [
+      "변동성/수급 판별 AI 분석 대시보드(toohigh.streamlit.app) 출시",
+      "썸네일(overheat_thumb.png) 탑재 및 카테고리 필터 연동"
+    ]
+  },
+  {
+    no: "22",
+    date: "2026-07-13 18:00",
+    category: "포트폴리오",
+    badgeColor: "bg-pink-500/20 text-pink-300 border-pink-400/40",
+    desc: "DownTube (유튜브 최고화질 MP4/MP3 다운로더) 포트폴리오 및 APK 직접 연동",
+    bullets: [
+      "FastAPI 및 Android APK 솔루션 포트폴리오 추가",
+      "클릭 시 최신 APK 직접 다운로드 링크 적용"
+    ]
+  },
+  {
+    no: "23",
+    date: "2026-07-13 15:00",
+    category: "UI/UX",
+    badgeColor: "bg-purple-500/20 text-purple-300 border-purple-400/40",
+    desc: "포트폴리오 동적 카테고리 필터(All, Mobile, Web, AI) 및 조회수 캐싱 적용",
+    bullets: [
+      "Category Filter 버튼군 추가로 사용자 편의성 제공",
+      "필터 전환 시 조회수 카운터 보존 전역 캐싱 처리"
+    ]
+  },
+  {
+    no: "24",
+    date: "2026-07-13 12:00",
+    category: "UI/UX",
+    badgeColor: "bg-purple-500/20 text-purple-300 border-purple-400/40",
+    desc: "강사 경력(Teaching Track) 전문강사/사내강사 5개 세부 트랙 신설",
+    bullets: [
+      "비용절감, 경영혁신, 구매윤리, 엑셀, DBase+++ 사내강사 트랙 추가",
+      "전문 경력 시각화 강화"
+    ]
+  },
+  {
+    no: "25",
+    date: "2026-07-10 16:00",
+    category: "시스템",
+    badgeColor: "bg-cyan-500/20 text-cyan-300 border-cyan-400/40",
+    desc: "Cloudflare KV (POFO_COUNTER) 서버리스 누적 방문자 & 앱 클릭 카운터 연동",
+    bullets: [
+      "Cloudflare KV 및 API(functions/api/counter.js) 구축",
+      "메인 상단 총 방문자 수 및 개별 앱 실시간 클릭수 표기"
+    ]
+  },
+  {
+    no: "26",
     date: "2026-07-10 12:00",
     category: "웹/디자인",
     badgeColor: "bg-indigo-500/20 text-indigo-300 border-indigo-400/40",
-    desc: "KDANAWA 사이트 메인 네비게이션 및 다크모드 사이버펑크 디자인 시스템 구축",
+    desc: "브랜드 로고 KDANAWA 통합 및 메인 네비게이션 다크모드 시스템 정립",
     bullets: [
-      "인터랙티브 모달, 방문자 카운터, 틸트 효과 적용 및 포트폴리오 베이스 정립",
-      "Cloudflare Wrangler 자동 배포 파이프라인 연결"
+      "KDANAWA 파스텔 다크 톤앤매너 구축",
+      "Pretendard 폰트 일괄 적용 및 모바일 반응형 최적화"
+    ]
+  },
+  {
+    no: "27",
+    date: "2026-07-01 12:00",
+    category: "포트폴리오",
+    badgeColor: "bg-pink-500/20 text-pink-300 border-pink-400/40",
+    desc: "핵심 AI 모델 및 웹 앱 8종(BTCn, KOSPI FI, VC Signal, Prism, StockFit, SOMEMORE 등) 릴리즈",
+    bullets: [
+      "딥러닝 수익률 예측, 투자 적합도 진단, 자산 시뮬레이터 8종 릴리즈",
+      "하이브리드 대시보드 및 Cloudflare Pages 1차 배포 완료"
+    ]
+  },
+  {
+    no: "28",
+    date: "2026-06-17 13:30",
+    category: "콘텐츠",
+    badgeColor: "bg-blue-500/20 text-blue-300 border-blue-400/40",
+    desc: "최초 정책의견서 (비아파트 임대인 차별 시정) 작성 및 국민신문고 민원 접수",
+    bullets: [
+      "성실 임대의무를 완수한 비아파트 임대인 양도세 비과세 차별 시정 정책의견서 초안 작성",
+      "국민신문고(접수번호: 2AA-2606-0802914) 공식 민원 신청 완료 (역대 이력의 시작점)"
     ]
   }
 ];
