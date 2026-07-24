@@ -2006,17 +2006,12 @@
         const modal = document.getElementById('visitor-stats-modal');
         if (!modal) return;
 
-        if (sessionStorage.getItem('visitor_stats_auth') !== 'true') {
-            const inputPass = prompt('🔒 방문자 세부 분석 대시보드는 보안 영역입니다.\n비밀번호를 입력하세요:');
-            if (inputPass === 'COco@@5454') {
-                sessionStorage.setItem('visitor_stats_auth', 'true');
-                alert('🔓 인증되었습니다.');
-            } else if (inputPass !== null) {
+        const inputPass = prompt('🔒 방문자 세부 분석 대시보드는 작성자 전용 보안 영역입니다.\n비밀번호를 입력하세요:');
+        if (inputPass !== 'COco@@5454') {
+            if (inputPass !== null) {
                 alert('❌ 비밀번호가 올바르지 않습니다. 접근이 거부되었습니다.');
-                return;
-            } else {
-                return;
             }
+            return;
         }
 
         renderStatsModalData();
@@ -2247,6 +2242,19 @@
 const historyLogs = [
   {
     no: "01",
+    date: "2026-07-24 14:08",
+    category: "보안 기능",
+    badgeColor: "bg-rose-500/20 text-rose-300 border-rose-400/40",
+    targetId: "visitor-counter",
+    desc: "VISITORS [분석 📊] 클릭 시 매번 100% 비밀번호(COco@@5454) 필수 팝업 입력 검증 적용",
+    bullets: [
+      "이전 세션 자동 통과(sessionStorage) 로직을 전면 제거하여 클릭 시마다 매번 100% 비밀번호 팝업 창 표출",
+      "비밀번호(COco@@5454) 정확히 일치 시에만 대시보드 오픈 및 오입력/취소 시 100% 차단",
+      "보안 무결성 및 외부인 세부 분석 무단 열람 완전 차단 완결"
+    ]
+  },
+  {
+    no: "02",
     date: "2026-07-24 14:05",
     category: "기능 개편",
     badgeColor: "bg-cyan-500/20 text-cyan-300 border-cyan-400/40",
@@ -2259,7 +2267,7 @@ const historyLogs = [
     ]
   },
   {
-    no: "02",
+    no: "03",
     date: "2026-07-24 14:01",
     category: "보안 기능",
     badgeColor: "bg-rose-500/20 text-rose-300 border-rose-400/40",
