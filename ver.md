@@ -1,5 +1,20 @@
 # Version History
 
+## v1.13.1
+
+Date: 2026-07-24
+
+### 변경 내용
+- 메인 **AI App Portfolio** 카탈로그 배열(`portfolioItems`) 및 최상단 데일리 플로팅 팝업 배너에 `8888 봇 통합 관제 시스템` 카드 추가 등록 (`featured: true`)
+- 메인 화면 상단 및 하단 `1Day 1AI` 섹션 양쪽 모두에서 8888 봇 앱이 즉시 노출되도록 동기화
+
+### 수정 파일
+- index.html
+- ver.md
+
+### 비고
+- Wrangler(Cloudflare Pages)를 통해 kdanawa.kr 실시간 프로덕션 강제 배포 완료
+
 ## v1.13.0
 
 Date: 2026-07-24
