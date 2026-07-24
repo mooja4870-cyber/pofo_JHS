@@ -1,5 +1,20 @@
 # Version History
 
+## v1.15.0
+
+Date: 2026-07-24
+
+### 변경 내용
+- 8888 봇 카드 좌측 썸네일 이미지 박스 하단 영역에 `'On Development !'` 펄스 깜빡임 그레이 라운드박스 뱃지 오버레이 배치
+- 메인 카드 이미지에 `filter: blur(8px)` 및 스케일 효과를 적용하여 카드 썸네일 상의 텍스트/숫자를 사람이 읽을 수 없도록 가림 처리
+
+### 수정 파일
+- index.html
+- ver.md
+
+### 비고
+- Wrangler(Cloudflare Pages)를 통해 kdanawa.kr 실시간 프로덕션 강제 배포 완료
+
 ## v1.14.2
 
 Date: 2026-07-24
