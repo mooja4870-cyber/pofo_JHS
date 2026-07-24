@@ -1,5 +1,20 @@
 # Version History
 
+## v1.14.1
+
+Date: 2026-07-24
+
+### 변경 내용
+- 8888 봇 관련 이미지 에셋 경로에 Cache Busting 버전 파라미터(`?v=1.14.1`) 적용하여 브라우저 및 CDN 캐시 즉시 갱신
+- 사용자 지침에 따른 **"코드 수정 발생 시 Git Commit/Tag/Push + Cloudflare Pages (kdanawa.kr) 배포 100% 의무화"** 공통 연동 원칙 확립
+
+### 수정 파일
+- index.html
+- ver.md
+
+### 비고
+- Wrangler(Cloudflare Pages)를 통해 kdanawa.kr 실시간 프로덕션 강제 배포 완료
+
 ## v1.14.0
 
 Date: 2026-07-24

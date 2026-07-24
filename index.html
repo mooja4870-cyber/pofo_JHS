@@ -760,7 +760,7 @@
 <script>
     // 기존 포트폴리오 10여개 데이터 리스트 (Javascript 기반 렌더링을 통해 이식)
     const portfolioItems = [
-        { title: "8888 봇 통합 관제 시스템", type: "Web Apps", desc: "롱/숏 신호를 180도 뒤집는 '역전 전략(청개구리 봇)'을 탑재하여 8개 레버리지 봇의 수익률, 승률, Expectancy 지표를 실시간 모니터링하는 차세대 트레이딩 관제 웹앱", stack: ["HTML/JS", "Cloudflare", "Crypto"], icon: "swap_calls", image: "bot8888_thumb.png", link: "https://8888-40d.pages.dev/", protected: true, featured: true, date: "2026-07-23" },
+        { title: "8888 봇 통합 관제 시스템", type: "Web Apps", desc: "롱/숏 신호를 180도 뒤집는 '역전 전략(청개구리 봇)'을 탑재하여 8개 레버리지 봇의 수익률, 승률, Expectancy 지표를 실시간 모니터링하는 차세대 트레이딩 관제 웹앱", stack: ["HTML/JS", "Cloudflare", "Crypto"], icon: "swap_calls", image: "bot8888_thumb.png?v=1.14.1", link: "https://8888-40d.pages.dev/", protected: true, featured: true, date: "2026-07-23" },
         { title: "AI & 숏폼 공모전 브리핑", type: "Web Apps", desc: "지자체 및 공공기관의 AI 숏폼 영상 제작, 홍보 콘텐츠 공모전 및 지역 체류(살아보기) 지원사업 정보를 실시간 수집·분류하여 핵심 혜택을 요약 제공하는 지능형 브리핑 대시보드", stack: ["Streamlit", "Python", "SQLite", "Gemini AI"], icon: "campaign", image: "dlocal_app_thumb.png", link: "https://dlocal.streamlit.app/", featured: false, date: "2026-07-19" },
         { title: "Yangdo Tax Calculator AI", type: "Mobile Apps", desc: "부동산 양도소득세(주택, 분양권 등)의 복잡한 정밀 계산 프로세스를 구현한 전문가용 하이브리드 앱", stack: ["HTML/CSS/JS", "Android", "Gradle"], icon: "calculate", image: "cgt_thumb.png", link: "https://cgt-56k.pages.dev/", notice: "2026년 7월 22일 구글플레이스토어 론칭 !", featured: false, date: "2026-07-01" },
         { title: "착한병원 찾기 (Good Hospital)", type: "Mobile Apps", desc: "심평원(HIRA) 빅데이터와 웹 리뷰를 분석하여 과잉진료 없는 양심 동네 병원을 찾아주는 PWA 모바일 앱", stack: ["HTML/JS", "Cloudflare", "TWA"], icon: "local_hospital", image: "kjeb_thumb.png", link: "https://kjeb.pages.dev/", notice: "2026년 7월 22일 구글플레이스토어 론칭 !", featured: false, date: "2026-07-01" },
@@ -864,7 +864,7 @@
             desc: "자동매매봇 운영 발전 과정 (1단계: 단일 전략 실패 → 2단계: 전략 교체 실패 → 3단계: 10여 개 다중 전략 실험 → 4단계: 프로그램/장고 초기화 후 유효성 감소 문제 → 5단계: 롱/숏 신호를 180도 반대로 뒤집는 '역전 전략' 발상). 기존 전략의 롱 진입 신호 시 숏 진입, 숏 진입 신호 시 롱 진입을 실행하는 청개구리 봇 통합 관제 웹앱(8888) 개발 및 실시간 운용 실험.", 
             tags: ["Trading Bot", "Reverse Strategy", "Crypto", "8888", "Dashboard"], 
             icon: "swap_calls",
-            image: "bot8888_thumb.png",
+            image: "bot8888_thumb.png?v=1.14.1",
             protected: true,
             link: "https://8888-40d.pages.dev/"
         },
@@ -986,7 +986,7 @@
         content.innerHTML = `
             <div class="w-full md:w-3/5 bg-black/80 flex flex-col items-center justify-center p-6 relative overflow-hidden">
                 <div class="relative w-full max-h-[60vh] md:max-h-[75vh] flex items-center justify-center overflow-hidden rounded-xl border border-white/10 shadow-2xl">
-                    <img id="protected-preview-img" src="bot8888_history_blurred.jpg" alt="8888 봇 발전 역사 (글자 블러 가공)" class="w-full object-contain filter blur-[6px] scale-105 transition-all duration-500" />
+                    <img id="protected-preview-img" src="bot8888_history_blurred.jpg?v=1.14.1" alt="8888 봇 발전 역사 (글자 블러 가공)" class="w-full object-contain filter blur-[6px] scale-105 transition-all duration-500" />
                     <div class="absolute inset-0 bg-black/60 backdrop-blur-[2px] flex flex-col items-center justify-center p-6 text-center">
                         <span class="material-symbols-outlined text-amber-400 text-5xl mb-3 animate-pulse">lock</span>
                         <h4 class="font-pretendard font-bold text-lg text-white mb-2">보안 구역 (비밀번호 인증)</h4>
@@ -1050,7 +1050,7 @@
             if (actionType === 'web') {
                 window.open('https://8888-40d.pages.dev/', '_blank');
             } else if (actionType === 'history') {
-                openCertModal('bot8888_history_clear.jpg');
+                openCertModal('bot8888_history_clear.jpg?v=1.14.1');
             }
         } else {
             if (err) {
