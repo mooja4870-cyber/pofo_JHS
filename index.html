@@ -879,10 +879,10 @@
             <!-- Content injected via JS -->
         </div>
     </div>
-<!-- Visitor Stats Analysis Sliding Sidebar Drawer Panel -->
-<div id="visitor-stats-modal" class="fixed inset-0 z-[120] hidden bg-black/60 backdrop-blur-sm transition-opacity duration-300 opacity-0" onclick="closeVisitorStatsModal()">
-    <div id="visitor-stats-sidebar-panel" class="fixed right-0 top-0 bottom-0 z-[130] w-full max-w-lg md:max-w-xl bg-surface-container-high border-l border-cyan-500/40 shadow-2xl flex flex-col p-6 font-pretendard text-on-surface transform translate-x-full transition-transform duration-300 ease-out" onclick="event.stopPropagation()">
-        <button onclick="closeVisitorStatsModal()" class="absolute top-4 right-4 w-9 h-9 bg-black/50 hover:bg-black/80 rounded-full flex items-center justify-center text-white z-10 transition-colors shadow-lg" title="사이드바 닫기">
+<!-- Visitor Stats Analysis Modal (Center Popup) -->
+<div id="visitor-stats-modal" class="fixed inset-0 z-[120] hidden items-center justify-center bg-black/80 backdrop-blur-md p-4" onclick="closeVisitorStatsModal()">
+    <div class="relative max-w-3xl w-full max-h-[90vh] bg-surface-container-high rounded-2xl overflow-hidden border border-cyan-500/40 shadow-2xl flex flex-col p-6 font-pretendard text-on-surface" onclick="event.stopPropagation()">
+        <button onclick="closeVisitorStatsModal()" class="absolute top-4 right-4 w-9 h-9 bg-black/50 hover:bg-black/80 rounded-full flex items-center justify-center text-white z-10 transition-colors shadow-lg" title="모달 닫기">
             <span class="material-symbols-outlined text-lg">close</span>
         </button>
 
@@ -892,29 +892,29 @@
             </div>
             <div>
                 <h3 class="text-lg md:text-xl font-bold text-white tracking-tight flex items-center gap-2 flex-wrap">
-                    방문자 & 클릭수 세부 분석
+                    방문자 & 클릭수 세부 분석 리포트
                     <span id="visitor-mode-badge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">일반 외부 방문자</span>
                 </h3>
-                <p class="text-xs text-on-surface-variant mt-0.5">외부인 조회/클릭과 관리자 접속을 실시간 이원화 분석</p>
+                <p class="text-xs text-on-surface-variant mt-0.5">순수 외부인 조회/클릭과 관리자(작성자 본인) 접속 및 리프레시 카운트를 이원화하여 투명하게 분석합니다.</p>
             </div>
         </div>
 
         <div class="overflow-y-auto pr-1 space-y-5 flex-1 custom-scrollbar">
             <!-- 3대 요약 카드 -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                <div class="bg-surface-container-highest/60 p-3.5 rounded-xl border border-white/5 flex flex-col items-center text-center">
-                    <span class="text-[11px] text-on-surface-variant mb-1 font-semibold">📊 총 방문수 (TOTAL)</span>
-                    <span id="stat-total-visitors" class="text-xl md:text-2xl font-bold text-white font-mono my-0.5">...</span>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="bg-surface-container-highest/60 p-4 rounded-xl border border-white/5 flex flex-col items-center text-center">
+                    <span class="text-xs text-on-surface-variant mb-1 font-semibold">📊 총 누적 방문수 (TOTAL)</span>
+                    <span id="stat-total-visitors" class="text-2xl font-bold text-white font-mono my-0.5">...</span>
                     <span class="text-[10px] text-cyan-300/80 bg-cyan-950/60 px-2 py-0.5 rounded font-mono">통합 합계</span>
                 </div>
-                <div class="bg-emerald-950/30 p-3.5 rounded-xl border border-emerald-500/30 flex flex-col items-center text-center">
-                    <span class="text-[11px] text-emerald-300 mb-1 font-semibold">🌐 순수 외부인</span>
-                    <span id="stat-ext-visitors" class="text-xl md:text-2xl font-bold text-emerald-400 font-mono my-0.5">...</span>
+                <div class="bg-emerald-950/30 p-4 rounded-xl border border-emerald-500/30 flex flex-col items-center text-center">
+                    <span class="text-xs text-emerald-300 mb-1 font-semibold">🌐 순수 외부인 방문수</span>
+                    <span id="stat-ext-visitors" class="text-2xl font-bold text-emerald-400 font-mono my-0.5">...</span>
                     <span id="stat-ext-ratio" class="text-[10px] text-emerald-300/80 bg-emerald-900/50 px-2 py-0.5 rounded font-mono">외부 비율 --%</span>
                 </div>
-                <div class="bg-rose-950/30 p-3.5 rounded-xl border border-rose-500/30 flex flex-col items-center text-center">
-                    <span class="text-[11px] text-rose-300 mb-1 font-semibold">🛡️ 관리자(본인)</span>
-                    <span id="stat-admin-visitors" class="text-xl md:text-2xl font-bold text-rose-300 font-mono my-0.5">...</span>
+                <div class="bg-rose-950/30 p-4 rounded-xl border border-rose-500/30 flex flex-col items-center text-center">
+                    <span class="text-xs text-rose-300 mb-1 font-semibold">🛡️ 관리자(본인) 테스트/수정</span>
+                    <span id="stat-admin-visitors" class="text-2xl font-bold text-rose-300 font-mono my-0.5">...</span>
                     <span id="stat-admin-ratio" class="text-[10px] text-rose-300/80 bg-rose-900/50 px-2 py-0.5 rounded font-mono">관리자 비율 --%</span>
                 </div>
             </div>
@@ -924,8 +924,8 @@
                 <div class="flex items-center gap-2.5">
                     <span class="material-symbols-outlined text-amber-400 text-2xl">admin_panel_settings</span>
                     <div>
-                        <div class="text-xs font-bold text-white">현재 접속 기기: <span id="current-mode-text" class="text-emerald-400">외부 방문자 모드</span></div>
-                        <div class="text-[11px] text-on-surface-variant mt-0.5">본인 접속/조회를 관리자 카운트로 분리하려면 모드를 전환하세요.</div>
+                        <div class="text-xs font-bold text-white">현재 접속 기기 설정: <span id="current-mode-text" class="text-emerald-400">외부 방문자 모드</span></div>
+                        <div class="text-[11px] text-on-surface-variant mt-0.5">본인이 접속/수정할 때 발생하는 조회를 '관리자 카운트'로 분리하려면 모드를 전환하세요.</div>
                     </div>
                 </div>
                 <button id="toggle-admin-btn" onclick="toggleAdminMode()" class="px-4 py-2 rounded-lg text-xs font-bold transition-all bg-emerald-500/20 hover:bg-emerald-500/40 text-emerald-300 border border-emerald-400/40 flex items-center gap-1.5 whitespace-nowrap shadow-lg">
@@ -936,9 +936,9 @@
 
             <!-- 앱별 세부 클릭수 구분 테이블 -->
             <div>
-                <h4 class="text-xs md:text-sm font-bold text-white mb-2.5 flex items-center justify-between">
+                <h4 class="text-sm font-bold text-white mb-2.5 flex items-center justify-between">
                     <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm text-cyan-400">touch_app</span> 앱별 외부인 vs 관리자 클릭 상세 분석</span>
-                    <span class="text-[11px] text-on-surface-variant font-normal">실시간 집계</span>
+                    <span class="text-xs text-on-surface-variant font-normal">실시간 집계</span>
                 </h4>
                 <div class="overflow-x-auto rounded-xl border border-white/10 bg-black/30">
                     <table class="w-full text-left text-xs">
@@ -946,9 +946,9 @@
                             <tr>
                                 <th class="py-2.5 px-3">앱 프로젝트 명</th>
                                 <th class="py-2.5 px-3 text-center">총 클릭</th>
-                                <th class="py-2.5 px-3 text-center text-emerald-400">외부인</th>
-                                <th class="py-2.5 px-3 text-center text-rose-300">관리자</th>
-                                <th class="py-2.5 px-3 text-center">외부 비율</th>
+                                <th class="py-2.5 px-3 text-center text-emerald-400">외부인 클릭</th>
+                                <th class="py-2.5 px-3 text-center text-rose-300">관리자 클릭</th>
+                                <th class="py-2.5 px-3 text-center">외부인 비율</th>
                             </tr>
                         </thead>
                         <tbody id="app-stats-table-body" class="divide-y divide-white/5 font-mono">
@@ -1819,37 +1819,23 @@
 
     function openVisitorStatsModal() {
         const modal = document.getElementById('visitor-stats-modal');
-        const panel = document.getElementById('visitor-stats-sidebar-panel');
-        if (!modal || !panel) return;
+        if (!modal) return;
 
         fetchCounterStats('get').then(() => {
             renderStatsModalData();
         });
 
         modal.classList.remove('hidden');
+        modal.classList.add('flex');
         document.body.style.overflow = 'hidden';
-        
-        requestAnimationFrame(() => {
-            modal.classList.remove('opacity-0');
-            modal.classList.add('opacity-100');
-            panel.classList.remove('translate-x-full');
-            panel.classList.add('translate-x-0');
-        });
     }
 
     function closeVisitorStatsModal() {
         const modal = document.getElementById('visitor-stats-modal');
-        const panel = document.getElementById('visitor-stats-sidebar-panel');
-        if (modal && panel) {
-            panel.classList.remove('translate-x-0');
-            panel.classList.add('translate-x-full');
-            modal.classList.remove('opacity-100');
-            modal.classList.add('opacity-0');
-
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }, 300);
+        if (modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
         }
     }
 
@@ -2053,6 +2039,19 @@
 const historyLogs = [
   {
     no: "01",
+    date: "2026-07-24 13:05",
+    category: "UI/UX",
+    badgeColor: "bg-purple-500/20 text-purple-300 border-purple-400/40",
+    targetId: "visitor-counter",
+    desc: "v1.25.0 우측 사이드바 변경 취소 및 기존 중앙 라이트박스 팝업 모달 UI 원복",
+    bullets: [
+      "사용자 취소 요청에 따라 TOTAL VISITORS 세부 분석 대시보드를 기존 중앙 팝업 모달로 원복",
+      "순수 외부인 vs 관리자(본인) 방문자/클릭수 이원화 분석 및 모드 전환 백엔드/프론트엔드 로직 안전하게 유지",
+      "모달 팝업 가시성 및 렌더링 무결성 동기화 완결"
+    ]
+  },
+  {
+    no: "02",
     date: "2026-07-24 13:03",
     category: "UI/UX",
     badgeColor: "bg-cyan-500/20 text-cyan-300 border-cyan-400/40",
@@ -2065,7 +2064,7 @@ const historyLogs = [
     ]
   },
   {
-    no: "02",
+    no: "03",
     date: "2026-07-24 13:00",
     category: "기능 신설",
     badgeColor: "bg-cyan-500/20 text-cyan-300 border-cyan-400/40",
@@ -2078,7 +2077,7 @@ const historyLogs = [
     ]
   },
   {
-    no: "02",
+    no: "04",
     date: "2026-07-24 12:44",
     category: "기능 신설",
     badgeColor: "bg-rose-500/20 text-rose-300 border-rose-400/40",
