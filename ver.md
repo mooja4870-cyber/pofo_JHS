@@ -1,5 +1,19 @@
 # Version History
 
+## v1.14.2
+
+Date: 2026-07-24
+
+### 변경 내용
+- 8888 봇 카드 상단 태그 옆에 `'On Development !'` 깜빡이는 그레이 라운드박스 뱃지(`noticeStyle: "gray"`, `bg-zinc-500/20`, `border-zinc-400/60`, `animate-pulse-scale`) 적용
+
+### 수정 파일
+- index.html
+- ver.md
+
+### 비고
+- Wrangler(Cloudflare Pages)를 통해 kdanawa.kr 실시간 프로덕션 강제 배포 완료
+
 ## v1.14.1
 
 Date: 2026-07-24
