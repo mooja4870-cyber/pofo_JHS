@@ -1,5 +1,22 @@
 # Version History
 
+## v1.27.0
+
+Date: 2026-07-24
+
+### 변경 내용
+- 상단 가로 탭을 화면 좌측 고정 세로 사이드바(Vertical Left Sidebar) 내비게이션 체계로 전면 개편:
+  - 상단 헤더 가로 공간 부족 문제를 근본적으로 해결하기 위해 화면 좌측 260px~280px 고정 세로 사이드바 패널(`left-sidebar-nav`) 구축
+  - `About`, `Experience`, `Skills`, `Credentials`, `AI Apps`, `1Day 1AI`, `Calendar`, `History` 전체 탭 및 `TOTAL VISITORS` 분석 카운터를 좌측 세로 메뉴로 정렬
+  - 본문 레이아웃(`main`) 데스크톱 좌측 마진(`md:ml-64 lg:ml-72`) 반영 및 모바일 햄버거 메뉴 토글 드로어 이식
+
+### 수정 파일
+- index.html
+- ver.md
+
+### 비고
+- 향후 무제한 탭 추가가 가능한 차세대 세로 사이드바 내비게이션 레이아웃 전면 이식 완료
+
 ## v1.26.0
 
 Date: 2026-07-24
