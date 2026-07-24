@@ -1437,13 +1437,13 @@
 
         cardEl.appendChild(overlay);
 
-        // 3.5초 후 자동 페이드아웃 및 제거
+        // 7초 (7회 바운스/깜빡임) 후 자동 페이드아웃 및 제거
         const timer = setTimeout(() => {
             if (overlay.parentNode) {
                 overlay.style.opacity = '0';
                 setTimeout(() => overlay.remove(), 500);
             }
-        }, 3500);
+        }, 7000);
 
         // 카드를 클릭하면 즉시 포인터 제거
         cardEl.addEventListener('click', function removePointer() {
